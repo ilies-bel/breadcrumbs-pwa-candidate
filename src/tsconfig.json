@@ -1,10 +1,46 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "lib": ["es6", "dom", "es2017", "esnext.intl", "es2017.intl", "es2018.intl"]
+    "composite": true,
+    "outDir": "../dist",
+    "rootDir": ".",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "lib": [
+      "es6",
+      "dom",
+      "es2017",
+      "esnext.intl",
+      "es2017.intl",
+      "es2018.intl"
+    ],
+    "target": "ES6",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "baseUrl": "..",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
-  "include": [
-    "./**/*"
+  "exclude": [
+    "../dist",
+    "./node_modules/*",
+    "./node_modules"
   ],
-  "exclude": ["../service-worker/**/*"]
+  "references": [
+    {
+      "path": "../service-worker"
+    },
+    {
+      "path": "./"
+    }
+  ]
 }

@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
   }
 
   return {
-    entry: './src/index.tsx',
+    entry: './src/index.js',
     devtool: 'source-map',
     module: {
       rules: [
