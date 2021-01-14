@@ -7,10 +7,11 @@ import App from './components/App';
 import {register} from './ServiceWorker';
 import Firebase, {FirebaseContext} from './components/Firebase';
 
+// Building theme
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#066ace',
+        main: '#F3DC07',
     },
     error: {
       main: red.A400,
