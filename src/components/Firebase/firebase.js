@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import {CONFIRMATION_EMAIL_REDIRECT} from "../../constants/settings";
 
 const config = {
   apiKey: "AIzaSyAMnXyVy7CnvEROiTaRJgTsVmc0EJBJLbI",
@@ -43,9 +44,8 @@ class Firebase {
 
   doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email);
 
-  doSendEmailVerification = () => this.auth.currentUser.sendEmailVerification({
-    url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
-  });
+
+  doSendEmailVerification = () => this.auth.currentUser.sendEmailVerification({url: CONFIRMATION_EMAIL_REDIRECT});
 
   doPasswordUpdate = (password) => this.auth.currentUser.updatePassword(password);
 

@@ -14,15 +14,7 @@ const SIGN_IN_METHODS = [
   {
     id: 'google.com',
     provider: 'googleProvider',
-  },
-  {
-    id: 'facebook.com',
-    provider: 'facebookProvider',
-  },
-  {
-    id: 'twitter.com',
-    provider: 'twitterProvider',
-  },
+  }
 ];
 
 const AccountPage = () => (
@@ -75,8 +67,8 @@ class LoginManagementBase extends Component {
         password,
     );
 
-    this.props.firebase.auth.currentUser
-        .linkAndRetrieveDataWithCredential(credential)
+      this.props.firebase.auth.currentUser //TODO
+          .linkAndRetrieveDataWithCredential(credential)
         .then(this.fetchSignInMethods)
         .catch((error) => this.setState({error}));
   };
