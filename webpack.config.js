@@ -124,13 +124,16 @@ module.exports = (env, argv) => {
                     tsconfig: path.resolve(__dirname, './src/tsconfig.json'),
                 }),
             ]),
+
         ],
+
         devServer: {
             port: 5000,
             open: true,
             inline: true,
             compress: false,
             hot: true,
+            historyApiFallback: true
         },
     };
 }
