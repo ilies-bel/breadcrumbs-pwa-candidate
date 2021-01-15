@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {compose} from 'recompose';
 
-import {AuthUserContext, withAuthorization, withEmailVerification,} from '../Session';
-import {withFirebase} from '../Firebase';
+import {AuthUserContext, withAuthorization, withEmailVerification} from '../Session';
+import {withFirebase} from '../../Firebase';
 import {PasswordForgetForm} from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 
@@ -14,7 +14,7 @@ const SIGN_IN_METHODS = [
   {
     id: 'google.com',
     provider: 'googleProvider',
-  }
+  },
 ];
 
 const AccountPage = () => (
@@ -67,8 +67,8 @@ class LoginManagementBase extends Component {
         password,
     );
 
-      this.props.firebase.auth.currentUser //TODO
-          .linkAndRetrieveDataWithCredential(credential)
+    this.props.firebase.auth.currentUser // TODO
+        .linkAndRetrieveDataWithCredential(credential)
         .then(this.fetchSignInMethods)
         .catch((error) => this.setState({error}));
   };

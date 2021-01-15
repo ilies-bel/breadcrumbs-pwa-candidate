@@ -1,18 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {AuthUserContext} from '../Session';
-import SignOutButton from '../SignOut';
+import {AuthUserContext} from '../Authentification/Session';
+import SignOutButton from '../Authentification/SignOut';
 import * as ROUTES from '../../constants/routes';
-import * as ROLES from '../../constants/roles';
 
 const Navigation = () => (
     <AuthUserContext.Consumer>
-        {(authUser) => (authUser ? (
-            <NavigationAuth authUser={authUser}/>
-        ) : (
-            <NavigationNonAuth/>
-        ))}
+        {(authUser) => (authUser ? <NavigationAuth authUser={authUser}/> : <NavigationNonAuth/>)}
     </AuthUserContext.Consumer>
 );
 
@@ -25,13 +20,20 @@ const NavigationAuth = ({authUser}) => (
             <Link to={ROUTES.HOME}>Home</Link>
         </li>
         <li>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
+            <Link to={ROUTES.APPLICATION}>Application</Link>
         </li>
-        {!!authUser.roles[ROLES.ADMIN] && (
-            <li>
-                <Link to={ROUTES.ADMIN}>Admin</Link>
-            </li>
-        )}
+        <li>
+            <Link to={ROUTES.TIPS}>Tips</Link>
+        </li>
+        <li>
+            <Link to={ROUTES.OFFICE}>Office</Link>
+        </li>
+        <li>
+            <Link to={ROUTES.AMBASSADORS}>Ambassadors</Link>
+        </li>
+        <li>
+            <Link to={ROUTES.SOCIAL}>Social</Link>
+        </li>
         <li>
             <SignOutButton/>
         </li>
@@ -44,8 +46,9 @@ const NavigationNonAuth = () => (
             <Link to={ROUTES.LANDING}>Landing</Link>
         </li>
         <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+            <Link to={ROUTES.SIGN_IN}>Sign in</Link>
         </li>
+
     </ul>
 );
 

@@ -24,9 +24,9 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
     <FirebaseContext.Provider value={new Firebase()}>
-      <ThemeProvider theme={theme}>
-        <App/>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+            <App/>
+        </ThemeProvider>
     </FirebaseContext.Provider>,
     document.getElementById('root'),
 );

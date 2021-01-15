@@ -3,9 +3,9 @@ import {Route, Switch} from 'react-router-dom';
 import {compose} from 'recompose';
 
 import {withAuthorization, withEmailVerification} from '../Session';
-import {UserItem, UserList} from '../Users';
-import * as ROLES from '../../constants/roles';
-import * as ROUTES from '../../constants/routes';
+import {UserItem, UserList} from '../../Users';
+import * as ROLES from '../../../constants/roles';
+import * as ROUTES from '../../../constants/routes';
 
 const AdminPage = () => (
     <div>

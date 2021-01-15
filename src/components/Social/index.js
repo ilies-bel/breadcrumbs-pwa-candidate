@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Landing = () => (
-    <div/>
+const SocialPage = () => (
+    <div>
+        <h1>Social</h1>
+    </div>
 );
 
-const condition = (authUser) => !!authUser;
-
-export default Landing;
+export default SocialPage;
 
 /*
 export default Landing
