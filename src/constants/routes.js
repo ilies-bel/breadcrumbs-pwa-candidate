@@ -11,4 +11,4 @@ export const OFFICE = '/office';
 export const SOCIAL = '/social';
 export const TIPS = '/tips';
 export const AMBASSADORS = '/question-answer';
-export const APPLICATION = '/application';
+export const APPLICATION = '/hiring-process';
