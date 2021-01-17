@@ -1,6 +1,6 @@
 {
-  "short_name": "React PWA App",
-  "name": "React PWA App",
+  "short_name": "Breadcrumbs",
+  "name": "Breadcrumbs : Your application process anytime, anywhere",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#066ace",
   "background_color": "#202020"
 }

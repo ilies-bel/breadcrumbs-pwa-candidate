@@ -5,12 +5,14 @@ import {clientsClaim} from 'workbox-core';
 
 declare const self: Window & ServiceWorkerGlobalScope;
 
+// Events listeners
+// Detect if the browser allow PWA install
 self.addEventListener('install', (event) => {
   console.log('[Service Worker] Installing Service Worker ...', event);
   event.waitUntil(
-      caches.open('static').then((cache) => {
-        cache.addAll(['/', '/index.html', '/app.js', '/manifest.json']);
-      }),
+    caches.open('static').then((cache) => {
+      cache.addAll(['/', '/index.html', '/app.js', '/manifest.json']);
+    }),
   );
 });
 

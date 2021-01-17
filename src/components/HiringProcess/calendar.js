@@ -1,9 +1,11 @@
-function Calendar() {
-    return (
-        <div>
-            <h2>calendar</h2>
-        </div>
-    );
+import React from 'react';
+
+function CalendarPage() {
+  return (
+    <div>
+      <h1>Calendar</h1>
+    </div>
+  );
 }
 
-export default Calendar;
+export default CalendarPage;

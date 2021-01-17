@@ -21,29 +21,29 @@ class Messages extends Component {
   }
 
   onListenForMessages = () => {
-    this.setState({loading: true});
+    this.setState({ loading: true });
 
     this.props.firebase
-        .messages()
-        .orderByChild('createdAt')
-        .limitToLast(this.state.limit)
-        .on('value', (snapshot) => {
-          const messageObject = snapshot.val();
+      .messages()
+      .orderByChild('createdAt')
+      .limitToLast(this.state.limit)
+      .on('value', (snapshot) => {
+        const messageObject = snapshot.val();
 
-          if (messageObject) {
-            const messageList = Object.keys(messageObject).map((key) => ({
-              ...messageObject[key],
-              uid: key,
-            }));
+        if (messageObject) {
+          const messageList = Object.keys(messageObject).map((key) => ({
+            ...messageObject[key],
+            uid: key,
+          }));
 
-            this.setState({
-              messages: messageList,
-              loading: false,
-            });
-          } else {
-            this.setState({messages: null, loading: false});
-          }
-        });
+          this.setState({
+            messages: messageList,
+            loading: false,
+          });
+        } else {
+          this.setState({ messages: null, loading: false });
+        }
+      });
   };
 
   componentWillUnmount() {
@@ -51,7 +51,7 @@ class Messages extends Component {
   }
 
   onChangeText = (event) => {
-    this.setState({text: event.target.value});
+    this.setState({ text: event.target.value });
   };
 
   onCreateMessage = (event, authUser) => {
@@ -61,13 +61,13 @@ class Messages extends Component {
       createdAt: this.props.firebase.serverValue.TIMESTAMP,
     });
 
-    this.setState({text: ''});
+    this.setState({ text: '' });
 
     event.preventDefault();
   };
 
   onEditMessage = (message, text) => {
-    const {uid, ...messageSnapshot} = message;
+    const { uid, ...messageSnapshot } = message;
 
     this.props.firebase.message(message.uid).set({
       ...messageSnapshot,
@@ -82,50 +82,50 @@ class Messages extends Component {
 
   onNextPage = () => {
     this.setState(
-        (state) => ({limit: state.limit + 5}),
-        this.onListenForMessages,
+      (state) => ({ limit: state.limit + 5 }),
+      this.onListenForMessages,
     );
   };
 
   render() {
-    const {text, messages, loading} = this.state;
+    const { text, messages, loading } = this.state;
 
     return (
-        <AuthUserContext.Consumer>
-          {(authUser) => (
-              <div>
-                {!loading && messages && (
-                    <button type="button" onClick={this.onNextPage}>
-                      More
-                    </button>
-                )}
+      <AuthUserContext.Consumer>
+        {(authUser) => (
+          <div>
+            {!loading && messages && (
+            <button type="button" onClick={this.onNextPage}>
+              More
+            </button>
+            )}
 
-                {loading && <div>Loading ...</div>}
+            {loading && <div>Loading ...</div>}
 
-                {messages && (
-                    <MessageList
-                        authUser={authUser}
-                        messages={messages}
-                        onEditMessage={this.onEditMessage}
-                        onRemoveMessage={this.onRemoveMessage}
-                    />
-                )}
+            {messages && (
+            <MessageList
+              authUser={authUser}
+              messages={messages}
+              onEditMessage={this.onEditMessage}
+              onRemoveMessage={this.onRemoveMessage}
+            />
+            )}
 
-                {!messages && <div>There are no messages ...</div>}
+            {!messages && <div>There are no messages ...</div>}
 
-                <form
-                    onSubmit={(event) => this.onCreateMessage(event, authUser)}
-                >
-                  <input
-                      type="text"
-                      value={text}
-                      onChange={this.onChangeText}
-                  />
-                  <button type="submit">Send</button>
-                </form>
-              </div>
-          )}
-        </AuthUserContext.Consumer>
+            <form
+              onSubmit={(event) => this.onCreateMessage(event, authUser)}
+            >
+              <input
+                type="text"
+                value={text}
+                onChange={this.onChangeText}
+              />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        )}
+      </AuthUserContext.Consumer>
     );
   }
 }

@@ -17,27 +17,27 @@ import SocialPage from '../Social';
 import {withAuthentication} from '../Authentification/Session';
 
 const App = () => (
-    <Router>
-      <div>
-        <Navigation/>
+  <Router>
+    <div>
+      <Navigation />
+      <Route exact path={ROUTES.LANDING} component={LandingPage} />
 
-        <Route path={ROUTES.HOME} component={HomePage}/>
-        <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
+      <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
 
-        <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>
-        <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
-        <Route exact path={ROUTES.LANDING} component={LandingPage}/>
-        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
 
-        <Route path={ROUTES.APPLICATION} component={HiringProcessPage}/>
-        <Route path={ROUTES.TIPS} component={TipsPage}/>
-        <Route path={ROUTES.OFFICE} component={OfficePage}/>
-        <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
-        <Route path={ROUTES.SOCIAL} component={SocialPage}/>
+      <Route path={ROUTES.APPLICATION} component={HiringProcessPage} />
+      <Route path={ROUTES.TIPS} component={TipsPage} />
+      <Route path={ROUTES.OFFICE} component={OfficePage} />
+      <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage} />
+      <Route path={ROUTES.SOCIAL} component={SocialPage} />
 
-      </div>
+    </div>
 
-    </Router>
+  </Router>
 );
 // <Route path='*' component={NotFound}/>
 

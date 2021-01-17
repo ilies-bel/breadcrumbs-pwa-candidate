@@ -1,29 +1,27 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route, useRouteMatch} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, useRouteMatch,} from 'react-router-dom';
+import MilestonePage from './milestone';
 
-const {path, url} = useRouteMatch();
-
-
-const HiringProcessPage = () => (
-
+function HiringProcessPage() {
+  const { path, url } = useRouteMatch();
+  return (
     <Router>
-        <div>
-            <h2>Interview process</h2>
+      <div>
+        <h2>Interview process</h2>
+        <ul>
+          <li>
+            <Link to={`${url}/1`}>Phone interview</Link>
+          </li>
+          <li>
+            <Link to={`${url}/2`}>Operational interview</Link>
+          </li>
+        </ul>
 
-            <ul>
-                <li>
-                    <Link to={`${url}/1`}>Phone interview</Link>
-                </li>
-                <li>
-                    <Link to={`${url}/2`}>Operational interview</Link>
-                </li>
-            </ul>
-            <Route exact path={`${path}/:id`}>
-                <h2>Description</h2>
-            </Route>
-        </div>
+        <Route exact path={`${path}/:id`} component={MilestonePage} />
+
+      </div>
     </Router>
-
-)
+  );
+}
 
 export default HiringProcessPage;

@@ -15,7 +15,7 @@ class UserList extends Component {
   }
 
   componentDidMount() {
-    this.setState({loading: true});
+    this.setState({ loading: true });
 
     this.props.firebase.users().on('value', (snapshot) => {
       const usersObject = snapshot.val();
@@ -37,44 +37,44 @@ class UserList extends Component {
   }
 
   render() {
-    const {users, loading} = this.state;
+    const { users, loading } = this.state;
 
     return (
-        <div>
-          <h2>Users</h2>
-          {loading && <div>Loading ...</div>}
-          <ul>
-            {users.map((user) => (
-                <li key={user.uid}>
+      <div>
+        <h2>Users</h2>
+        {loading && <div>Loading ...</div>}
+        <ul>
+          {users.map((user) => (
+            <li key={user.uid}>
               <span>
                 <strong>ID:</strong>
                 {' '}
                 {user.uid}
               </span>
-                  <span>
+              <span>
                 <strong>E-Mail:</strong>
-                    {' '}
-                    {user.email}
+                {' '}
+                {user.email}
               </span>
-                  <span>
+              <span>
                 <strong>Username:</strong>
-                    {' '}
-                    {user.username}
+                {' '}
+                {user.username}
               </span>
-                  <span>
+              <span>
                 <Link
-                    to={{
-                      pathname: `${ROUTES.ADMIN}/${user.uid}`,
-                      state: {user},
-                    }}
+                  to={{
+                    pathname: `${ROUTES.ADMIN}/${user.uid}`,
+                    state: { user },
+                  }}
                 >
                   Details
                 </Link>
               </span>
-                </li>
-            ))}
-          </ul>
-        </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }

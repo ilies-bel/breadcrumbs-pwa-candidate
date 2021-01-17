@@ -11,7 +11,7 @@ import Firebase, {FirebaseContext} from './components/Firebase';
 const theme = createMuiTheme({
   palette: {
     primary: {
-        main: '#F3DC07',
+      main: '#F3DC07',
     },
     error: {
       main: red.A400,
@@ -23,12 +23,12 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-    <FirebaseContext.Provider value={new Firebase()}>
-        <ThemeProvider theme={theme}>
-            <App/>
-        </ThemeProvider>
-    </FirebaseContext.Provider>,
-    document.getElementById('root'),
+  <FirebaseContext.Provider value={new Firebase()}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </FirebaseContext.Provider>,
+  document.getElementById('root'),
 );
 
 // Service registration

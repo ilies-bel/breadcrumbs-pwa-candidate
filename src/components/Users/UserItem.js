@@ -18,16 +18,16 @@ class UserItem extends Component {
       return;
     }
 
-    this.setState({loading: true});
+    this.setState({ loading: true });
 
     this.props.firebase
-        .user(this.props.match.params.id)
-        .on('value', (snapshot) => {
-          this.setState({
-            user: snapshot.val(),
-            loading: false,
-          });
+      .user(this.props.match.params.id)
+      .on('value', (snapshot) => {
+        this.setState({
+          user: snapshot.val(),
+          loading: false,
         });
+      });
   }
 
   componentWillUnmount() {
@@ -39,45 +39,45 @@ class UserItem extends Component {
   };
 
   render() {
-    const {user, loading} = this.state;
+    const { user, loading } = this.state;
 
     return (
-        <div>
-          <h2>
-            User (
-            {this.props.match.params.id}
-            )
-          </h2>
-          {loading && <div>Loading ...</div>}
+      <div>
+        <h2>
+          User (
+          {this.props.match.params.id}
+          )
+        </h2>
+        {loading && <div>Loading ...</div>}
 
-          {user && (
-              <div>
+        {user && (
+          <div>
             <span>
               <strong>ID:</strong>
               {' '}
               {user.uid}
             </span>
-                <span>
+            <span>
               <strong>E-Mail:</strong>
-                  {' '}
-                  {user.email}
+              {' '}
+              {user.email}
             </span>
-                <span>
+            <span>
               <strong>Username:</strong>
-                  {' '}
-                  {user.username}
+              {' '}
+              {user.username}
             </span>
-                <span>
+            <span>
               <button
-                  type="button"
-                  onClick={this.onSendPasswordResetEmail}
+                type="button"
+                onClick={this.onSendPasswordResetEmail}
               >
                 Send Password Reset
               </button>
             </span>
-              </div>
-          )}
-        </div>
+          </div>
+        )}
+      </div>
     );
   }
 }

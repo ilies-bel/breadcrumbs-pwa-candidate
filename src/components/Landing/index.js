@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Landing = () => (
-  <div/>
+  <div />
 );
 
 const condition = (authUser) => !!authUser;
