@@ -1,5 +1,5 @@
 import TopNav from "./topNavigation";
-import BottomNav from "./botomNavigation";
+import BottomNav from "./bottomNavigation";
 
 
 export {TopNav, BottomNav}
