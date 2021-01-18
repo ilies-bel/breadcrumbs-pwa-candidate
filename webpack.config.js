@@ -102,6 +102,13 @@ module.exports = (env, argv) => {
             publicPath: '/',
         },
         plugins: [
+
+            new webpack.DefinePlugin({
+                'process.env': {
+                    REACT_APP_BASE_URL:JSON.stringify("google.com")
+                },
+            }),
+
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 template: './index.html',
