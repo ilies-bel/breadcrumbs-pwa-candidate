@@ -4,8 +4,7 @@ import * as ROUTES from '../../constants/routes';
 
 import HomePage from '../Home';
 import AccountPage from '../Authentification/Account';
-import Navigation from '../Navigation';
-import LandingPage from '../Landing';
+import {BottomNav, TopNav} from '../Navigation';
 import SignUpPage from '../Authentification/SignUp';
 import SignInPage from '../Authentification/SignIn';
 import PasswordForgetPage from '../Authentification/PasswordForget';
@@ -19,12 +18,10 @@ import {withAuthentication} from '../Authentification/Session';
 const App = () => (
   <Router>
     <div>
-      <Navigation />
-      <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <TopNav />
 
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
@@ -35,10 +32,12 @@ const App = () => (
       <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage} />
       <Route path={ROUTES.SOCIAL} component={SocialPage} />
 
+
+      <BottomNav />
+
     </div>
 
   </Router>
 );
-// <Route path='*' component={NotFound}/>
 
 export default withAuthentication(App);
