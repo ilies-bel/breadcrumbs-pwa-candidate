@@ -2,13 +2,13 @@ import React, {memo, useCallback, useState} from 'react'
 import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 
 const containerStyle = {
-    width: '400px',
+    width: '100%',
     height: '400px'
 };
 
-const center = {
-    lat: -3.745,
-    lng: -38.523
+const pos_pwc = {
+    lat: 48.8846,
+    lng: 2.26965
 };
 
 function OfficeMap() {
@@ -32,18 +32,13 @@ function OfficeMap() {
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
-            center={center}
+            center={pos_pwc}
             zoom={4}
             onLoad={onLoad}
             onUnmount={onUnmount}
         >
-            {
-                new google.maps.Marker({
-                    position: center,
-                    map: map,
-                })
 
-            }
+
             <></>
         </GoogleMap>
     ) : <></>
