@@ -23,6 +23,7 @@ const BottomNav = () => {
     const classes = useStyles();
 
     const [value, setValue] = React.useState(0);
+
     const history = useHistory();
 
     const handleChange = (event, newValue) => {
@@ -31,23 +32,26 @@ const BottomNav = () => {
     };
 
     return (
+        <header>
             <BottomNavigation
                 value={value}
                 onChange={handleChange}
                 showLabels
             >
-                <BottomNavigationAction className={classes.root} value={ROUTES.APPLICATION} label="Application"
+                <BottomNavigationAction className={classes.root} value={ROUTES.HIRING_PROCESS} label={ROUTES.HIRING_PROCESS_TITLE}
                                         icon={<ListAltOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.TIPS} label="Tips"
+                <BottomNavigationAction className={classes.root} value={ROUTES.TIPS} label={ROUTES.TIPS_TITLE}
                                         icon={<InfoOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.OFFICE} label="Office"
+                <BottomNavigationAction className={classes.root} value={ROUTES.OFFICE} label={ROUTES.OFFICE_TITLE}
                                         icon={<LocationOnOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.AMBASSADORS} label="Ambassadors"
+                <BottomNavigationAction className={classes.root} value={ROUTES.AMBASSADORS} label={ROUTES.AMBASSADORS_TITLE}
                                         icon={<SchoolOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.SOCIAL} label="Social"
+                <BottomNavigationAction className={classes.root} value={ROUTES.SOCIAL} label={ROUTES.SOCIAL_TITLE}
                                         icon={<ShareOutlinedIcon/>}/>
 
             </BottomNavigation>
+        </header>
+
 
     );
 

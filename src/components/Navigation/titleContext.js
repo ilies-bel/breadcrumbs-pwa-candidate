@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {createTeleporter} from 'react-teleporter'
 
-export const topNavigationContext = React.createContext(null);
+const Title = createTeleporter()
 
-export const TitleContext = props => {
-    const [title, setTitle] = useState('Default title')
-    return (
-        <topNavigationContext.Provider value={[title, setTitle]}>
-            {props.children}
-        </topNavigationContext.Provider>
-    )
+export function TitleTarget() {
+    return <Title.Target as="span" />
+}
+export function TitleSource({ children }) {
+    return <Title.Source>{children}</Title.Source>
 }

@@ -1,50 +1,41 @@
-import React, {Component, useContext} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Link, Route, useRouteMatch,} from 'react-router-dom';
 
 import MilestonePage from './milestone';
-import {topNavigationContext} from "../Navigation/titleContext";
+import {TitleSource} from "../Navigation/titleContext";
 import {AuthUserContext} from "../Authentification/Session";
 
 
-// Wrapper allowing state management on stateless react function
-class HiringProcessPage extends Component {
-  ComponentDidMount() {
-    const [title, setTitle] = useContext(topNavigationContext);
-    setTitle("Hiring process");
-  }
-
-  render () {
-    return   <HiringProcessPage  {...this.props} />
-  }
-}
+const HiringProcessPage = () => {
 
 
-HiringProcessPage = () => {
+    const {path, url} = useRouteMatch();
 
+    return (
+        <>
+            <TitleSource>Hiring process</TitleSource>
 
-  const { path, url } = useRouteMatch();
+            <Router>
+                <div>
+                    <AuthUserContext.Consumer>
+                        {(authUser) => <h2>Hey {authUser.username}</h2>}
+                    </AuthUserContext.Consumer>
+                    <ul>
+                        <li>
+                            <Link to={`${url}/1`}>Phone interview</Link>
+                        </li>
+                        <li>
+                            <Link to={`${url}/2`}>Operational interview</Link>
+                        </li>
+                    </ul>
 
-  return (
-    <Router>
-      <div>.
-        <AuthUserContext.Consumer>
-        {(authUser) => <h2>Hey {authUser.username}</h2>}
-        </AuthUserContext.Consumer>
+                    <Route exact path={`${path}/:id`} component={MilestonePage}/>
 
-        <ul>
-          <li>
-            <Link to={`${url}/1`}>Phone interview</Link>
-          </li>
-          <li>
-            <Link to={`${url}/2`}>Operational interview</Link>
-          </li>
-        </ul>
+                </div>
+            </Router>
+        </>
 
-        <Route exact path={`${path}/:id`} component={MilestonePage} />
-
-      </div>
-    </Router>
-  );
+    );
 }
 
 export default HiringProcessPage;

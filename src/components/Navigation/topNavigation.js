@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {withAuthorization, withEmailVerification} from '../Authentification/Session';
-import {topNavigationContext} from './titleContext'
 
 import {compose} from "recompose";
 import {AppBar, IconButton, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import {AccountCircle} from "@material-ui/icons";
+import {TitleTarget} from "./titleContext";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
 const TopNav = () => {
     const classes = useStyles();
-    const title = useContext(topNavigationContext);
 
     return (
 
@@ -37,7 +36,7 @@ const TopNav = () => {
                     <Toolbar>
 
                         <Typography className={classes.title}>
-                            {title}
+                            <TitleTarget />
                         </Typography>
 
                         <div>
