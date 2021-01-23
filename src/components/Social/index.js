@@ -1,12 +1,13 @@
 import React from 'react';
 import {TitleSource} from "../Navigation/titleContext";
+import {SOCIAL_TITLE} from "../../constants/routes";
 
 
 const SocialPage = () => {
 
     return (
         <>
-            <TitleSource>Tips</TitleSource>
+            <TitleSource>{SOCIAL_TITLE}</TitleSource>
 
             <div>
                 <h1>Social</h1>

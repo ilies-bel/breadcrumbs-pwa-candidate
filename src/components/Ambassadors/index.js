@@ -1,13 +1,14 @@
 import React from 'react';
 import Messages from "../Messages";
 import {TitleSource} from "../Navigation/titleContext";
+import {AMBASSADORS_TITLE} from "../../constants/routes";
 
 
 const AmbassadorsPage = () => {
 
     return (
         <>
-            <TitleSource>Ambassadors</TitleSource>
+            <TitleSource>{AMBASSADORS_TITLE}</TitleSource>
             <div>
 
                 <h2>Ambassadors</h2>

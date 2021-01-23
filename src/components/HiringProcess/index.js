@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Link, Route, useRouteMatch,} from 'react-router
 import MilestonePage from './milestone';
 import {TitleSource} from "../Navigation/titleContext";
 import {AuthUserContext} from "../Authentification/Session";
+import {HIRING_PROCESS_TITLE} from "../../constants/routes";
 
 
 const HiringProcessPage = () => {
@@ -13,7 +14,7 @@ const HiringProcessPage = () => {
 
     return (
         <>
-            <TitleSource>Hiring process</TitleSource>
+            <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
 
             <Router>
                 <div>

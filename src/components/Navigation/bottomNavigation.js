@@ -38,15 +38,15 @@ const BottomNav = () => {
                 onChange={handleChange}
                 showLabels
             >
-                <BottomNavigationAction className={classes.root} value={ROUTES.HIRING_PROCESS} label={ROUTES.HIRING_PROCESS_TITLE}
+                <BottomNavigationAction className={classes.root} value={ROUTES.HIRING_PROCESS} label={ROUTES.HIRING_LABEL}
                                         icon={<ListAltOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.TIPS} label={ROUTES.TIPS_TITLE}
+                <BottomNavigationAction className={classes.root} value={ROUTES.TIPS} label={ROUTES.TIPS_LABEL}
                                         icon={<InfoOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.OFFICE} label={ROUTES.OFFICE_TITLE}
+                <BottomNavigationAction className={classes.root} value={ROUTES.OFFICE} label={ROUTES.OFFICE_LABEL}
                                         icon={<LocationOnOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.AMBASSADORS} label={ROUTES.AMBASSADORS_TITLE}
+                <BottomNavigationAction className={classes.root} value={ROUTES.AMBASSADORS} label={ROUTES.AMBASSADORS_LABEL}
                                         icon={<SchoolOutlinedIcon/>}/>
-                <BottomNavigationAction className={classes.root} value={ROUTES.SOCIAL} label={ROUTES.SOCIAL_TITLE}
+                <BottomNavigationAction className={classes.root} value={ROUTES.SOCIAL} label={ROUTES.SOCIAL_LABEL}
                                         icon={<ShareOutlinedIcon/>}/>
 
             </BottomNavigation>
