@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {Component, useContext} from 'react';
 import Messages from "../Messages";
+import {topNavigationContext} from "../Navigation/titleContext";
 
-const AmbassadorsPage = () => (
-    <div>
+// Wrapper allowing state management on stateless react function
+class AmbassadorsPage extends Component {
+    ComponentDidMount() {
+        const [title, setTitle] = useContext(topNavigationContext);
+        setTitle("Meet our ambassadors");
+    }
 
-        <h2>Ambassadors</h2>
-        <h3>Ask a question</h3>
-        <Messages/>
+    render () {
+        return   <AmbassadorsPage  {...this.props} />
+    }
+}
 
-    </div>
-);
+
+AmbassadorsPage = () => {
+
+    return (
+        <div>
+
+            <h2>Ambassadors</h2>
+            <h3>Ask a question</h3>
+            <Messages/>
+
+        </div>
+    );
+}
 
 export default AmbassadorsPage;
