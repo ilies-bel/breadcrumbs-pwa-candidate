@@ -3,7 +3,7 @@ import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 
 const containerStyle = {
     width: '100%',
-    height: '600px'
+    height: '500px'
 };
 
 const pos_pwc = {

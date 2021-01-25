@@ -1,13 +1,13 @@
 import React from 'react';
 import {TitleSource} from '../Navigation/titleContext'
-import {OFFICE_TITLE} from "../../constants/routes";
+import {TIPS_TITLE} from "../../constants/routes";
 
 
 const Tips = () => {
 
     return (
         <>
-            <TitleSource>{OFFICE_TITLE}</TitleSource>
+            <TitleSource>{TIPS_TITLE}</TitleSource>
             <div>
                 <h2>Tips</h2>
             </div>
