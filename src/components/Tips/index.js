@@ -11,15 +11,25 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     num: {
         width: '20px',
         height: '20px',
         borderRadius: '100px',
         backgroundColor: 'lightblue',
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: '3px',
+        marginRight: '10px',
+    },
+    nested: {
+      paddingLeft: theme.spacing(10),
+    },
+    BottomBorder: {
+        width: "100%",
+        height: "1px",
+        backgroundColor: 'lightblue',
     }
-})
+}))
 const tipsList =  [
     {
         ranking: 5,
@@ -48,8 +58,12 @@ const Tips = () => {
     let rank = tips.ranking
     let description = tips.description
     let tipsDiv = [] */
-    let open = true;
+    const [open, setOpen] = React.useState(true);
+
     const classes = useStyles();
+    const handleClick = (index) => {
+        setOpen(!open);
+      };
 
     return (
         <>
@@ -57,10 +71,11 @@ const Tips = () => {
             <List>
                 {
                 tipsList.map((tips, index) => 
-<div key={index}>
-                    <ListItem button><span className={classes.num}>{index}</span> {tips.title} <ExpandMore /></ListItem>
-                    <Collapse in={open} unmountOnExit><p>{tips.description}</p></Collapse>
-</div>
+                <div key={index}>
+                    <ListItem onClick={() => handleClick(index)} button><span className={classes.num}>{index}</span> {tips.title} <ExpandMore /></ListItem>
+                    <Collapse in={open} unmountOnExit><span className={classes.nested}>{tips.description}</span></Collapse>
+                    <div className={classes.BottomBorder} ></div>
+                </div>
                     )
                 }
 

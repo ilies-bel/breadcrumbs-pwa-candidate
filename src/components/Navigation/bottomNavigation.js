@@ -10,16 +10,24 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
+import { yellow } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
         bottom: theme.spacing(2),
-        position: 'fixed'
+        position: 'fixed',
+        '& .Mui-selected': {
+            borderTopColor: '#3572F1',
+            borderStyle: 'solid',
+        }
     },
     BottomNavigationAction: {
         minWidth: "20%",
-        border: 1.5
+        borderTopWidth: '4px',
+        '& .Mui-selected': {
+            border: 'none',
+        }
     },
 }));
 
