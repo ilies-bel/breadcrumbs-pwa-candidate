@@ -5,7 +5,10 @@ import MilestonePage from './milestone';
 import {TitleSource} from "../Navigation/titleContext";
 import {AuthUserContext} from "../Authentification/Session";
 import {HIRING_PROCESS_TITLE} from "../../constants/routes";
+import {HIRING_DESCRIPTION} from "../../constants/description";
 
+import {TitleDescriptionSource} from "../Navigation/descriptionContext"
+import { PageDescription } from '../Navigation';
 
 const HiringProcessPage = () => {
 
@@ -15,18 +18,20 @@ const HiringProcessPage = () => {
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
+            <TitleDescriptionSource>Prenez rendez-vous ici</TitleDescriptionSource>
 
             <Router>
                 <div>
                     <AuthUserContext.Consumer>
                         {(authUser) => <h2>Hey {authUser.username}</h2>}
                     </AuthUserContext.Consumer>
+                    <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
                     <ul>
                         <li>
-                            <Link to={`${url}/1`}>Phone interview</Link>
+                            <Link to={`${url}/phone`}>Phone interview</Link>
                         </li>
                         <li>
-                            <Link to={`${url}/2`}>Operational interview</Link>
+                            <Link to={`${url}/operational`}>Operational interview</Link>
                         </li>
                     </ul>
 

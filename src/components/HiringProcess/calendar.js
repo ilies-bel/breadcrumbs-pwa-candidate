@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import MomentUtils from '@date-io/moment';
-import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
+import {DatePicker, MuiPickersUtilsProvider, TimePicker} from '@material-ui/pickers';
+import Collapse from '@material-ui/core/Collapse';
 
 const filterWeekends = (date) => {
     const day = date.day()
@@ -9,11 +10,16 @@ const filterWeekends = (date) => {
 
 
 
-
 function CalendarPage(props) {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [open, setOpen] = React.useState(false);
 
     const handleDateChange = (date) => {
+        console.log(date);
+        setSelectedDate(date);
+        setOpen(!open)
+    };
+    const handleTimeChange = (date) => {
         console.log(date);
         setSelectedDate(date);
     };
@@ -34,6 +40,14 @@ function CalendarPage(props) {
                         showTodayButton
 
                     />
+                    <Collapse in={open} unmountOnExit>
+                    <TimePicker
+                        label="Select the time"
+                        onChange={handleTimeChange}
+                        value={selectedDate}
+                    />
+                    </Collapse>
+                    
 
             </MuiPickersUtilsProvider>
 

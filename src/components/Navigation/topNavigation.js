@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 0,
         bottom: 'auto',
-        position: 'fixed'
+        position: 'fixed',
+        textAlign: 'center'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -30,8 +31,6 @@ const TopNav = () => {
     const classes = useStyles();
 
     return (
-
-
                 <AppBar className={classes.appBar}>
                     <Toolbar>
 
