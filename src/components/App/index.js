@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes';
 
 import HomePage from '../Home';
 import AccountPage from '../Authentification/Account';
-import {BottomNav, TopNav} from '../Navigation';
+import {BottomNav, TopNav, PageDescription} from '../Navigation';
 import SignUpPage from '../Authentification/SignUp';
 import SignInPage from '../Authentification/SignIn';
 import PasswordForgetPage from '../Authentification/PasswordForget';
@@ -15,6 +15,7 @@ import AmbassadorsPage from '../Ambassadors';
 import SocialPage from '../Social';
 import {withAuthentication} from '../Authentification/Session';
 import {TitleSource} from "../Navigation/titleContext";
+import {TitleDescriptionSource} from "../Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +32,8 @@ const App = () => {
                 <TopNav/>
                 <TitleSource>Breadcrumbs</TitleSource>
                 <div className={classes.offset}/>
-
+                <PageDescription></PageDescription>
+                <TitleDescriptionSource></TitleDescriptionSource>
                 <Route path={ROUTES.HOME} component={HomePage}/>
                 <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
                 <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>

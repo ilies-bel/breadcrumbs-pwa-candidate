@@ -1,6 +1,8 @@
 import React from 'react';
 import {TitleSource} from '../Navigation/titleContext'
-import {TIPS_TITLE} from "../../constants/routes";
+import { TitleDescriptionSource } from '../Navigation/descriptionContext';
+import {TIPS, TIPS_TITLE} from "../../constants/routes";
+import { TIPS_DESCRIPTION } from "../../constants/description"
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -69,6 +71,9 @@ const Tips = () => {
     return (
         <>
             <TitleSource>{TIPS_TITLE}</TitleSource>
+            <TitleDescriptionSource>
+                {TIPS_DESCRIPTION}
+            </TitleDescriptionSource>
             <List>
                 {
                 tipsList.map((tips, index) => 

@@ -10,7 +10,6 @@ const filterWeekends = (date) => {
 
 
 
-
 function CalendarPage(props) {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [open, setOpen] = React.useState(false);

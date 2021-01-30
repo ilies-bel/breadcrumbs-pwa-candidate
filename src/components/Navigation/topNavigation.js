@@ -31,8 +31,6 @@ const TopNav = () => {
     const classes = useStyles();
 
     return (
-
-
                 <AppBar className={classes.appBar}>
                     <Toolbar>
 
