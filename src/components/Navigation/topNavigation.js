@@ -14,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         top: 0,
         bottom: 'auto',
-        position: 'fixed'
+        position: 'fixed',
+        textAlign: 'center'
     },
     menuButton: {
         marginRight: theme.spacing(2),

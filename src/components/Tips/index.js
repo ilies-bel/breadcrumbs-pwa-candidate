@@ -16,10 +16,11 @@ const useStyles = makeStyles((theme) => ({
         width: '20px',
         height: '20px',
         borderRadius: '100px',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#D7E3FC',
         textAlign: 'center',
         padding: '3px',
         marginRight: '10px',
+        color: 'royalBlue'
     },
     nested: {
       paddingLeft: theme.spacing(10),
