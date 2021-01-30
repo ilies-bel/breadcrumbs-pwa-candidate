@@ -26,7 +26,6 @@ function MilestonePage() {
   const classes = useStyles();
 
   let description = HIRING_DESCRIPTION[id];
-  console.log(id);console.log(description);console.log("/description");
 
   return (
     <Router>

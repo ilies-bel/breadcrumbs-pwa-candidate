@@ -13,7 +13,6 @@ const style = {
 
 const PageDescription = ({children}) => {
     let content;
-    console.log(typeof(children)); console.log("/children")
     typeof(children) === 'undefined' ? content = <TitleDescriptionTarget /> : content = children;
     return (
         <article style={style.article}>
