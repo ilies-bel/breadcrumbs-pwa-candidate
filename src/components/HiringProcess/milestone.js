@@ -7,6 +7,7 @@ import CalendarPage from './calendar';
 import { makeStyles } from '@material-ui/core/styles';
 
 import {BottomNav, TopNav, PageDescription} from '../Navigation';
+import SelectDate from './form/disponibilities'
 
 const useStyles = makeStyles({
   appointment: {
@@ -39,10 +40,11 @@ function MilestonePage() {
         <h2>Description of process </h2>
         <PageDescription>{description}</PageDescription>
         <li className={classes.appointment}>
-          <Link to={`${url}/calendar`}>Take appointment</Link>
+          <Link to={`${url}/form/disponibilities`}>Take appointment</Link>
         </li>
 
-        <Route path={`${url}/calendar`} component={CalendarPage} />
+        <Route path={`${url}/form/disponibilities`} component={SelectDate} />
+        
       </div>
     </Router>
   );
