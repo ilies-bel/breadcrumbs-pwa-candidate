@@ -13,6 +13,13 @@ cd public
 pwa-asset-generator ./icon-512x512.png ./ --splash-only
 ```
 
+## Serveur de production HTTPS
+- Modifier le script ssl-serve dans package.json
+    - donner le chemin menant au certificat SSL et à la clé public
+- Lancer 'npm run ssl-serve'
+
+Pour l'instant la redirection HTTP -> HTTPS n'est pas encore pris en charge
+
 ## Static server
 
 Enable debugging service workers
