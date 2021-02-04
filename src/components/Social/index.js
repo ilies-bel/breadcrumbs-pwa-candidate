@@ -86,7 +86,7 @@ const SocialPage = () => {
             
             <div>
                 <h1>Social</h1>
-                <Route path={`${url}/feed/:id`} component={TweetFeed} />
+                <Route path={`${url}/feed/tweets`} component={TweetFeed} />
                 <Route path={`${url}/feed/linked`} component={LinkedFeed} />
             </div>
             
