@@ -135,12 +135,13 @@ module.exports = (env, argv) => {
         ],
 
         devServer: {
-            port: 5000,
+            port: 5001,
             open: true,
             inline: true,
             compress: false,
             hot: true,
-            historyApiFallback: true
+            historyApiFallback: true,
+            https: true,
         },
     };
 }

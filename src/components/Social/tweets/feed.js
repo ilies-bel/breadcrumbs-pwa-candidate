@@ -17,11 +17,10 @@ const TweetFeed = () => {
                     height: '400'
                 }}
                 onLoad={() => <strong>Loading...</strong>}
+                renderError={() => <strong>Error. Feed not loading</strong>}
                 />
             </div>
         </>
-
-
     );
 }
 

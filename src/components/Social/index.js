@@ -1,17 +1,17 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route, useRouteMatch,} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, useRouteMatch, Redirect} from 'react-router-dom';
 import {TitleSource} from "../Navigation/titleContext";
 import {SOCIAL_TITLE} from "../../constants/routes";
 import { Timeline, Tweet } from 'react-twitter-widgets';
 import TweetFeed from './tweets/feed'
+import LinkedFeed from './linked/feed'
 import Box from '@material-ui/core/Box';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import IconButton from '@material-ui/core/IconButton';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 
+import Paper from '@material-ui/core/Paper';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const style = {
     tab: {
@@ -19,6 +19,12 @@ const style = {
         borderBottomWidth: '4px',
         borderBottomColor: 'royalblue',
         transition: 'all, ease-in, 0.4s'
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'royalblue',
+        width:'100%',
+        height: '100%'
     }
 }
 
@@ -57,7 +63,8 @@ const SocialPage = () => {
     const {path, url} = useRouteMatch();
 
     return (
-<Router>
+        <Router>
+            <Redirect to={`${url}/feed/tweets`}/>
             <TitleSource>{SOCIAL_TITLE}</TitleSource>
 
             <Paper >
@@ -71,17 +78,19 @@ const SocialPage = () => {
                 aria-label="full width tabs example"
                 >
                 
-                <Tab style={ value===0 ? style.tab : {}} label={<Link to={`${url}/tweets/feed`}>Tweet</Link>} />
-                <Tab style={ value===1 ? style.tab : {}} label={<Link to={`${url}/linked/feed`}>Linked</Link>} />
+                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/tweets`}><TwitterIcon /></Link>} />
+                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/linked`}><LinkedInIcon /></Link>} />
             </Tabs>
-            <TweetFeed />
+            
             </Paper>
+            
             <div>
                 <h1>Social</h1>
+                <Route path={`${url}/feed/:id`} component={TweetFeed} />
+                <Route path={`${url}/feed/linked`} component={LinkedFeed} />
             </div>
             
-            <Route path={`${url}/tweets/feed]`} component={TweetFeed} /></Router>
-
+            </Router>
     );
 }
 
