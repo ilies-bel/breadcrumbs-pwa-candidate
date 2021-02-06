@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {BrowserRouter as Router, NavLink, Route, useRouteMatch,} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MomentUtils from '@date-io/moment';
 import DateFnsAdapter from "@date-io/date-fns"; //TODO: essayer downgrade cette librairie à la version 1.3.13 pour pouvoir formatter les dates
@@ -16,33 +17,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { PageDescription } from '../../Navigation';
 
-import {HIRING_DESCRIPTION} from "../../../constants/description";
+import ConfirmModal from './modal';
 
 const dateFns = new DateFnsAdapter();
 
 
 const useStyles = makeStyles(theme => ({
-    sendButton: {
-        position: 'sticky',
-        top: 60,
-        backgroundColor: 'royalblue',
-        color: 'white',
-        zIndex: theme.zIndex.appBar
-    },
-    paper: {
-        position: 'absolute',
-        top: '50%',
-        minWidth: '80%',
-        maxHeight: '200px',
-        backgroundColor: theme.palette.background.modal,
-        border: theme.palette.background.border,
-        //boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-        borderRadius: '10px',
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-      },
+    dispoInput: theme.element.button.big,
+    link: theme.element.link.secondary,
+    
 }))
 
 //La liste des disponobilités doit être préalablement par l'API
@@ -62,53 +45,25 @@ const dispoList = [
       },
 ]
 
-
-const ConfirmModal = (props) => {
-    const classeModal = useStyles();
-    return (
-        <Modal
-        open={props.open}
-        onClose={props.handleModal}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        
-        >
-            <div className={classeModal.paper}>
-        <div>Confirm the appointment</div>
-        <TextField
-          label="message"
-          multiline
-          rows={3}
-          placeholder={HIRING_DESCRIPTION.CONFIRMATION_PLACEHOLDER}
-        />
-        <div>
-        <Button
-        variant="contained"
-        onClick={props.handleModal}
-      >
-        CANCEL
-      </Button>
-        <Button
-        variant="contained"
-        className={classeModal.sendButton}
-      >
-        OK
-      </Button>
-      </div>
-      </div>
-        
-        </Modal>
-    )
-}
-
 const DispoInput = (props) => {
+  const classes = useStyles();
+  const { path, url } = useRouteMatch();
     return (
-    <ListItem> <input type='checkbox'/> <label>{props.start} -- {props.end}</label> </ListItem>
+    <>
+    <Router>
+    <Button className={classes.dispoInput} variant="outlined" color="primary">
+    <NavLink className={classes.link} to={`${url}/confirm`}>
+      <div>{props.start} </div>
+      <div> {props.end}</div>
+      </NavLink>
+    </Button>
+    <Route path={`${url}/confirm`} component={ConfirmModal} />
+    </Router>
+    </>
     )
 
 }
 const SelectDate = () => {
-    const classes = useStyles();
     const [open, setOpen] = useState(false);
     
     function handleModal() {
@@ -117,20 +72,16 @@ const SelectDate = () => {
     return (
         <>
         <PageDescription>Choose among the disponibilities</PageDescription>
-        <Button
-        variant="contained"
-        className={classes.sendButton}
-        endIcon={<Icon>send</Icon>}
-        onClick={handleModal}
-      >
-        Confirm
-      </Button>
-      <ConfirmModal open={open} handleModal={handleModal} />
+        
     <List>
 
         {
             dispoList.map((dispo, i) => 
-                <DispoInput key={i} start={dateFns.format(dispo.startDate, 'fullDateTime24h')} end={dateFns.format(dispo.endDate, "fullDateTime24h")} />
+                <span key={i} onClick={handleModal}>
+                  <DispoInput key={i}
+                  start={dateFns.format(dispo.startDate, 'fullDateTime24h')}
+                  end={dateFns.format(dispo.endDate, "fullDateTime24h")} />
+                </span>
             )
         }
     </List>

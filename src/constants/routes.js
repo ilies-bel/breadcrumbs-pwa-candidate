@@ -12,6 +12,8 @@ export const SOCIAL = '/social';
 export const TIPS = '/tips';
 export const AMBASSADORS = '/question-answer';
 export const HIRING_PROCESS = '/hiring-process';
+export const DISPO = '/form/disponibilities';
+export const CONFIRM = '/form/confirm';
 
 export const LANDING_TITLE = 'Breadcrumbs';
 export const SIGN_UP_TITLE = 'Sign up';

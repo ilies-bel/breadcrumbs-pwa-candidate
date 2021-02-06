@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
         bottom: theme.spacing(2),
         position: 'fixed',
+        bottom: 0,
         '& .Mui-selected': {
             borderTopColor: '#3572F1',
             borderStyle: 'solid',
