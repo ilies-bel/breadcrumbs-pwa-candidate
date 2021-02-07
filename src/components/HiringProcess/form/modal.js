@@ -63,9 +63,6 @@ const ConfirmModal = (props) =>  {
                     <Button
                     variant="contained"
                     color="primary"
-                    type='submit'
-                    onSubmit={() => {console.log("suusdbsxmmitji")}}
-                    component={`a href=${CONFIRM}`}
                     >
                     <span className={classeModal.linkCancel} className={classeModal.link} >OK</span>
                 </Button>
