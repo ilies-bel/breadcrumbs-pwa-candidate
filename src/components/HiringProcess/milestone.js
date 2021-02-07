@@ -7,8 +7,7 @@ import React from 'react';
 import CalendarPage from './calendar';
 import { makeStyles } from '@material-ui/core/styles';
 
-import {BottomNav, TopNav, PageDescription} from '../Navigation';
-import SelectDate from './form/disponibilities'
+import {PageDescription} from '../Navigation';
 
 const useStyles = makeStyles(theme => ({
   appointment: {
