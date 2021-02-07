@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes';
 
 import HomePage from '../Home';
 import AccountPage from '../Authentification/Account';
-import {BottomNav, TopNav, PageDescription} from '../Navigation';
+import {BottomNav, TopNav, PageDescription, MainNav} from '../Navigation';
 import SignUpPage from '../Authentification/SignUp';
 import SignInPage from '../Authentification/SignIn';
 import PasswordForgetPage from '../Authentification/PasswordForget';
@@ -13,6 +13,7 @@ import TipsPage from '../Tips';
 import OfficePage from '../Office';
 import AmbassadorsPage from '../Ambassadors';
 import SocialPage from '../Social';
+import ConfirmPage from '../HiringProcess/form/confirm'
 import {withAuthentication} from '../Authentification/Session';
 import {TitleSource} from "../Navigation/titleContext";
 import {TitleDescriptionSource} from "../Navigation/descriptionContext"
@@ -30,6 +31,7 @@ const App = () => {
             <Router>
 
                 <TopNav/>
+                <MainNav>
                 <TitleSource>Breadcrumbs</TitleSource>
                 <div className={classes.offset}/>
                 <PageDescription></PageDescription>
@@ -45,7 +47,8 @@ const App = () => {
                 <Route path={ROUTES.OFFICE} component={OfficePage}/>
                 <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
                 <Route path={ROUTES.SOCIAL} component={SocialPage}/>
-
+                <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
+                </MainNav>
                 <BottomNav/>
 
 

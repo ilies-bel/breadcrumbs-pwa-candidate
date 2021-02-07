@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Link, Route, useRouteMatch, Redirect} from 'rea
 import {TitleSource} from "../Navigation/titleContext";
 import {SOCIAL_TITLE} from "../../constants/routes";
 import { Timeline, Tweet } from 'react-twitter-widgets';
-import TweetFeed from './tweets/feed'
-import LinkedFeed from './linked/feed'
+import TweetFeed from './tweets/index'
+import LinkedFeed from './linked/index'
 import Box from '@material-ui/core/Box';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';

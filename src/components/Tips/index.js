@@ -7,8 +7,10 @@ import { TIPS_DESCRIPTION } from "../../constants/description"
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -18,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
         width: '20px',
         height: '20px',
         borderRadius: '100px',
-        backgroundColor: '#D7E3FC',
+        backgroundColor: theme.palette.primary.main,
         textAlign: 'center',
         padding: '3px',
         marginRight: '10px',
-        color: 'royalBlue'
+        color: 'white',
+        fontWeight: 'bold',
+        fontFamily: 'Roboto',
     },
     nested: {
       paddingLeft: theme.spacing(10),
@@ -77,11 +81,15 @@ const Tips = () => {
             <List>
                 {
                 tipsList.map((tips, index) => 
-                <div key={index}>
-                    <ListItem onClick={() => handleClick(index)} button><span className={classes.num}>{index}</span> {tips.title} <ExpandMore /></ListItem>
-                    <Collapse in={open} unmountOnExit><span className={classes.nested}>{tips.description}</span></Collapse>
-                    <div className={classes.BottomBorder} ></div>
-                </div>
+     
+                    <Accordion key={index}>
+                       <AccordionSummary > <span className={classes.num}>{index+1}</span> {tips.title} <ExpandMore /></AccordionSummary>
+                    
+                        <AccordionDetails>
+                            <span >{tips.description}
+                            </span>
+                        </AccordionDetails>
+                    </Accordion>
                     )
                 }
 
