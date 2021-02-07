@@ -57,7 +57,8 @@ const theme = createMuiTheme({
     },
     modal: {
       position: 'absolute',
-        top: '50%',
+        top: '20%',
+        bottom: '20%',
         minWidth: '80%',
         maxHeight: '200px',
         backgroundColor: '#EBEBEB',
@@ -73,7 +74,12 @@ const theme = createMuiTheme({
       color: 'white',
       fontFamily: 'Roboto',
       fontWeight: 'bold'
-    }
+    },
+    label: {
+      color: 'darkblue',
+      fontFamily: 'Roboto',
+      fontWeight: 'bold'
+    },
   }
 });
 

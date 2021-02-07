@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, NavLink, Route, useParams, useRouteMatch,} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MomentUtils from '@date-io/moment';
@@ -32,19 +32,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ConfirmModal = (props) =>  {
-    const [open, setOpen] = useState(props.open);
+    const [open, setOpen] = useState(null);
     const { path, url } = useRouteMatch();
     const classeModal = useStyles();
-    function handleModal() {
-        setOpen(!open);
-    }
+
     return (
         <Modal
-        open={true}
+        open={props.open}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        onClose={props.handleModal}
         >
-            <Router>
+            
             <div className={classeModal.paper}>
                 <div>Confirm the appointment</div>
                 <TextField
@@ -57,20 +56,21 @@ const ConfirmModal = (props) =>  {
                 <Button
                 variant="contained"
                 color="default"
-                onClick={() => history.back()}
+                onClick={props.handleModal}
                 >
-                <NavLink className={classeModal.link} className={classeModal.link} to={DISPO} >CANCEL</NavLink>
+                <span className={classeModal.link} className={classeModal.link} >CANCEL</span>
                 </Button>
                     <Button
                     variant="contained"
                     color="primary"
+                    type='submit'
+                    onSubmit={() => {console.log("suusdbsxmmitji")}}
+                    component={`a href=${CONFIRM}`}
                     >
-                    <a className={classeModal.linkCancel} href={CONFIRM} className={classeModal.link} >OK</a>
+                    <span className={classeModal.linkCancel} className={classeModal.link} >OK</span>
                 </Button>
-                </div>
-                
+                </div>        
             </div>
-        </Router>
         </Modal>
     )
 }
