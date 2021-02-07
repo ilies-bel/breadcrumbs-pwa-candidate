@@ -46,20 +46,20 @@ const ConfirmModal = (props) =>  {
                 placeholder={HIRING_DESCRIPTION.CONFIRMATION_PLACEHOLDER}
                 />
                 <div>
-                <Button
-                variant="contained"
-                color="default"
-                onClick={props.handleModal}
-                >
-                <span className={classeModal.linkCancel} >CANCEL</span>
-                </Button>
                     <Button
                     variant="contained"
-                    color="primary"
-                    onClick={() => history.replace(`/${CONFIRM}`)}
+                    color="default"
+                    onClick={props.handleModal}
                     >
-                    <span >OK</span>
-                </Button>
+                        <span className={classeModal.linkCancel} >CANCEL</span>
+                    </Button>
+                        <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => history.replace(`/${CONFIRM}`)}
+                        >
+                        <NavLink to={CONFIRM} >OK</NavLink>
+                    </Button>
                 </div>        
             </div>
         </Modal>
