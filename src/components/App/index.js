@@ -24,12 +24,11 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const App = () => {
-    const classes = useStyles();
+    const classes = useStyles();;
     return (
         <div>
 
             <Router>
-
                 <TopNav/>
                 <MainNav>
                 <TitleSource>Breadcrumbs</TitleSource>
@@ -50,8 +49,6 @@ const App = () => {
                 <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
                 </MainNav>
                 <BottomNav/>
-
-
             </Router>
         </div>
 

@@ -16,12 +16,6 @@ import { Button } from '@material-ui/core';
 import { ArrowRightAlt } from '@material-ui/icons';
 import ConfirmPage from './form/confirm';
 
-const hiringReducer = (currentLink, changLink) => {
-    if(currentLink === '/phone') {
-
-    }
-}
-
 const HiringProcessPage = (props) => {
     const [pathLink, setLink] = React.useState('/phone')
     const firstLink = '/phone';
