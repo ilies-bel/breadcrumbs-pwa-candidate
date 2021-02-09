@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import styles from './navigation.scss'
+import React from 'react';
+import './navigation.scss'
 
 const FlashyButton = (props) => {
     return (

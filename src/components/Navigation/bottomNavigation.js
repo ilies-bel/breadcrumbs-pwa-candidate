@@ -6,6 +6,8 @@ import * as ROUTES from '../../constants/routes';
 import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import styles from './navigation.scss'
+
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";

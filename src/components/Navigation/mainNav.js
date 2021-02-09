@@ -1,12 +1,5 @@
 import React from 'react';
-
-const styles = {
-    main: {
-        paddingLeft: "200px",
-        paddingRight: "200px",
-        paddingBottom: "60px",
-    }
-}
+import styles from './navigation.scss'
 
 class MainNav extends React.Component {
     constructor(props) {
@@ -15,7 +8,7 @@ class MainNav extends React.Component {
     render() {
         return (
             <>
-            <main style={styles.main}>
+            <main className="main" >
                 {this.props.children}
             </main>
             </>
