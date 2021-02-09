@@ -10,7 +10,6 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
-import { yellow } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({

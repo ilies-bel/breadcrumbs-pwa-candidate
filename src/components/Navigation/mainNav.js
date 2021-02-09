@@ -2,7 +2,8 @@ import React from 'react';
 
 const styles = {
     main: {
-        padding: "20px",
+        paddingLeft: "200px",
+        paddingRight: "200px",
         paddingBottom: "60px",
     }
 }

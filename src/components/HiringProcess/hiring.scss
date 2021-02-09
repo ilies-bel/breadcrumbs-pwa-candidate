@@ -1,0 +1,28 @@
+.timeline {
+    list-style-type: none;
+    li {
+        position: relative;
+        margin: 0;
+        padding-bottom: 1em;
+        padding-left: 20px;
+      }
+    li::before {
+        content: '';
+        background-color: royalblue;
+        position: absolute;
+        bottom: 0;
+        top: 3px;
+        left: 6px;
+        width: 1px;
+        height: 100%
+      }
+      li::after {
+        content: '';
+        position: absolute;
+        background-image: url('/public/Subtract.png');
+        top: 42px;
+        left: -10px;
+        height: 24px;
+        width: 16px;
+      }
+  }
