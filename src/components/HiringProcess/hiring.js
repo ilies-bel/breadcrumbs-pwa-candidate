@@ -12,6 +12,7 @@ import { PageDescription } from '../Navigation';
 import Button from '@material-ui/core/Button';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
+import styles from './hiring.scss'
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -41,9 +42,9 @@ const HiringProcess = () => {
                 {(authUser) => <h2>Hey {authUser.username}</h2>}
             </AuthUserContext.Consumer>
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
-            <ul>
+            <ul  className="timeline">
                 {interviewList.map((type, i) =>
-                <li key={i}>
+                <li key={i} >
                     <ButtonBase className={classes.button} onClick={() => history.replace(`/${type}`)} >
                         <a className={classes.label}>{type} interview</a>
                     </ButtonBase>
