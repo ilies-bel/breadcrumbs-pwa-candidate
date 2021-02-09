@@ -26,7 +26,7 @@ function MilestonePage() {
   const { path, url } = useRouteMatch();
   const classes = useStyles();
   const history = useHistory();
-  console.log("miles-his");console.log(history.location);console.log("/miles-history")
+
   const url2 = url.match(/[^/]\w+/g); //url2 permet n'a pas le caractère '/' 
   let description = HIRING_DESCRIPTION[url2];
 

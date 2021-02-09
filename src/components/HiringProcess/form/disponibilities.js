@@ -5,6 +5,7 @@ import Moment from 'moment'; //TODO: essayer Luxon
 import List from '@material-ui/core/List';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { PageDescription } from '../../Navigation';
 import ConfirmModal from './modal';
@@ -25,7 +26,7 @@ const DispoInput = (props) => {
     <Button className={classes.dispoInput} variant="outlined" color="primary">
       <div>Beginning at :{props.start} </div>
       <div>End at : {props.end}</div>
-      <pre> {props.collaborator} </pre>
+      {props.interviewer && <pre>with {props.interviewer}</pre>}
     </Button>
 
     </>
@@ -34,11 +35,11 @@ const DispoInput = (props) => {
 }
 const SelectDate = () => {
     const [open, setOpen] = useState(false);
-    const [{ data, loading, error }, refetch] = useGetDisponibilities()
+    const [{ data, loading, error }, refetch] = useGetDisponibilities();
     const history = useHistory();
 
-    if (loading) return <p>Loading...</p>
-  if (error) return <p>Error!</p>
+    if (loading) return <CircularProgress />
+    if (error) return <p>Error!</p>
 
     function handleModal() {
         setOpen(!open);
