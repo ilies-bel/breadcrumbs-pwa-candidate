@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from 'constants/routes';
 
 import HomePage from '../Home';
 import AccountPage from '../Authentification/Account';
-import {BottomNav, TopNav, PageDescription, MainNav} from '../Navigation';
+import {BottomNav, TopNav, PageDescription, MainNav} from 'Navigation';
 import SignUpPage from '../Authentification/SignUp';
 import SignInPage from '../Authentification/SignIn';
 import PasswordForgetPage from '../Authentification/PasswordForget';
@@ -15,8 +15,8 @@ import AmbassadorsPage from '../Ambassadors';
 import SocialPage from '../Social';
 import ConfirmPage from '../HiringProcess/form/confirm'
 import {withAuthentication} from '../Authentification/Session';
-import {TitleSource} from "../Navigation/titleContext";
-import {TitleDescriptionSource} from "../Navigation/descriptionContext"
+import {TitleSource} from "Navigation/titleContext";
+import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({

@@ -7,11 +7,11 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { PageDescription } from '../../Navigation';
+import { PageDescription } from 'Navigation';
 import ConfirmModal from './modal';
-import { CONFIRM } from '../../../constants/routes';
+import { CONFIRM } from 'constants/routes';
 
-import { useGetDisponibilities } from '../../../utils/axios'
+import { useGetDisponibilities } from 'utils/axios'
 
 const useStyles = makeStyles(theme => ({
     dispoInput: theme.element.button.big,

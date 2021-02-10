@@ -1,8 +1,8 @@
 import React from 'react';
-import {TitleSource} from '../Navigation/titleContext'
-import { TitleDescriptionSource } from '../Navigation/descriptionContext';
-import {TIPS, TIPS_TITLE} from "../../constants/routes";
-import { TIPS_DESCRIPTION } from "../../constants/description"
+import {TitleSource} from 'Navigation/titleContext'
+import { TitleDescriptionSource } from 'Navigation/descriptionContext';
+import {TIPS, TIPS_TITLE} from "constants/routes";
+import { TIPS_DESCRIPTION } from "constants/description"
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';

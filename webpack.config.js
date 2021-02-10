@@ -97,6 +97,12 @@ module.exports = (env, argv) => {
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
+            alias: {
+                components: path.resolve(__dirname, './src/components'),
+                Navigation: path.resolve(__dirname, './src/components/Navigation'),
+                constants: path.resolve(__dirname, 'src/constants'),
+                utils: path.resolve(__dirname, 'src/utils')
+            }
         },
         output: {
             path: path.resolve(__dirname, './dist'),

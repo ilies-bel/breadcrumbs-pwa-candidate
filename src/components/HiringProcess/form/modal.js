@@ -11,8 +11,8 @@ import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
-import {HIRING_DESCRIPTION} from "../../../constants/description";
-import {CONFIRM} from "../../../constants/routes";
+import {HIRING_DESCRIPTION} from "constants/description";
+import {CONFIRM} from "constants/routes";
 
 import ConfirmPage from './confirm';
 import SelectDate from './disponibilities';
