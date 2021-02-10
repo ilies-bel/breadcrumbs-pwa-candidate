@@ -15,7 +15,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import { useGetTips } from '../../utils/axios';
+import { useGetTips } from 'utils/axios';
 
 const useStyles = makeStyles((theme) => ({
     num: {
@@ -45,9 +45,6 @@ const Tips = () => {
     const [open, setOpen] = React.useState(true);
 
     const classes = useStyles();
-    const handleClick = (index) => {
-        setOpen(!open);
-      };
 
     if (loading) return <CircularProgress />
     if (error) return <strong>Error. No data found</strong>
@@ -58,7 +55,7 @@ const Tips = () => {
             <TitleDescriptionSource>
                 {TIPS_DESCRIPTION}
             </TitleDescriptionSource>
-            <List>
+            
                 {
                 data.map((tips, index) => 
      
@@ -70,10 +67,11 @@ const Tips = () => {
                             </span>
                         </AccordionDetails>
                     </Accordion>
+     
                     )
                 }
 
-            </List>
+  
         </>
 
     );

@@ -12,6 +12,9 @@ npm i -g pwa-asset-generator
 cd public
 pwa-asset-generator ./icon-512x512.png ./ --splash-only
 ```
+## Import statement
+Au lieu de faire des imports avec des chemins relatif vers le dossier components (import from '../../../components'), on peut directement pointer vers le dossier qui nous intéresse : import from 'components'.
+Cela est configuré avec dans le block 'resolver' de webpack.config.js
 
 ## Serveur de production HTTPS
 - Modifier le script ssl-serve dans package.json

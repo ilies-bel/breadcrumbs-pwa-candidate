@@ -1,10 +1,10 @@
 .timeline {
     list-style-type: none;
+    padding: 20px;
     li {
         position: relative;
         margin: 0;
         padding-bottom: 1em;
-        padding-left: 20px;
       }
     li::before {
         content: '';
@@ -12,7 +12,7 @@
         position: absolute;
         bottom: 0;
         top: 3px;
-        left: 6px;
+        left: -20px;
         width: 1px;
         height: 100%
       }
@@ -21,8 +21,8 @@
         position: absolute;
         background-image: url('/public/Subtract.png');
         top: 42px;
-        left: -10px;
+        left: -32px;
         height: 24px;
-        width: 16px;
+        width: 24px;
       }
   }

@@ -41,14 +41,14 @@ export const useAppointmentAPI = (path='', data={}, method='get') => {
 }
 
 export const useCreateAppointment = (data={}) => {
-    return useAppointmentAPI({data: data, method: 'post'})
+    return useAppointmentAPI(data, 'post')
 }
-export const useEditAppointment = (data={}) => {
-    return useAppointmentAPI({data: data, method: 'put'})
+export const useEditAppointment = (id, data={}) => {
+    return useAppointmentAPI(`/${id}`, data, 'put')
 }
-export const useMoveAppointment = (data={}) => {
-    return useAppointmentAPI({data: data, method: 'put'})
+export const useMoveAppointment = (id, data={}) => {
+    return useAppointmentAPI(`/${id}`, data, 'put')
 }
-export const useCancelAppointment = (data={}) => {
-    return useAppointmentAPI({data: data, method: 'delete'})
+export const useCancelAppointment = (id, data={}) => {
+    return useAppointmentAPI(`/${id}`, data, 'delete')
 }
