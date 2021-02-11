@@ -4,6 +4,7 @@ const path = require("path");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
@@ -96,6 +97,12 @@ module.exports = (env, argv) => {
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
+            alias: {
+                components: path.resolve(__dirname, './src/components'),
+                Navigation: path.resolve(__dirname, './src/components/Navigation'),
+                constants: path.resolve(__dirname, 'src/constants'),
+                utils: path.resolve(__dirname, 'src/utils')
+            }
         },
         output: {
             path: path.resolve(__dirname, './dist'),
@@ -107,6 +114,9 @@ module.exports = (env, argv) => {
                 'process.env': {
                     REACT_APP_BASE_URL:JSON.stringify("google.com")
                 },
+            }),
+            new Dotenv({
+                path: isProduction ? './.env.production' : './.env',
             }),
 
             new HtmlWebpackPlugin({
@@ -140,7 +150,8 @@ module.exports = (env, argv) => {
             inline: true,
             compress: false,
             hot: true,
-            historyApiFallback: true
+            historyApiFallback: true,
+            https: true,
         },
     };
 }

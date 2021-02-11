@@ -1,28 +1,34 @@
 import React from 'react';
-import {TitleSource} from '../Navigation/titleContext'
-import { TitleDescriptionSource } from '../Navigation/descriptionContext';
-import {TIPS, TIPS_TITLE} from "../../constants/routes";
-import { TIPS_DESCRIPTION } from "../../constants/description"
+import {TitleSource} from 'Navigation/titleContext'
+import { TitleDescriptionSource } from 'Navigation/descriptionContext';
+import {TIPS, TIPS_TITLE} from "constants/routes";
+import { TIPS_DESCRIPTION } from "constants/description"
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { useGetTips } from 'utils/axios';
 
 const useStyles = makeStyles((theme) => ({
     num: {
         width: '20px',
         height: '20px',
         borderRadius: '100px',
-        backgroundColor: '#D7E3FC',
+        backgroundColor: theme.palette.primary.main,
         textAlign: 'center',
         padding: '3px',
         marginRight: '10px',
-        color: 'royalBlue'
+        color: 'white',
+        fontWeight: 'bold',
+        fontFamily: 'Roboto',
     },
     nested: {
       paddingLeft: theme.spacing(10),
@@ -33,40 +39,15 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'lightblue',
     }
 }))
-const tipsList =  [
-    {
-        ranking: 5,
-        title: "Bien serrer la main",
-        description: "Serrer très fort"
-    },
-    {
-        ranking: 2,
-        title: "Se tenir droit",
-        description: "Ne pas voûter le dos"
-    },
-    {
-        ranking: 15,
-        title: "Prendre des notes",
-        description: "Prévoir un bloc-note"
-    },
-    {
-        ranking: 15,
-        title: "Porter une Chemise",
-        description: "Prévoir un bloc-note"
-    },
-]
 
 const Tips = () => {
-    /* let title = tips.title
-    let rank = tips.ranking
-    let description = tips.description
-    let tipsDiv = [] */
+    const [{ data, loading, error }, refetch] = useGetTips();
     const [open, setOpen] = React.useState(true);
 
     const classes = useStyles();
-    const handleClick = (index) => {
-        setOpen(!open);
-      };
+
+    if (loading) return <CircularProgress />
+    if (error) return <strong>Error. No data found</strong>
 
     return (
         <>
@@ -74,18 +55,23 @@ const Tips = () => {
             <TitleDescriptionSource>
                 {TIPS_DESCRIPTION}
             </TitleDescriptionSource>
-            <List>
+            
                 {
-                tipsList.map((tips, index) => 
-                <div key={index}>
-                    <ListItem onClick={() => handleClick(index)} button><span className={classes.num}>{index}</span> {tips.title} <ExpandMore /></ListItem>
-                    <Collapse in={open} unmountOnExit><span className={classes.nested}>{tips.description}</span></Collapse>
-                    <div className={classes.BottomBorder} ></div>
-                </div>
+                data.map((tips, index) => 
+     
+                    <Accordion key={index}>
+                       <AccordionSummary > <span className={classes.num}>{index+1}</span> {tips.title} <ExpandMore /></AccordionSummary>
+                    
+                        <AccordionDetails>
+                            <span >{tips.description}
+                            </span>
+                        </AccordionDetails>
+                    </Accordion>
+     
                     )
                 }
 
-            </List>
+  
         </>
 
     );

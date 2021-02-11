@@ -1,42 +1,35 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route, useRouteMatch,} from 'react-router-dom';
+import {BrowserRouter as Router, Link, NavLink, Redirect, Route, useRouteMatch, useHistory} from 'react-router-dom';
 
-import MilestonePage from './milestone';
 import {TitleSource} from "../Navigation/titleContext";
 import {AuthUserContext} from "../Authentification/Session";
-import {HIRING_PROCESS_TITLE} from "../../constants/routes";
+import {CONFIRM, DISPO, HIRING_PROCESS_TITLE} from "../../constants/routes";
 import {HIRING_DESCRIPTION} from "../../constants/description";
 
 import {TitleDescriptionSource} from "../Navigation/descriptionContext"
 import { PageDescription } from '../Navigation';
+import HiringProcess from './hiring';
+import MilestonePage from './milestone'
+import SelectDate from './form/disponibilities';
+import ConfirmPage from './form/confirm';
 
-const HiringProcessPage = () => {
-
-
+const HiringProcessPage = (props) => {
     const {path, url} = useRouteMatch();
-
+    function changePath(p) {
+        setLink(p)
+    }
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
-            <TitleDescriptionSource>Prenez rendez-vous ici</TitleDescriptionSource>
 
             <Router>
                 <div>
-                    <AuthUserContext.Consumer>
-                        {(authUser) => <h2>Hey {authUser.username}</h2>}
-                    </AuthUserContext.Consumer>
-                    <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
-                    <ul>
-                        <li>
-                            <Link to={`${url}/phone`}>Phone interview</Link>
-                        </li>
-                        <li>
-                            <Link to={`${url}/operational`}>Operational interview</Link>
-                        </li>
-                    </ul>
-
-                    <Route exact path={`${path}/:id`} component={MilestonePage}/>
-
+                <Redirect to='/hiring' />
+                <Route path='/hiring' component={HiringProcess} />
+                <Route path='/phone' component={MilestonePage} />
+                <Route path='/operational' component={MilestonePage} />
+                <Route path={DISPO} component={SelectDate} />
+                <Route path={CONFIRM} component={ConfirmPage} />
                 </div>
             </Router>
         </>
