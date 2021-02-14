@@ -183,7 +183,6 @@ const SignInGoogle = compose(
 
 const SignInLinkedin = compose(
   withRouter,
-  withFirebase,
 )(SignInLinkedinBase);
 
 export default SignInPage;
