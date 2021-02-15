@@ -1,0 +1,41 @@
+.ambassadors {
+    display: flex;
+    flex-wrap: wrap;
+}
+.avatar {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 254px;
+    height: 101px;
+
+    .photo {
+        width: 40%;
+        height: 100%;
+    }
+    .description {
+        //styleName: Body/B1;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        text-align: left;
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .catchPhrase {
+            //styleName: Body/B2;
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 20px;
+            letter-spacing: 0.25px;
+            text-align: left;
+        }
+    }
+}
