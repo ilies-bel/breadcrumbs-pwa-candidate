@@ -1,21 +1,17 @@
 import React from 'react';
 import {TitleSource} from 'Navigation/titleContext'
 import { TitleDescriptionSource } from 'Navigation/descriptionContext';
-import {TIPS, TIPS_TITLE} from "constants/routes";
+import {TIPS_TITLE} from "constants/routes";
 import { TIPS_DESCRIPTION } from "constants/description"
 
 import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { useGetTips } from 'utils/axios';
+import {PageDescription} from "../Navigation";
 
 const useStyles = makeStyles((theme) => ({
     num: {
@@ -52,26 +48,21 @@ const Tips = () => {
     return (
         <>
             <TitleSource>{TIPS_TITLE}</TitleSource>
-            <TitleDescriptionSource>
+            <PageDescription>
                 {TIPS_DESCRIPTION}
-            </TitleDescriptionSource>
+            </PageDescription>
             
                 {
-                data.map((tips, index) => 
-     
+                data.map((tips, index) =>
                     <Accordion key={index}>
                        <AccordionSummary > <span className={classes.num}>{index+1}</span> {tips.title} <ExpandMore /></AccordionSummary>
-                    
                         <AccordionDetails>
                             <span >{tips.description}
                             </span>
                         </AccordionDetails>
                     </Accordion>
-     
                     )
                 }
-
-  
         </>
 
     );

@@ -26,7 +26,7 @@ const HiringProcessPage = (props) => {
                 <div>
                 <Redirect to='/hiring' />
                 <Route path='/hiring' component={HiringProcess} />
-                <Route path='/phone' component={MilestonePage} />
+                <Route path='/Default' component={MilestonePage} />
                 <Route path='/operational' component={MilestonePage} />
                 <Route path={DISPO} component={SelectDate} />
                 <Route path={CONFIRM} component={ConfirmPage} />
