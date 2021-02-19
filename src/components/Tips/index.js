@@ -57,21 +57,16 @@ const Tips = () => {
             </TitleDescriptionSource>
             
                 {
-                data.map((tips, index) => 
-     
+                data.map((tips, index) =>
                     <Accordion key={index}>
                        <AccordionSummary > <span className={classes.num}>{index+1}</span> {tips.title} <ExpandMore /></AccordionSummary>
-                    
                         <AccordionDetails>
                             <span >{tips.description}
                             </span>
                         </AccordionDetails>
                     </Accordion>
-     
                     )
                 }
-
-  
         </>
 
     );
