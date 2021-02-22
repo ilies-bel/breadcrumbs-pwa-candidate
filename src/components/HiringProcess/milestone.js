@@ -6,11 +6,13 @@ import {DISPO} from "../../constants/routes";
 import React from 'react';
 
 import {PageDescription, FlashyButton} from '../Navigation';
-import { useGetProcess } from '../../utils/axios';
+import {useGetProcess, useInterviewType} from '../../utils/axios';
+import {AuthUserContext} from "../Authentification/Session";
 
 function MilestonePage() {
   const { id } = useParams();
   const { path, url } = useRouteMatch();
+  const [{ data, loading, error }, refetch] = useInterviewType(1);
 
   const history = useHistory();
   const url2 = url.match(/[^/]\w+/g); //url2 permet n'a pas le caractère '/' 
@@ -18,16 +20,23 @@ function MilestonePage() {
 
   return (
       <div>
+          <AuthUserContext.Consumer>
+              {(authUser) => <h2>Hey {authUser.username}</h2>}
+          </AuthUserContext.Consumer>
         <h3>
           Milestone number :
           {url}
           {id}
         </h3>
-        <h2>Description of process </h2>
-        <PageDescription>{description}</PageDescription>
+          <div className="paper">
+          <h1>{data && data.title}</h1>
+        <h2>what is it ? </h2>
+        <PageDescription>{data && data.description}</PageDescription>
         <FlashyButton onClick={() => history.push(DISPO)}>
           Take appointment
         </FlashyButton>
+              <img src="/milestoneVector.svg" />
+          </div>
       </div>
 
   );

@@ -15,8 +15,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
 import InsertInvitationOutlinedIcon from '@material-ui/icons/InsertInvitationOutlined';
-import styles from './hiring.scss';
+import './hiring.scss';
 import { useGetProcess } from '../../utils/axios';
+import {HelpOutline} from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -28,7 +29,13 @@ const useStyles = makeStyles(theme => ({
         borderRadius: '5px',
         padding: '50px',
         background: '#EBF1FE',
-        color: '#3572F1'
+        color: '#3572F1',
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 300,
+        fontSize: '20px',
+        lineHeight: '23px',
+        letterSpacing: '-0.01em'
     },
     link: theme.element.link.secondary,
 }))
@@ -50,15 +57,17 @@ const HiringProcess = () => {
             </AuthUserContext.Consumer>
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
             <ul  className="timeline">
-                {data.map((type, i) =>
+                {data.map((process, i) =>
                 <li key={i} >
                     <ButtonBase className={classes.button} >
+                        <div className="buttonTitle">Due to ...</div>
                         <a className={classes.label}
-                            onClick={() => history.replace(`/${type.title}`)} >
-                                {type.title} interview
+                            onClick={() => history.replace(`milestone/${process.process_name}`)} >
+                                {process.process_name}
                         </a>
+                        <HelpOutline color="primary" />
                         <Link to={`${DISPO}`}>
-                            <InsertInvitationOutlinedIcon fontSize="large" color="primary" />
+                            <InsertInvitationOutlinedIcon color="primary" />
                         </Link>
                     </ButtonBase>
                 </li>)

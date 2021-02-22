@@ -9,6 +9,7 @@ const tips = process.env.TIPS_API
 const AMBASSADOR = process.env.AMBASSADOR_API;
 const PROCESS = process.env.PROCESS_API
 const APPOINTMENT = process.env.APPOINTMENT_API
+const INTERVIEW_TYPE = process.env.INTERVIEW_TYPE;
 
 export const useAPI = (path='') => {
     return useAxios({
@@ -27,6 +28,9 @@ export const useGetAmbassador = () => {
 }
 export const useGetProcess = () => {
     return useAPI(PROCESS);
+}
+export const useInterviewType = (id='') => {
+    return useAPI(`${INTERVIEW_TYPE}/${id}`)
 }
 
 

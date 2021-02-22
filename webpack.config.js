@@ -151,7 +151,6 @@ module.exports = (env, argv) => {
             compress: false,
             hot: true,
             historyApiFallback: true,
-            https: true,
         },
     };
 }

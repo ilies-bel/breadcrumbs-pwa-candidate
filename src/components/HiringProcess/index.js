@@ -12,12 +12,15 @@ import HiringProcess from './hiring';
 import MilestonePage from './milestone'
 import SelectDate from './form/disponibilities';
 import ConfirmPage from './form/confirm';
+import {useGetProcess} from "../../utils/axios";
 
 const HiringProcessPage = (props) => {
     const {path, url} = useRouteMatch();
+    const [{ data, loading, error }, refetch] = useGetProcess();
     function changePath(p) {
         setLink(p)
     }
+    if(error) {return ( <strong>Error</strong> )}
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
@@ -25,9 +28,11 @@ const HiringProcessPage = (props) => {
             <Router>
                 <div>
                 <Redirect to='/hiring' />
-                <Route path='/hiring' component={HiringProcess} />
-                <Route path='/phone' component={MilestonePage} />
-                <Route path='/operational' component={MilestonePage} />
+                    {data && data.map((process, index) =>
+                                                    <Link to={`milestone/${process.process_name}`} key={index} />
+                    )}
+                    <Route path='/hiring' component={HiringProcess} />
+                    <Route path="/milestone/:id" component={MilestonePage} />
                 <Route path={DISPO} component={SelectDate} />
                 <Route path={CONFIRM} component={ConfirmPage} />
                 </div>
