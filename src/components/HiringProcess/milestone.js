@@ -7,6 +7,7 @@ import React from 'react';
 
 import {PageDescription, FlashyButton} from '../Navigation';
 import {useGetProcess, useInterviewType} from '../../utils/axios';
+import {AuthUserContext} from "../Authentification/Session";
 
 function MilestonePage() {
   const { id } = useParams();
@@ -19,6 +20,9 @@ function MilestonePage() {
 
   return (
       <div>
+          <AuthUserContext.Consumer>
+              {(authUser) => <h2>Hey {authUser.username}</h2>}
+          </AuthUserContext.Consumer>
         <h3>
           Milestone number :
           {url}

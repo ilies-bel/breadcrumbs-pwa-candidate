@@ -62,7 +62,7 @@ const HiringProcess = () => {
                     <ButtonBase className={classes.button} >
                         <div className="buttonTitle">Due to ...</div>
                         <a className={classes.label}
-                            onClick={() => history.replace(`/${process.process_name}`)} >
+                            onClick={() => history.replace(`milestone/${process.process_name}`)} >
                                 {process.process_name}
                         </a>
                         <HelpOutline color="primary" />
