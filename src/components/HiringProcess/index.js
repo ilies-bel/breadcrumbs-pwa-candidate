@@ -4,10 +4,7 @@ import {BrowserRouter as Router, Link, NavLink, Redirect, Route, useRouteMatch, 
 import {TitleSource} from "../Navigation/titleContext";
 import {AuthUserContext} from "../Authentification/Session";
 import {CONFIRM, DISPO, HIRING_PROCESS_TITLE} from "../../constants/routes";
-import {HIRING_DESCRIPTION} from "../../constants/description";
 
-import {TitleDescriptionSource} from "../Navigation/descriptionContext"
-import { PageDescription } from '../Navigation';
 import HiringProcess from './hiring';
 import MilestonePage from './milestone'
 import SelectDate from './form/disponibilities';
@@ -16,10 +13,8 @@ import {useGetProcess} from "../../utils/axios";
 
 const HiringProcessPage = (props) => {
     const {path, url} = useRouteMatch();
+    const history = useHistory();
     const [{ data, loading, error }, refetch] = useGetProcess();
-    function changePath(p) {
-        setLink(p)
-    }
     if(error) {return ( <strong>Error</strong> )}
     return (
         <>

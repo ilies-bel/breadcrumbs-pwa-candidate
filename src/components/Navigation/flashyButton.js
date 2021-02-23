@@ -3,7 +3,7 @@ import './navigation.scss'
 
 const FlashyButton = (props) => {
     return (
-        <button className='flashy' onClick={props.onClick}>
+        <button className='flashy' onClick={props.onClick} onSubmit={props.onSubmit} >
             {props.children}
         </button>
     )

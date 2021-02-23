@@ -33,6 +33,18 @@ export const useInterviewType = (id='') => {
     return useAPI(`${INTERVIEW_TYPE}/${id}`)
 }
 
+export const useAuthUser = ({path = '', data = {}, method = 'post'}) => {
+    return useAxios({
+                        baseURL: `users?token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FuZGlkYXRlIiwiYnVzaW5lc3NfdGl0bGVfaWQiOm51bGwsIm9mZmljZV9pZCI6bnVsbCwicHJvY2Vzc19pZCI6MSwiZXhwIjoxNjE0Mjc0NzY5fQ.Z24ffCZgb671bSLZWNnUaa07z3BCgaeBwKZzHhyYYnI`,
+                        method: method,
+                        url: path,
+                        data: data
+                    });
+}
+export const useRegistration = () => {
+    return useAuthUser({data: {token: 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FuZGlkYXRlIiwiYnVzaW5lc3NfdGl0bGVfaWQiOm51bGwsIm9mZmljZV9pZCI6bnVsbCwicHJvY2Vzc19pZCI6MSwiZXhwIjoxNjE0Mjc0NzY5fQ.Z24ffCZgb671bSLZWNnUaa07z3BCgaeBwKZzHhyYYnI'}})
+}
+
 
 //TODO: Fonctions à compléter en fonctions de l'API mis en place
 export const useAppointmentAPI = (path='', data={}, method='get') => {

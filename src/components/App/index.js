@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import * as ROUTES from 'constants/routes';
 
 import HomePage from '../Home';
@@ -18,6 +18,8 @@ import {withAuthentication} from '../Authentification/Session';
 import {TitleSource} from "Navigation/titleContext";
 import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
+import WelcomePage from "components/Authentification2/welcomPage";
+import {AuthRouterPage} from "components/Authentification2";
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
@@ -47,6 +49,8 @@ const App = () => {
                 <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
                 <Route path={ROUTES.SOCIAL} component={SocialPage}/>
                 <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
+
+                <Route path="/auth" component={AuthRouterPage} />
                 </MainNav>
                 <BottomNav/>
             </Router>

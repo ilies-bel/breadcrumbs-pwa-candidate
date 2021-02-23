@@ -56,13 +56,13 @@ const HiringProcess = () => {
                 {(authUser) => <h2>Hey {authUser.username}</h2>}
             </AuthUserContext.Consumer>
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
-            <ul  className="timeline">
+            <ol className="timeline">
                 {data.map((process, i) =>
                 <li key={i} >
                     <ButtonBase className={classes.button} >
                         <div className="buttonTitle">Due to ...</div>
                         <a className={classes.label}
-                            onClick={() => history.replace(`milestone/${process.process_name}`)} >
+                            onClick={() => history.push(`milestone/${process.process_name}`)} >
                                 {process.process_name}
                         </a>
                         <HelpOutline color="primary" />
@@ -72,7 +72,7 @@ const HiringProcess = () => {
                     </ButtonBase>
                 </li>)
                 }
-            </ul>
+            </ol>
         </div>
         </>
     );

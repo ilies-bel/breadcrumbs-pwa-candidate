@@ -23,11 +23,7 @@ function MilestonePage() {
           <AuthUserContext.Consumer>
               {(authUser) => <h2>Hey {authUser.username}</h2>}
           </AuthUserContext.Consumer>
-        <h3>
-          Milestone number :
-          {url}
-          {id}
-        </h3>
+
           <div className="paper">
           <h1>{data && data.title}</h1>
         <h2>what is it ? </h2>

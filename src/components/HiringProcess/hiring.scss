@@ -1,3 +1,12 @@
+h2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 37px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
 .timeline {
     list-style-type: none;
     padding: 20px;
@@ -39,35 +48,5 @@
     font-weight: 300;
     font-size: 12px;
     color: white;
-  }
-}
-.paper {
-  background: #FFFFFF;
-  border: 2px solid #F0F0F2;
-  box-sizing: border-box;
-  border-radius: 9px;
-  text-align: center;
-
-  img {
-    width: 100%;
-    margin-top: 40px;
-  }
-
-  h1 {
-    font-family: Quicksand;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 40px;
-    color: #191A1D;
-  }
-
-  h2 {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 23px;
-    color: #626873;
   }
 }
