@@ -2,9 +2,9 @@ import React, {Component, useState} from "react";
 import {BrowserRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
 import * as ROUTES from "constants/routes";
 import WelcomePage from "components/Authentification2/welcomPage";
-import {FormEmailPage} from "components/Authentification2/signIn/yourEmail";
-import PaperDiv from "Navigation/PaperDiv";
-import {FormNamePage} from "components/Authentification2/signIn/yourName";
+import {FormEmailPage} from "components/Authentification2/signInFirstTime/yourEmail";
+import PaperDiv from "components/littleComponents/PaperDiv";
+import {FormNamePage} from "components/Authentification2/signInFirstTime/yourName";
 
 export const AuthRouterPage = () => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './navigation.scss'
+import './little.scss'
 
 const FlashyButton = (props) => {
     return (

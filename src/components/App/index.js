@@ -21,6 +21,7 @@ import {makeStyles} from "@material-ui/core";
 import WelcomePage from "components/Authentification2/welcomPage";
 import {AuthRouterPage} from "components/Authentification2";
 import {AuthContext} from "components/Authentification2/context";
+import LoginEmailPage from "components/Authentification2/login/loginEmail";
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
@@ -50,7 +51,7 @@ const App = () => {
                 <MainNav>
                 <TitleSource>Breadcrumbs</TitleSource>
                 <div className={classes.offset}/>
-                <PageDescription></PageDescription>
+
                 <TitleDescriptionSource></TitleDescriptionSource>
                 <Route path={ROUTES.HOME} component={HomePage}/>
                 <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
@@ -66,8 +67,10 @@ const App = () => {
                 <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
                 <Route path="/auth" component={AuthRouterPage} />
-                </MainNav></AuthContext.Provider>
+                <Route path="/login/email" component={LoginEmailPage} />
+                </MainNav>
                 <BottomNav/>
+                </AuthContext.Provider>
             </Router>
         </div>
 

@@ -7,6 +7,7 @@ import {AccountCircle} from "@material-ui/icons";
 import {TitleTarget} from "./titleContext";
 import { AuthContext } from "components/Authentification2/context";
 import { useAuthContext } from "components/Authentification2/context";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,9 +32,10 @@ const useStyles = makeStyles((theme) => ({
 const TopNav = () => {
     const classes = useStyles();
     const context = useAuthContext();
+    const history = useHistory();
 
-    if(!context.token) return <AppBar><Toolbar>Nothing to show. You must be signed in</Toolbar></AppBar>
-    if(context.token) return (
+
+    return (
                 <AppBar className={classes.appBar}>
                     <Toolbar>
 
@@ -47,6 +49,8 @@ const TopNav = () => {
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 color="inherit"
+                                title={ !context.token ? "Sign in" : `signed in as ${context.userName}` }
+                                onClick={() => !context.token && history.push("/login/email")}
                             >
                                 <AccountCircle/>
                             </IconButton>

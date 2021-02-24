@@ -7,7 +7,7 @@ import {HIRING_PROCESS_TITLE, DISPO, RESERVATION, CONFIRM} from "../../constants
 import {HIRING_DESCRIPTION} from "../../constants/description";
 
 import {TitleDescriptionSource} from "../Navigation/descriptionContext"
-import { PageDescription } from '../Navigation';
+import { PageDescription } from 'littleComponents';
 
 import Button from '@material-ui/core/Button';
 import ButtonBase from '@material-ui/core/ButtonBase';

@@ -12,6 +12,8 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
+import {useAuthContext} from "components/Authentification2/context";
+import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
         borderTopWidth: '4px',
         '& .Mui-selected': {
             border: 'none',
-        }
+        },
     },
 }));
 
 
 const BottomNav = () => {
     const classes =  useStyles();
-
+    const context = useAuthContext();
     const [value, setValue] = React.useState(0);
 
     const history = useHistory();
@@ -45,7 +47,8 @@ const BottomNav = () => {
         setValue(newValue);
     };
 
-    return (
+    if(!context.token) return <div>Hi !</div>
+    if(context.token) return (
             <BottomNavigation
                 className={classes.BottomNavigation}
                 value={value}
@@ -70,10 +73,5 @@ const BottomNav = () => {
 }
 
 const condition = (authUser) => !!authUser;
-
-/*export default compose(
-    withEmailVerification,
-    withAuthorization(condition),
-)(BottomNav);*/
 
 export default BottomNav
