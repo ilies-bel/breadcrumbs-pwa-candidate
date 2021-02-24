@@ -1,23 +1,26 @@
 import React, {Component, useState} from "react";
-import {BrowserRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import * as ROUTES from "constants/routes";
 import WelcomePage from "components/Authentification2/welcomPage";
 import {FormEmailPage} from "components/Authentification2/signInFirstTime/yourEmail";
 import PaperDiv from "components/littleComponents/PaperDiv";
 import {FormNamePage} from "components/Authentification2/signInFirstTime/yourName";
+import LoginEmailPage from "components/Authentification2/login/loginEmail";
+import LoginPage from "components/Authentification2/login";
 
 export const AuthRouterPage = () => {
     return (
         <PaperDiv>
         <Router>
-            <Redirect to="/auth/welcome" />
             <Switch>
                 <Route path="/auth/welcome" component={WelcomePage} />
                 <Route path="/auth/signin/name" component={FormNamePage} />
                 <Route path="/auth/signin/email" component={FormEmailPage} />
+                <Route path="/auth/login/email" component={LoginEmailPage} />
+                <Route path="/auth/login" component={LoginPage} />
             </Switch>
         </Router>
-            <img src="/Frame.svg" alt="Illustration of welcom page" />
+            <img src="/Frame.svg" alt="Illustration of welcome page" />
         </PaperDiv>
     )
 }

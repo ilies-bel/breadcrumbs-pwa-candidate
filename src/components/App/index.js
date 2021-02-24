@@ -31,45 +31,39 @@ const App = () => {
     const classes = useStyles();
     const [ token, setToken ] = useState(window.localStorage.getItem("token"));
     const [ user, setUser ] = useState(window.localStorage.getItem("user"));
+
     function setData(token, user) {
         setToken(token);
         setUser(user);
     }
+
     return (
         <div>
-
             <Router>
-                {/*<Redirect to="/auth" />*/}
-                <AuthContext.Provider value={
-                    {
-                        token: token,
-                        userName: user,
-                        setData: setData
-                    }
-                } >
-                <TopNav/>
-                <MainNav>
-                <TitleSource>Breadcrumbs</TitleSource>
-                <div className={classes.offset}/>
+                <AuthContext.Provider value={ { token: token, userName: user, setData: setData } } >
+                    <TopNav/>
+                    <MainNav>
+                        <TitleSource>Breadcrumbs</TitleSource>
+                        <div className={classes.offset}/>
 
-                <TitleDescriptionSource></TitleDescriptionSource>
-                <Route path={ROUTES.HOME} component={HomePage}/>
-                <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
-                <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>
-                <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
-                <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
+                        <TitleDescriptionSource></TitleDescriptionSource>
+                        <Route path={ROUTES.HOME} component={HomePage}/>
+                        <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
+                        <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>
+                        <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
+                        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
 
-                <Route path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>
-                <Route path={ROUTES.TIPS} component={TipsPage}/>
-                <Route path={ROUTES.OFFICE} component={OfficePage}/>
-                <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
-                <Route path={ROUTES.SOCIAL} component={SocialPage}/>
-                <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
+                        <Route path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>
+                        <Route path={ROUTES.TIPS} component={TipsPage}/>
+                        <Route path={ROUTES.OFFICE} component={OfficePage}/>
+                        <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
+                        <Route path={ROUTES.SOCIAL} component={SocialPage}/>
+                        <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
-                <Route path="/auth" component={AuthRouterPage} />
-                <Route path="/login/email" component={LoginEmailPage} />
-                </MainNav>
-                <BottomNav/>
+                        <Route path="/auth" component={AuthRouterPage} />
+                        <Route path="/login/email" component={LoginEmailPage} />
+                    </MainNav>
+                    <BottomNav/>
                 </AuthContext.Provider>
             </Router>
         </div>

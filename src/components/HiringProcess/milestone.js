@@ -9,6 +9,7 @@ import {PageDescription, FlashyButton} from 'littleComponents';
 import {useGetProcess, useInterviewType} from '../../utils/axios';
 import {AuthUserContext} from "../Authentification/Session";
 import {useAuthContext} from "components/Authentification2/context";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function MilestonePage() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function MilestonePage() {
   const url2 = url.match(/[^/]\w+/g); //url2 permet n'a pas le caractère '/' 
   let description = HIRING_DESCRIPTION[url2];
 
+  if(loading) return <CircularProgress />
   return (
       <div>
           <h2>Hey {authContext.userName}</h2>
