@@ -1,11 +1,13 @@
 import React from "react";
 import { PageDescription } from "littleComponents";
+import {useAuthContext} from "components/Authentification2/context";
 
-const ConfirmPage = () => {
+const ConfirmLoginPage = () => {
+    const authContext = useAuthContext();
     return (
         <div>
-            <PageDescription>Connection Success</PageDescription>
+            <PageDescription>Successfully connected as <strong>{authContext.userName}</strong> . You can now start a Hiring Process.</PageDescription>
         </div>
     )
 }
-export default ConfirmPage;
+export default ConfirmLoginPage;

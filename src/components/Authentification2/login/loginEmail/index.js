@@ -21,7 +21,8 @@ const LoginEmailPage = () => {
             .then(res => {
                 res && storage.setItem("token", res.token);
                 res && storage.setItem("user", res.user.first_name);
-                res && context.setData(res.token, res.user.first_name)
+                res && context.setData(res.token, res.user.first_name + ' ' + res.user?.last_name)
+                res && history.push("/auth/confirm");
             } );
     }
 

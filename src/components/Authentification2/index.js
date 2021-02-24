@@ -7,6 +7,7 @@ import PaperDiv from "components/littleComponents/PaperDiv";
 import {FormNamePage} from "components/Authentification2/signInFirstTime/yourName";
 import LoginEmailPage from "components/Authentification2/login/loginEmail";
 import LoginPage from "components/Authentification2/login";
+import ConfirmLoginPage from "components/Authentification2/confirm";
 
 export const AuthRouterPage = () => {
     return (
@@ -18,6 +19,7 @@ export const AuthRouterPage = () => {
                 <Route path="/auth/signin/email" component={FormEmailPage} />
                 <Route path="/auth/login/email" component={LoginEmailPage} />
                 <Route path="/auth/login" component={LoginPage} />
+                <Route path="/auth/confirm" component={ConfirmLoginPage} />
             </Switch>
         </Router>
             <img src="/Frame.svg" alt="Illustration of welcome page" />
