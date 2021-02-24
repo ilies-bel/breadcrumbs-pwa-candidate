@@ -18,6 +18,7 @@ import InsertInvitationOutlinedIcon from '@material-ui/icons/InsertInvitationOut
 import './hiring.scss';
 import { useGetProcess } from '../../utils/axios';
 import {HelpOutline} from "@material-ui/icons";
+import {useAuthContext} from "components/Authentification2/context";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -45,6 +46,7 @@ const HiringProcess = () => {
     const {path, url} = useRouteMatch();
     const classes = useStyles();
     const [{ data, loading, error }, refetch] = useGetProcess();
+    const context = useAuthContext();
 
     if (loading) return <CircularProgress />
     if (error) return <strong>Error. No data found</strong>
@@ -52,9 +54,8 @@ const HiringProcess = () => {
     return (
         <>
         <div>
-            <AuthUserContext.Consumer>
-                {(authUser) => <h2>Hey {authUser.username}</h2>}
-            </AuthUserContext.Consumer>
+             <h2>Hey {context.userName}</h2>
+
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
             <ol className="timeline">
                 {data.map((process, i) =>

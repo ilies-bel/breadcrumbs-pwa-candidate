@@ -1,12 +1,10 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useContext } from "react";
 
 export const AuthContext = React.createContext({
-    token: null,
-    userName: null,
+    token: '',
+    userName: '',
     profilePicture: null,
-    setData: function (token) {
-        this.token = token;
-    }
+    setData: () => {}
 });
 
 export const useAuthContext = () => {

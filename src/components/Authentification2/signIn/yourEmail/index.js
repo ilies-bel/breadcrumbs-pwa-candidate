@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FlashyButton, PageDescription} from "Navigation";
 import {ArrowRightAltOutlined} from "@material-ui/icons";
 import {useHistory, Link} from "react-router-dom";
-
+import * as ROUTES from 'constants/routes';
 import {loginRequest, registrationRequest} from "utils/axiosRequest6";
 import {useAuthContext} from "components/Authentification2/context";
 
@@ -11,7 +11,7 @@ export const FormEmailPage = () => {
     const history = useHistory();
     const [email, setEmail] = useState(null);
     const [password, setPass] = useState(null);
-    const [acceptMailNotif, setAccept] = useState(false)
+
     const [formData, setData] = useState({});
     const [error, setError] = useState(false)
     const context = useAuthContext();
@@ -23,9 +23,7 @@ export const FormEmailPage = () => {
     const changePassEvent = (input) => {
         setPass(input)
     }
-    const changeAcceptEvent = (input) => {
-        setAccept(input)
-    }
+
     const handleChange = () => {
         setData({
             user: {
@@ -43,10 +41,10 @@ export const FormEmailPage = () => {
     const sendRegistration2 = async() => {
         await loginRequest("candidate@breadcrumbs.com", "password").catch(e => console.error(e))
             .then(res => {
-                window.localStorage.setItem("token", res);
-                context.setData(res)
+                res && window.localStorage.setItem("token", res.token);
+                res && window.localStorage.setItem("user", res.user.first_name);
+                res && context.setData(res.token, res.user.first_name)
             } );
-        history.push("/tips")
     }
     
     return (
@@ -65,12 +63,9 @@ export const FormEmailPage = () => {
                        } }/>
                 <input type="password" placeholder="confirm your password" aria-label="confirm-password"/>
 
-                <input type="checkbox" onChange={(event) => {
-                    changeAcceptEvent(event.target.checked); handleChange();
-                }} /> <label>I agree to receive mail notification </label>
-                <FlashyButton onClick={() => sendRegistration2() } > Finish to sign in <ArrowRightAltOutlined/> </FlashyButton>
+                <input type="checkbox" /> <label>I agree to receive mail notification (checkbox inutilisable) </label>
+                <FlashyButton onClick={ async() => await sendRegistration2() }  > Finish to sign in <ArrowRightAltOutlined/> </FlashyButton>
 
-            { error && <strong>Error in form</strong>}
         </div>
     )
 }

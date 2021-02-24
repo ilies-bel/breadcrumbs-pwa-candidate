@@ -28,17 +28,25 @@ const useStyles = makeStyles(theme => ({
 
 const App = () => {
     const classes = useStyles();
-    const [ token, setToken ] = useState(null)
+    const [ token, setToken ] = useState(window.localStorage.getItem("token"));
+    const [ user, setUser ] = useState(window.localStorage.getItem("user"));
+    function setData(token, user) {
+        setToken(token);
+        setUser(user);
+    }
     return (
         <div>
 
             <Router>
+                {/*<Redirect to="/auth" />*/}
                 <AuthContext.Provider value={
                     {
-                        token: window.localStorage.getItem("token")
+                        token: token,
+                        userName: user,
+                        setData: setData
                     }
                 } >
-                <TopNav/></AuthContext.Provider>
+                <TopNav/>
                 <MainNav>
                 <TitleSource>Breadcrumbs</TitleSource>
                 <div className={classes.offset}/>
@@ -58,7 +66,7 @@ const App = () => {
                 <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
                 <Route path="/auth" component={AuthRouterPage} />
-                </MainNav>
+                </MainNav></AuthContext.Provider>
                 <BottomNav/>
             </Router>
         </div>

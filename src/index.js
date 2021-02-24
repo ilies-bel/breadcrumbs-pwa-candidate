@@ -75,7 +75,7 @@ const theme = createMuiTheme({
       fontFamily: 'Roboto',
       fontWeight: 'bold'
     },
-    label: {
+    label2: {
       color: 'darkblue',
       fontFamily: 'Roboto',
       fontWeight: 'bold'
