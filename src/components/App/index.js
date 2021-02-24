@@ -61,7 +61,7 @@ const App = () => {
                         <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
                         <Route path="/auth" component={AuthRouterPage} />
-                        <Route path="/login/email" component={LoginEmailPage} />
+                        { !token && <Route path="/login/email" component={LoginEmailPage}/>}
                     </MainNav>
                     <BottomNav/>
                 </AuthContext.Provider>

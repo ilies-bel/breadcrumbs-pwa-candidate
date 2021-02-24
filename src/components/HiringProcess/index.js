@@ -10,12 +10,19 @@ import MilestonePage from './milestone'
 import SelectDate from './form/disponibilities';
 import ConfirmPage from './form/confirm';
 import {useGetProcess} from "../../utils/axios";
+import {useAuthContext} from "components/Authentification2/context";
+import NotFound from "components/NotFound";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const HiringProcessPage = (props) => {
     const {path, url} = useRouteMatch();
-    const history = useHistory();
+    const authContext = useAuthContext();
     const [{ data, loading, error }, refetch] = useGetProcess();
-    if(error) {return ( <strong>Error</strong> )}
+
+    if( !authContext.token ) { return  <NotFound /> }
+    if(error) {return ( <strong>Error. No found data</strong> )}
+    if( loading ) { return <CircularProgress /> }
+
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
@@ -24,7 +31,7 @@ const HiringProcessPage = (props) => {
                 <div>
                 <Redirect to='/hiring' />
                     {data && data.map((process, index) =>
-                                                    <Link to={`milestone/${process.process_name}`} key={index} />
+                       <Link to={`milestone/${process.process_name}`} key={index} />
                     )}
                     <Route path='/hiring' component={HiringProcess} />
                     <Route path="/milestone/:id" component={MilestonePage} />

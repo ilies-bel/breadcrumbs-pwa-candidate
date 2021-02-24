@@ -26,7 +26,7 @@ const LoginEmailPage = () => {
     }
 
     return (
-        <PaperDiv>
+        <div>
             <PageDescription>Sign in</PageDescription>
 
             <input type="text" placeholder="your Email" aria-label="firstname"
@@ -38,7 +38,7 @@ const LoginEmailPage = () => {
                        setPass(event.target.value);
                     } }/><br/>
             <FlashyButton onClick={ async() => await sendLogin() }  > LOGIN  </FlashyButton>
-        </PaperDiv>
+        </div>
     )
 }
 export default LoginEmailPage;
