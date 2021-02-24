@@ -17,7 +17,7 @@ export const AuthRouterPage = () => {
                 <Route path="/auth/signin/email" component={FormEmailPage} />
             </Switch>
         </Router>
-            <img src="/Frame.svg" />
+            <img src="/Frame.svg" alt="Illustration of welcom page" />
         </PaperDiv>
     )
 }

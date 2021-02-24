@@ -10,6 +10,7 @@ const AMBASSADOR = process.env.AMBASSADOR_API;
 const PROCESS = process.env.PROCESS_API
 const APPOINTMENT = process.env.APPOINTMENT_API
 const INTERVIEW_TYPE = process.env.INTERVIEW_TYPE;
+const COLLABORATOR_TOKEN = process.env.COLLABORATOR_TOKEN
 
 export const useAPI = (path='') => {
     return useAxios({
@@ -31,18 +32,6 @@ export const useGetProcess = () => {
 }
 export const useInterviewType = (id='') => {
     return useAPI(`${INTERVIEW_TYPE}/${id}`)
-}
-
-export const useAuthUser = ({path = '', data = {}, method = 'post'}) => {
-    return useAxios({
-                        baseURL: `users?token=eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FuZGlkYXRlIiwiYnVzaW5lc3NfdGl0bGVfaWQiOm51bGwsIm9mZmljZV9pZCI6bnVsbCwicHJvY2Vzc19pZCI6MSwiZXhwIjoxNjE0Mjc0NzY5fQ.Z24ffCZgb671bSLZWNnUaa07z3BCgaeBwKZzHhyYYnI`,
-                        method: method,
-                        url: path,
-                        data: data
-                    });
-}
-export const useRegistration = () => {
-    return useAuthUser({data: {token: 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FuZGlkYXRlIiwiYnVzaW5lc3NfdGl0bGVfaWQiOm51bGwsIm9mZmljZV9pZCI6bnVsbCwicHJvY2Vzc19pZCI6MSwiZXhwIjoxNjE0Mjc0NzY5fQ.Z24ffCZgb671bSLZWNnUaa07z3BCgaeBwKZzHhyYYnI'}})
 }
 
 

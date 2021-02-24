@@ -7,7 +7,7 @@ export const FormNamePage = () => {
     const history = useHistory();
     return (
         <div>
-            <PageDescription>First, tell us who you are</PageDescription>
+            <PageDescription>Now, let us know your</PageDescription>
 
             <input type="text" placeholder="your First name" aria-label="firstname"/>
             <input type="text" placeholder="your Last name" aria-label="lastname"/>
