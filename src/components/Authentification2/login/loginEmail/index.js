@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FlashyButton, PageDescription} from "Navigation";
 import {useHistory, Link} from "react-router-dom";
 import * as ROUTES from 'constants/routes';
-import {loginRequest, registrationRequest} from "utils/axiosRequest6";
+import {loginRequest, registrationRequest} from "utils/axiosRequest";
 import {useAuthContext} from "components/Authentification2/context";
 import PaperDiv from "components/littleComponents/PaperDiv";
 
@@ -16,13 +16,20 @@ const LoginEmailPage = () => {
     const context = useAuthContext();
     let storage = window.localStorage;
 
-    const sendLogin = async() => {
-        await loginRequest(email, password).catch(e => console.error(e))
+    async function sendLogin(e) {
+        e.preventDefault();
+        await loginRequest(email, password).catch(e => setError(e))
             .then(res => {
-                res && storage.setItem("token", res.token);
-                res && storage.setItem("user", res.user.first_name);
-                res && context.setData(res.token, res.user.first_name + ' ' + res.user?.last_name)
-                res && history.push("/auth/confirm");
+                if(!res.token) {
+                    //Si la réponse ne contient pas de token, on considère que l'authentification à échoué
+                    setError(res?.errors);
+                }
+                else {
+                    res && storage.setItem("token", res.token);
+                    res && storage.setItem("user", res.user.first_name);
+                    res && context.setData(res.token, res.user.first_name + ' ' + res.user?.last_name)
+                    res && history.push("/auth/confirm");
+                }
             } );
     }
 
@@ -30,6 +37,7 @@ const LoginEmailPage = () => {
         <div>
             <PageDescription>Sign in</PageDescription>
 
+            <form method='post on' onSubmit={ (e) => sendLogin(e) } >
             <input type="text" placeholder="your Email" aria-label="firstname"
                    onChange={(event) => {
                        setEmail(event.target.value);
@@ -38,7 +46,10 @@ const LoginEmailPage = () => {
                    onChange={(event) => {
                        setPass(event.target.value);
                     } }/><br/>
-            <FlashyButton onClick={ async() => await sendLogin() }  > LOGIN  </FlashyButton>
+            <FlashyButton type='submit' > LOGIN  </FlashyButton>
+            </form>
+
+            { error && <strong>Connection failed : { JSON.stringify(error) }</strong>}
         </div>
     )
 }

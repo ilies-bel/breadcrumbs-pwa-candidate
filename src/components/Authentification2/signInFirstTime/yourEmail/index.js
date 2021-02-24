@@ -3,7 +3,7 @@ import {FlashyButton, PageDescription} from "Navigation";
 import {ArrowRightAltOutlined} from "@material-ui/icons";
 import {useHistory, Link} from "react-router-dom";
 import * as ROUTES from 'constants/routes';
-import {loginRequest, registrationRequest} from "utils/axiosRequest6";
+import {loginRequest, registrationRequest} from "utils/axiosRequest";
 import {useAuthContext} from "components/Authentification2/context";
 
 

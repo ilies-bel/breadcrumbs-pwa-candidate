@@ -63,8 +63,8 @@ const HiringProcess = () => {
                     <ButtonBase className={classes.button} >
                         <div className="buttonTitle">Due to ...</div>
                         <a className={classes.label}
-                            onClick={() => history.push(`milestone/${process.process_name}`)} >
-                                {process.process_name}
+                            onClick={() => history.push(`milestone/${process?.milestone_name}`)} >
+                                { process?.milestone_name }
                         </a>
                         <HelpOutline color="primary" />
                         <Link to={`${DISPO}`}>

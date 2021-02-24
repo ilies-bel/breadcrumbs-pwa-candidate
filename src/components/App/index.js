@@ -14,11 +14,11 @@ import OfficePage from '../Office';
 import AmbassadorsPage from '../Ambassadors';
 import SocialPage from '../Social';
 import ConfirmPage from '../HiringProcess/form/confirm'
-import {withAuthentication} from '../Authentification/Session';
+
 import {TitleSource} from "Navigation/titleContext";
 import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
-import WelcomePage from "components/Authentification2/welcomPage";
+
 import {AuthRouterPage} from "components/Authentification2";
 import {AuthContext} from "components/Authentification2/context";
 import LoginEmailPage from "components/Authentification2/login/loginEmail";
@@ -41,13 +41,14 @@ const App = () => {
         <div>
             <Router>
                 <AuthContext.Provider value={ { token: token, userName: user, setData: setData } } >
+                    { !token && <Redirect to="/login/email" /> }
                     <TopNav/>
                     <MainNav>
                         <TitleSource>Breadcrumbs</TitleSource>
                         <div className={classes.offset}/>
 
                         <TitleDescriptionSource></TitleDescriptionSource>
-                        <Route path={ROUTES.HOME} component={HomePage}/>
+                        <Route exact path={[ROUTES.HOME, "/"]} component={HomePage}/>
                         <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
                         <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>
                         <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
