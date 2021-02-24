@@ -3,7 +3,8 @@ import {FlashyButton, PageDescription} from "Navigation";
 import {ArrowRightAltOutlined} from "@material-ui/icons";
 import {useHistory, Link} from "react-router-dom";
 
-import {loginRequest, registrationRequest} from "utils/axiosRequest";
+import {loginRequest, registrationRequest} from "utils/axiosRequest6";
+import {useAuthContext} from "components/Authentification2/context";
 
 
 export const FormEmailPage = () => {
@@ -13,6 +14,7 @@ export const FormEmailPage = () => {
     const [acceptMailNotif, setAccept] = useState(false)
     const [formData, setData] = useState({});
     const [error, setError] = useState(false)
+    const context = useAuthContext();
     let storage = window.localStorage;
 
     const changeEmailEvent = (input) => {
@@ -35,12 +37,16 @@ export const FormEmailPage = () => {
     }
     const sendRegistration = () => {
         registrationRequest(formData).then(res => {
-            console.log(res.data);
             history.push("/tips", res.data);
         })
     }
     const sendRegistration2 = async() => {
-        await loginRequest("candidate@breadcrumbs.com", "password").catch(e => console.error(e));
+        await loginRequest("candidate@breadcrumbs.com", "password").catch(e => console.error(e))
+            .then(res => {
+                window.localStorage.setItem("token", res);
+                context.setData(res)
+            } );
+        history.push("/tips")
     }
     
     return (

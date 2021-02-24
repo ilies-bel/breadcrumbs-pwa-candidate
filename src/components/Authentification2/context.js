@@ -1,10 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
-export const AuthContext = React.createContext();
+export const AuthContext = React.createContext({
+    token: null,
+    userName: null,
+    profilePicture: null,
+    setData: function (token) {
+        this.token = token;
+    }
+});
 
-export const AuthProvider = () => {
-    const [user, setUser] = useState(null);
-    return (
-        <AuthContext.Provider value={user} />
-    )
+export const useAuthContext = () => {
+    return useContext(AuthContext);
 }

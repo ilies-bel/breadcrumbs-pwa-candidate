@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import * as ROUTES from 'constants/routes';
 
@@ -20,18 +20,25 @@ import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
 import WelcomePage from "components/Authentification2/welcomPage";
 import {AuthRouterPage} from "components/Authentification2";
+import {AuthContext} from "components/Authentification2/context";
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
 }))
 
 const App = () => {
-    const classes = useStyles();;
+    const classes = useStyles();
+    const [ token, setToken ] = useState(null)
     return (
         <div>
 
             <Router>
-                <TopNav/>
+                <AuthContext.Provider value={
+                    {
+                        token: window.localStorage.getItem("token")
+                    }
+                } >
+                <TopNav/></AuthContext.Provider>
                 <MainNav>
                 <TitleSource>Breadcrumbs</TitleSource>
                 <div className={classes.offset}/>
@@ -59,4 +66,4 @@ const App = () => {
     );
 }
 
-export default withAuthentication(App);
+export default App;

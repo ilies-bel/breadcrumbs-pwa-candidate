@@ -16,7 +16,6 @@ import {compose} from "recompose";
 
 const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
-        bottom: theme.spacing(2),
         position: 'fixed',
         bottom: 0,
         '& .Mui-selected': {
@@ -72,7 +71,9 @@ const BottomNav = () => {
 
 const condition = (authUser) => !!authUser;
 
-export default compose(
+/*export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(BottomNav);
+)(BottomNav);*/
+
+export default BottomNav

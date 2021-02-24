@@ -5,7 +5,8 @@ import {compose} from "recompose";
 import {AppBar, IconButton, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import {AccountCircle} from "@material-ui/icons";
 import {TitleTarget} from "./titleContext";
-
+import { AuthContext } from "components/Authentification2/context";
+import { useAuthContext } from "components/Authentification2/context";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,8 +30,10 @@ const useStyles = makeStyles((theme) => ({
 
 const TopNav = () => {
     const classes = useStyles();
+    const context = useAuthContext();
 
-    return (
+    if(!context.token) return <AppBar><Toolbar>Nothing to show. You must be signed in</Toolbar></AppBar>
+    if(context.token) return (
                 <AppBar className={classes.appBar}>
                     <Toolbar>
 
@@ -67,8 +70,8 @@ const TopNav = () => {
 */
 const condition = (authUser) => !!authUser;
 
-export default compose(
+/*export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(TopNav);
-
+)(TopNav);*/
+export default TopNav
