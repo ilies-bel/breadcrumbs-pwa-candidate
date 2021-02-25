@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
 
     return {
         entry: './src/index.js',
-        devtool: isProduction ? false : 'eval',
+        devtool: isProduction ? false : 'eval-nosources-cheap-module-source-map',
         module: {
             rules: [
                 {
@@ -112,6 +112,7 @@ module.exports = (env, argv) => {
             publicPath: '/',
         },
         plugins: [
+            new CleanWebpackPlugin(),
 
             new webpack.DefinePlugin({
                 'process.env': {
