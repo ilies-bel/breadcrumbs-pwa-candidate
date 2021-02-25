@@ -60,10 +60,9 @@ const HiringProcess = () => {
             <ol className="timeline">
                 {data.map((process, i) =>
                 <li key={i} >
-                    <ButtonBase className={classes.button} >
+                    <ButtonBase className={classes.button} onClick={() => history.push(`milestone/${process?.milestone_name}`)} >
                         <div className="buttonTitle">Due to ...</div>
-                        <a className={classes.label}
-                            onClick={() => history.push(`milestone/${process?.milestone_name}`)} >
+                        <a className={classes.label} >
                                 { process?.milestone_name }
                         </a>
                         <HelpOutline color="primary" />
