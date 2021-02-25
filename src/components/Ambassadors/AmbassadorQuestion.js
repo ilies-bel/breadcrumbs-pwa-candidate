@@ -14,8 +14,6 @@ const AmbassadorQuestion = () => {
             <div>
 
                 <h3>Ask a question</h3>
-                <Messages/>
-
             </div>
         </>
 

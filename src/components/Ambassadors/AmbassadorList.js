@@ -1,5 +1,4 @@
 import React from 'react';
-import Messages from "../Messages";
 import {TitleSource} from "../Navigation/titleContext";
 import {AMBASSADORS_TITLE} from "../../constants/routes";
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description";
@@ -20,6 +19,12 @@ const collaborators = [
         photo: "https://everipedia-storage.s3.amazonaws.com/ProfilePicture/lang_en/alessa-savage__1020b8/blob__02576__thumb.jpeg",
         catch_phrase: "Smile and live !",
         description: "Human Ressource."
+    },
+    {
+        name: "Jason",
+        photo: "http://images.rottentomatoes.com/images/spotlights/2008/rtuk_feature_jason_statham_01.jpg",
+        catch_phrase: "Rules number 1 : No question",
+        description: "Taxi Driver. Delivery service"
     }
 ]
 
