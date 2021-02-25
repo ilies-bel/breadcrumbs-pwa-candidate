@@ -15,6 +15,8 @@ const LoginEmailPage = () => {
     const [error, setError] = useState(false)
     const context = useAuthContext();
     let storage = window.localStorage;
+    console.log(storage); console.log("eiozpdekozpdekoz");
+    console.log("ekekelelelel");
 
     async function sendLogin(e) {
         e.preventDefault();
@@ -35,10 +37,10 @@ const LoginEmailPage = () => {
 
     return (
         <div>
-            <PageDescription>Sign in</PageDescription>
+            <PageDescription>You must be connected to use this application</PageDescription>
 
-            <form method='post on' onSubmit={ (e) => sendLogin(e) } >
-            <input type="text" placeholder="your Email" aria-label="firstname"
+            <form onSubmit={ (e) => sendLogin(e) } >
+            <input autoFocus={true} autoComplete="email" type="email"placeholder="your Email" aria-label="firstname"
                    onChange={(event) => {
                        setEmail(event.target.value);
                    } } /><br/>
