@@ -15,7 +15,7 @@ const collaborators = [
         description: "Fifth Mayor of the Leaf Village."
     },
     {
-        name: "Alessa Savage",
+        name: "Alessa",
         photo: "https://everipedia-storage.s3.amazonaws.com/ProfilePicture/lang_en/alessa-savage__1020b8/blob__02576__thumb.jpeg",
         catch_phrase: "Smile and live !",
         description: "Human Ressource."
@@ -23,7 +23,7 @@ const collaborators = [
     {
         name: "Jason",
         photo: "http://images.rottentomatoes.com/images/spotlights/2008/rtuk_feature_jason_statham_01.jpg",
-        catch_phrase: "Rules number 1 : No question",
+        catch_phrase: "Rule number 1 : No question",
         description: "Taxi Driver. Delivery service"
     }
 ]
