@@ -3,11 +3,8 @@ import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import * as ROUTES from 'constants/routes';
 
 import HomePage from '../Home';
-import AccountPage from '../Authentification/Account';
+import AccountPage from '../AuthentificationFirebase/Account';
 import {BottomNav, TopNav, PageDescription, MainNav} from 'Navigation';
-import SignUpPage from '../Authentification/SignUp';
-import SignInPage from '../Authentification/SignIn';
-import PasswordForgetPage from '../Authentification/PasswordForget';
 import HiringProcessPage from '../HiringProcess';
 import TipsPage from '../Tips';
 import OfficePage from '../Office';
@@ -19,10 +16,10 @@ import {TitleSource} from "Navigation/titleContext";
 import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
 
-import {AuthRouterPage} from "components/Authentification2";
-import {AuthContext} from "components/Authentification2/context";
-import LoginEmailPage from "components/Authentification2/login/loginEmail";
-import OnBoardingPage from "components/Authentification2/signInFirstTime";
+import {AuthRouterPage} from "components/AuthentificationJwt";
+import {AuthContext} from "components/AuthentificationJwt/context";
+import LoginEmailPage from "components/AuthentificationJwt/login/loginEmail";
+import OnBoardingPage from "components/AuthentificationJwt/signIn";
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
@@ -42,7 +39,7 @@ const App = () => {
         <div>
             <Router>
                 <AuthContext.Provider value={ { token: token, userName: user, setData: setData } } >
-                    { !token && <Redirect to="/login/email" /> }
+                    { !token && <Redirect to="/auth/signin" /> }
                     <TopNav/>
                     <MainNav>
                         <TitleSource>Breadcrumbs</TitleSource>
@@ -51,9 +48,6 @@ const App = () => {
                         <TitleDescriptionSource></TitleDescriptionSource>
                         <Route exact path={[ROUTES.HOME, "/"]} component={HomePage}/>
                         <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
-                        <Route path={ROUTES.SIGN_UP} component={SignUpPage}/>
-                        <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
-                        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
 
                         <Route path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>
                         <Route path={ROUTES.TIPS} component={TipsPage}/>

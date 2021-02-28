@@ -1,9 +1,9 @@
 import React from 'react';
 import {compose} from 'recompose';
 
-import {withAuthorization, withEmailVerification} from '../Authentification/Session';
+import {withAuthorization, withEmailVerification} from '../AuthentificationFirebase/Session';
 import Messages from '../Messages';
-import {useAuthContext} from "components/Authentification2/context";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 import NotFound from "components/NotFound";
 import {PageDescription} from "littleComponents";
 

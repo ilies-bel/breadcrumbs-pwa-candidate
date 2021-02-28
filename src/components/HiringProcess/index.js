@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Link, NavLink, Redirect, Route, useRouteMatch, useHistory} from 'react-router-dom';
 
 import {TitleSource} from "../Navigation/titleContext";
-import {AuthUserContext} from "../Authentification/Session";
+import {AuthUserContext} from "../AuthentificationFirebase/Session";
 import {CONFIRM, DISPO, HIRING_PROCESS_TITLE} from "../../constants/routes";
 
 import HiringProcess from './hiring';
@@ -10,7 +10,7 @@ import MilestonePage from './milestone'
 import SelectDate from './form/disponibilities';
 import ConfirmPage from './form/confirm';
 import {useGetProcess} from "../../utils/axios";
-import {useAuthContext} from "components/Authentification2/context";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 import NotFound from "components/NotFound";
 import CircularProgress from "@material-ui/core/CircularProgress";
 

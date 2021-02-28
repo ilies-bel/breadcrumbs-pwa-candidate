@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import {withAuthorization, withEmailVerification} from '../Authentification/Session';
+import {withAuthorization, withEmailVerification} from '../AuthentificationFirebase/Session';
 import * as ROUTES from '../../constants/routes';
 import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
@@ -12,7 +12,7 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
-import {useAuthContext} from "components/Authentification2/context";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 
 
@@ -45,7 +45,7 @@ const BottomNav = () => {
         setValue(newValue);
     };
 
-    if(!context.token) return <div>Hi !</div>
+    if(!context.token) return <div>No token provided</div>
     if(context.token) return (
             <BottomNavigation
                 className={classes.BottomNavigation}

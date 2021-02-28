@@ -1,11 +1,9 @@
 import React, {useState} from "react";
-import {FormNamePage} from "./yourName";
-import {FormEmailPage} from "./yourEmail";
 import {ArrowRightAltOutlined} from "@material-ui/icons";
 import { FlashyButton } from 'littleComponents';
 import { Link } from 'react-router-dom'
 
-const OnBoardingPage = () => {
+const EmailForm = () => {
     const [ firstName, inputFirstName ] = useState('');
     const [email, inputEmail] = useState(null);
     const [password, inputPass] = useState(null);
@@ -27,6 +25,7 @@ const OnBoardingPage = () => {
             }
         })
     }
+
     function onSubmit(e) {
         e.preventDefault()
         if(matchPassword()) {
@@ -43,11 +42,11 @@ const OnBoardingPage = () => {
             <br/><br/><br/>
 
             <form onSubmit={ (e) => onSubmit(e) } >
-                <input type="text" placeholder="your First name" aria-label="firstname" onChange={ event => inputFirstName(event.target.value)}/>
+                <input type="text" placeholder="First name" aria-label="firstname" onChange={ event => inputFirstName(event.target.value)}/>
                 <br/>
-                <input type="text" placeholder="your Last name" aria-label="lastname"/>
+                <input type="text" placeholder="Last name" aria-label="lastname"/>
                 <br/><br/>
-                <input type="email" placeholder="your Email" aria-label="firstname"
+                <input type="email" placeholder="Email" aria-label="firstname"
                        onChange={(event) => {
                            inputEmail(event.target.value);
                            handleChange()
@@ -66,7 +65,7 @@ const OnBoardingPage = () => {
                 />
                 <br/><br/>
 
-                <input type="checkbox" /> <label>I agree to receive mail notification (checkbox inutilisable) </label>
+                <input type="checkbox" /> <label>I agree to receive mail notification</label>
                 <br/><br/>
                 <FlashyButton type="submit" > Finish to sign in <ArrowRightAltOutlined/> </FlashyButton>
             </form>
@@ -76,4 +75,4 @@ const OnBoardingPage = () => {
     )
 }
 
-export default OnBoardingPage;
+export default EmailForm;

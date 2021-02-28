@@ -12,7 +12,7 @@ import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import {useAuthContext} from "components/Authentification2/context";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 import NotFound from "components/NotFound";
 
 const style = {

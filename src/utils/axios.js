@@ -11,6 +11,9 @@ const PROCESS = process.env.PROCESS_API
 const APPOINTMENT = process.env.APPOINTMENT_API
 const INTERVIEW_TYPE = process.env.INTERVIEW_TYPE;
 const COLLABORATOR_TOKEN = process.env.COLLABORATOR_TOKEN
+const CANDIDATE_TOKEN = process.env.COLLABORATOR_TOKEN
+const CANDIDATE_API_URL = process.env.CANDIDATE_API_URL
+
 
 export const useAPI = (path='') => {
     return useAxios({
@@ -18,6 +21,11 @@ export const useAPI = (path='') => {
         url: path
     })
 }
+
+export const useGetAccount = () => {
+    return useAPI(CANDIDATE_API_URL);
+}
+
 export const useGetDisponibilities = () => {
     return useAPI(AVAILABILITY)
 }
