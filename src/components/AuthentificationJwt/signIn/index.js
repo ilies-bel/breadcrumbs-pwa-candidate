@@ -1,7 +1,7 @@
 import React from "react";
 import {FlashyButton, PageDescription, SignInGoogleBase, SignInLinkedinBase} from 'littleComponents';
 import {BrowserRouter as Router, Link, Route, Switch, useHistory} from 'react-router-dom'
-import emailSignInPage from "./emailSignIn";
+import emailSignInPage from "./emailSignIn"
 import onBoardingPage from "./onboarding"
 
 const welcomePage = () => {
