@@ -22,7 +22,7 @@ const collaborators = [
     },
     {
         name: "Jason",
-        photo: "http://images.rottentomatoes.com/images/spotlights/2008/rtuk_feature_jason_statham_01.jpg",
+        photo: "https://www.gewoonvoorhem.nl/app/uploads/2020/01/Jason-Statham-Countdown-Rep-e1578660419114.jpg",
         catch_phrase: "Rule number 1 : No question",
         description: "Taxi Driver. Delivery service"
     }
