@@ -22,6 +22,7 @@ import {makeStyles} from "@material-ui/core";
 import {AuthRouterPage} from "components/Authentification2";
 import {AuthContext} from "components/Authentification2/context";
 import LoginEmailPage from "components/Authentification2/login/loginEmail";
+import OnBoardingPage from "components/Authentification2/signInFirstTime";
 
 const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
@@ -61,7 +62,7 @@ const App = () => {
                         <Route path={ROUTES.SOCIAL} component={SocialPage}/>
                         <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
-                        <Route path="/auth" component={AuthRouterPage} />
+                        <Route path="/auth" component={OnBoardingPage} />
                         { !token && <Route path="/login/email" component={LoginEmailPage}/>}
                     </MainNav>
                     <BottomNav/>

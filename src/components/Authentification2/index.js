@@ -8,13 +8,14 @@ import {FormNamePage} from "components/Authentification2/signInFirstTime/yourNam
 import LoginEmailPage from "components/Authentification2/login/loginEmail";
 import LoginPage from "components/Authentification2/login";
 import ConfirmLoginPage from "components/Authentification2/confirm";
+import {OnBoardingPage} from "./signInFirstTime";
 
 export const AuthRouterPage = () => {
     return (
         <PaperDiv>
         <Router>
             <Switch>
-                <Route path="/auth/welcome" component={WelcomePage} />
+                <Route path="/auth/welcome" component={OnBoardingPage} />
                 <Route path="/auth/signin/name" component={FormNamePage} />
                 <Route path="/auth/signin/email" component={FormEmailPage} />
                 <Route path="/auth/login/email" component={LoginEmailPage} />

@@ -44,7 +44,7 @@
   transition: all ease-out 0.4s;
   position: relative;
 
-  &:hover, &:focus {
+  &:hover &:focus {
     background: linear-gradient(91.6deg, #F24E95 0%, #3572F1 100%) #F6B714;
     border-style: solid;
     border-width: 2px;

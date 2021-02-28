@@ -33,16 +33,10 @@ export const FormEmailPage = () => {
             }
         })
     }
-    const sendRegistration = () => {
-        registrationRequest(formData).then(res => {
-            history.push("/tips", res.data);
-        })
-    }
-
     
     return (
         <div>
-            <PageDescription>First, tell us who you are</PageDescription>
+            <PageDescription>Now, sign up</PageDescription>
 
                 <input type="text" placeholder="your Email" aria-label="firstname"
                        onChange={(event) => {
@@ -57,8 +51,6 @@ export const FormEmailPage = () => {
                 <input type="password" placeholder="confirm your password" aria-label="confirm-password"/>
 
                 <input type="checkbox" /> <label>I agree to receive mail notification (checkbox inutilisable) </label>
-                <FlashyButton onClick={ async() => await sendRegistration2() }  > Finish to sign in <ArrowRightAltOutlined/> </FlashyButton>
-
         </div>
     )
 }

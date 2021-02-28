@@ -37,6 +37,7 @@ const LoginEmailPage = () => {
 
     return (
         <div>
+            <Link to="/auth/welcome"> You don't have an account. Let's Create one. &rarr;</Link>
             <PageDescription>You must be connected to use this application</PageDescription>
 
             <form onSubmit={ (e) => sendLogin(e) } >
@@ -51,7 +52,7 @@ const LoginEmailPage = () => {
             <FlashyButton type='submit' > LOGIN  </FlashyButton>
             </form>
 
-            { error && <strong>Connection failed : { JSON.stringify(error) }</strong>}
+            { error && <div>Connection failed </div> }
         </div>
     )
 }

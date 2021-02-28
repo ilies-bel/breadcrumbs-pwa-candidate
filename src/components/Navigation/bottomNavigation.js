@@ -18,8 +18,6 @@ import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 
 const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
-        position: 'fixed',
-        bottom: 0,
         '& .Mui-selected': {
             borderTopColor: '#3572F1',
             borderStyle: 'solid',

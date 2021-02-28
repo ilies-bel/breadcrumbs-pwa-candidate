@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
 
     return {
         entry: './src/index.js',
-        devtool: isProduction ? false : 'eval-nosources-cheap-module-source-map',
+        devtool: isProduction ? false : 'eval',
         module: {
             rules: [
                 {
