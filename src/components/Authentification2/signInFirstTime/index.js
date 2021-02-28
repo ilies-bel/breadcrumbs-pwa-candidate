@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import {FormNamePage} from "./yourName";
-import {FormEmailPage} from "./yourEmail";
-import {ArrowRightAltOutlined} from "@material-ui/icons";
+import ArrowRightAltOutlined from "@material-ui/icons/ArrowRightAltOutlined";
 import { FlashyButton } from 'littleComponents';
 import { Link } from 'react-router-dom'
 
@@ -30,20 +28,23 @@ const OnBoardingPage = () => {
     function onSubmit(e) {
         e.preventDefault()
         if(matchPassword()) {
-            alert("make an request to register this user : " + formData.user?.first_name + ' ' + formData.user?.email)
+            alert("make an axios request to register this user : " + formData.user?.first_name + ' ' + formData.user?.email)
         }
         else {
-            setMsg("Wrong password")
+            setMsg("Passwords don't match")
         }
     }
 
     return (
         <>
-            <pre><Link to="/login/email"> I already have an account. Go login &rarr;</Link></pre>
+            <pre><Link to="/auth/login"> I already have an account. Go login &rarr;</Link></pre>
             <br/><br/><br/>
 
             <form onSubmit={ (e) => onSubmit(e) } >
-                <input type="text" placeholder="your First name" aria-label="firstname" onChange={ event => inputFirstName(event.target.value)}/>
+                <input type="text" placeholder="your First name" aria-label="firstname" onChange={ event => {
+                    inputFirstName(event.target.value);
+                    handleChange();
+                }}/>
                 <br/>
                 <input type="text" placeholder="your Last name" aria-label="lastname"/>
                 <br/><br/>

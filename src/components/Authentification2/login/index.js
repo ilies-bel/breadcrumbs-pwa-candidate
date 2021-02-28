@@ -9,6 +9,7 @@ const LoginPage = () => {
 
     return (
         <div>
+            <Link to="/auth/welcome"> You don't have an account ? Let's Create one. &rarr;</Link>
             <PageDescription>Sign in</PageDescription>
             <FlashyButton onClick={() => history.push("/auth/login/email")} > Sign in with your email</FlashyButton> <br/> <br/>
             <SignInGoogleBase />

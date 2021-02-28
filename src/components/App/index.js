@@ -42,7 +42,8 @@ const App = () => {
         <div>
             <Router>
                 <AuthContext.Provider value={ { token: token, userName: user, setData: setData } } >
-                    { !token && <Redirect to="/login/email" /> }
+                    {/*Si on n'est pas connecté, on est systématiquement redirigé vers la page de login*/}
+                        { !token && <Redirect to="/auth/login" /> }
                     <TopNav/>
                     <MainNav>
                         <TitleSource>Breadcrumbs</TitleSource>
@@ -55,15 +56,15 @@ const App = () => {
                         <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
                         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
 
-                        <Route path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>
+                        <Route exact path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>
                         <Route path={ROUTES.TIPS} component={TipsPage}/>
                         <Route path={ROUTES.OFFICE} component={OfficePage}/>
                         <Route path={ROUTES.AMBASSADORS} component={AmbassadorsPage}/>
                         <Route path={ROUTES.SOCIAL} component={SocialPage}/>
                         <Route path={ROUTES.CONFIRM} component={ConfirmPage}/>
 
-                        <Route path="/auth" component={OnBoardingPage} />
-                        { !token && <Route path="/login/email" component={LoginEmailPage}/>}
+                        <Route path="/auth" component={AuthRouterPage}/>
+
                     </MainNav>
                     <BottomNav/>
                 </AuthContext.Provider>

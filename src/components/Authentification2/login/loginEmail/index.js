@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FlashyButton, PageDescription} from "Navigation";
 import {useHistory, Link} from "react-router-dom";
 import * as ROUTES from 'constants/routes';
@@ -15,8 +15,6 @@ const LoginEmailPage = () => {
     const [error, setError] = useState(false)
     const context = useAuthContext();
     let storage = window.localStorage;
-    console.log(storage); console.log("eiozpdekozpdekoz");
-    console.log("ekekelelelel");
 
     async function sendLogin(e) {
         e.preventDefault();
@@ -30,14 +28,15 @@ const LoginEmailPage = () => {
                     res && storage.setItem("token", res.token);
                     res && storage.setItem("user", res.user.first_name);
                     res && context.setData(res.token, res.user.first_name + ' ' + res.user?.last_name)
-                    res && history.push("/auth/confirm");
+                    res && history.replace("/auth/confirm");
                 }
             } );
     }
 
     return (
+
         <div>
-            <Link to="/auth/welcome"> You don't have an account. Let's Create one. &rarr;</Link>
+            <Link to="/auth/welcome"> You don't have an account ? Let's Create one. &rarr;</Link>
             <PageDescription>You must be connected to use this application</PageDescription>
 
             <form onSubmit={ (e) => sendLogin(e) } >
