@@ -1,7 +1,7 @@
 {
-  "name": "react-pwa-boilerplate",
-  "version": "0.0.1",
-  "description": "",
+  "name": "breadcrumbs-candidate-pwa",
+  "version": "0.2.1",
+  "description": "Frontend for the candidates of Breadcrumbs HR",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -16,7 +16,7 @@
     "@types/react-dom": "^16.9.7",
     "axios": "^0.21.1",
     "axios-hooks": "^2.3.0",
-    "dotenv-webpack": "^6.0.0",
+    "dotenv-webpack": "^6.0.2",
     "eslint": "^7.18.0",
     "firebase": "^8.2.2",
     "fork-ts-checker-webpack-plugin": "^4.1.3",

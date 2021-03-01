@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Link, Route, useHistory, useRouteMatch,} from 'react-router-dom';
 
 import {TitleSource} from "../Navigation/titleContext";
-import {AuthUserContext} from "../Authentification/Session";
+import {AuthUserContext} from "../AuthentificationFirebase/Session";
 import {HIRING_PROCESS_TITLE, DISPO, RESERVATION, CONFIRM} from "../../constants/routes";
 import {HIRING_DESCRIPTION} from "../../constants/description";
 
@@ -18,7 +18,7 @@ import InsertInvitationOutlinedIcon from '@material-ui/icons/InsertInvitationOut
 import './hiring.scss';
 import { useGetProcess } from '../../utils/axios';
 import {HelpOutline} from "@material-ui/icons";
-import {useAuthContext} from "components/Authentification2/context";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 
 const useStyles = makeStyles(theme => ({
     button: {

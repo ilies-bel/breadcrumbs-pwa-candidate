@@ -1,12 +1,12 @@
 import React from 'react';
-import {withAuthorization, withEmailVerification} from '../Authentification/Session';
+import {withAuthorization, withEmailVerification} from '../AuthentificationFirebase/Session';
 
 import {compose} from "recompose";
 import {AppBar, IconButton, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import {AccountCircle} from "@material-ui/icons";
 import {TitleTarget} from "./titleContext";
-import { AuthContext } from "components/Authentification2/context";
-import { useAuthContext } from "components/Authentification2/context";
+import { AuthContext } from "components/AuthentificationJwt/context";
+import { useAuthContext } from "components/AuthentificationJwt/context";
 import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

@@ -7,8 +7,8 @@ import React from 'react';
 
 import {PageDescription, FlashyButton} from 'littleComponents';
 import {useGetProcess, useInterviewType} from '../../utils/axios';
-import {AuthUserContext} from "../Authentification/Session";
-import {useAuthContext} from "components/Authentification2/context";
+import {AuthUserContext} from "../AuthentificationFirebase/Session";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 function MilestonePage() {

@@ -18,11 +18,21 @@ export const userRequest = ({path = '', body = {}, token = COLLABORATOR_TOKEN}) 
         params: {token: token}
     })
 }
+
 export async function loginRequest(email, password) {
-    return await axios.post(`${BASE_API_URL}/users/login`, {"user":{"email":email, "password":password}})
-        .then(res => res.data.json )
+    return await axios.post(`${BASE_API_URL}/users/login`, {"user": {"email": email, "password": password}})
+        .then(res => res.data.json)
 }
 
-export async function registrationRequest() {
-    return await axios.post(`${BASE_API_URL}/users`)
+export async function registrationRequest( first_name, last_name, email, password, token) {
+    return await axios.post(`${BASE_API_URL}/candidates?token=${token}`,
+        {
+            "user_attributes": {
+                "first_name": first_name,
+                "last_name": last_name,
+                "email": email,
+                "password": password
+            }
+        })
+
 }

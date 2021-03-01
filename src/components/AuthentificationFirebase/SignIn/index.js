@@ -171,6 +171,7 @@ const SignInLinkedinBase = () => {
     )
   
 }
+
 const SignInForm = compose(
   withRouter,
   withFirebase,
