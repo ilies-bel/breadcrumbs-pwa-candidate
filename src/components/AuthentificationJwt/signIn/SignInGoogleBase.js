@@ -7,7 +7,7 @@ const SignInGoogleBase = (props) => {
 
     return (
         <form>
-            <button type="submit">Sign In with Google. bouton inutilisable.</button>
+            <button disabled type="submit">Sign In with Google.</button>
 
             {error && <p>{error.message}</p>}
         </form>

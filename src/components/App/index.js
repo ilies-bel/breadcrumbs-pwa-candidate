@@ -16,7 +16,6 @@ import {TitleSource} from "Navigation/titleContext";
 import {TitleDescriptionSource} from "Navigation/descriptionContext"
 import {makeStyles} from "@material-ui/core";
 
-import {AuthRouterPage} from "components/AuthentificationJwt";
 import {AuthContext} from "components/AuthentificationJwt/context";
 import LoginEmailPage from "components/AuthentificationJwt/login/loginEmail";
 import OnBoardingPage from "components/AuthentificationJwt/signIn";

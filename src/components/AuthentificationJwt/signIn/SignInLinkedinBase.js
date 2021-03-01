@@ -22,11 +22,11 @@ const SignInLinkedinBase = () => {
     return (
         <>
             <form onSubmit={() => onSubmit}>
-                <button onClick={() =>
+                <button disabled onClick={() =>
                     window.open("https://www.linkedin.com/oauth/v2/authorization?response_type=code&state=76313eba022e338d3464c2eb709326f4031dd7c727416c99b15bc11&redirect_uri=https://localhost:5000/hiring-process&scope=r_liteprofile&client_id=78xqyjqta1nc2n",
                                 'Authentifie toi avec Linkedin',
                                 'menubar=no,location=no,status=no, width=400, heigth=600',)
-                } >Sign in with Linkedin. bouton inutilisable  <LinkedInIcon /></button>
+                } >Sign in with Linkedin<LinkedInIcon /></button>
             </form>
         </>
     )

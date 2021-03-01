@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FlashyButton, PageDescription} from "Navigation";
 import {useHistory, Link} from "react-router-dom";
 import * as ROUTES from 'constants/routes';
-import {loginRequest, registrationRequest} from "utils/axiosRequest";
+import {loginRequest, registrationRequest} from "utils/auth.service";
 import {useAuthContext} from "components/AuthentificationJwt/context";
 import PaperDiv from "components/littleComponents/PaperDiv";
 
@@ -24,7 +24,6 @@ const LoginEmailPage = () => {
         await loginRequest(email, password).catch(e => setError(e))
             .then(res => {
                 if(!res.token) {
-                    //Si la réponse ne contient pas de token, on considère que l'authentification à échoué
                     setError(res?.errors);
                 }
                 else {
