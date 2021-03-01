@@ -45,7 +45,7 @@ const App = () => {
                         <div className={classes.offset}/>
 
                         <TitleDescriptionSource></TitleDescriptionSource>
-                        <Route exact path={[ROUTES.HOME, "/"]} component={HomePage}/>
+                        <Route exact path={ROUTES.LANDING} component={HomePage}/>
                         <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
 
                         <Route path={ROUTES.HIRING_PROCESS} component={HiringProcessPage}/>

@@ -30,9 +30,6 @@ const HiringProcessPage = (props) => {
             <Router>
                 <div>
                 <Redirect to='/hiring' />
-                    {data && data.map((process, index) =>
-                       <Link to={`milestone/${process.process_name}`} key={index} />
-                    )}
                     <Route path='/hiring' component={HiringProcess} />
                     <Route path="/milestone/:id" component={MilestonePage} />
                 <Route path={DISPO} component={SelectDate} />

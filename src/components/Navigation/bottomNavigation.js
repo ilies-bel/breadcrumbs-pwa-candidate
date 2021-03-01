@@ -41,7 +41,7 @@ const BottomNav = () => {
     const history = useHistory();
 
     const handleChange = (event, newValue) => {
-        history.push(newValue);
+        history.replace(newValue);
         setValue(newValue);
     };
 
