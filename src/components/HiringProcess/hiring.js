@@ -53,7 +53,6 @@ const HiringProcess = () => {
 
     return (
         <>
-        <div>
              <h2>Hey {context.userName}</h2>
 
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
@@ -73,7 +72,6 @@ const HiringProcess = () => {
                 </li>)
                 }
             </ol>
-        </div>
         </>
     );
 }

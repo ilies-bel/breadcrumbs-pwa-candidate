@@ -80,8 +80,8 @@ const SocialPage = () => {
                 aria-label="full width tabs example"
                 >
                 
-                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/tweets`}><TwitterIcon /></Link>} />
-                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/linked`}><LinkedInIcon /></Link>} />
+                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/tweets`} replace ><TwitterIcon /></Link>} />
+                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/linked`} replace ><LinkedInIcon /></Link>} />
             </Tabs>
             
             </Paper>
