@@ -1,16 +1,16 @@
 import React, {useState} from "react";
-import {FlashyButton, PageDescription} from "Navigation";
-import {useHistory, Link} from "react-router-dom";
-import {PaperDiv, SignInGoogleBase, SignInLinkedinBase} from "littleComponents";
+import { PageDescription} from "Navigation";
+import {useHistory} from "react-router-dom";
+import { SignInGoogleBase, SignInLinkedinBase} from "littleComponents";
+import Login from "components/AuthentificationJwt/login/loginEmail";
 
 
 const LoginPage = () => {
-    const history = useHistory();
 
     return (
         <div>
             <PageDescription>Sign in</PageDescription>
-            <FlashyButton onClick={() => history.push("/auth/login/email")} > Sign in with your email</FlashyButton> <br/> <br/>
+            <Login/>
             <SignInGoogleBase />
             <SignInLinkedinBase />
         </div>

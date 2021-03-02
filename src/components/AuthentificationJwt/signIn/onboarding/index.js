@@ -27,7 +27,7 @@ class OnBoardingPage extends Component {
                         nisi, pretium ut lacinia in, elementum id enim.</PageDescription>
 
                     <Link to={{
-                        pathname: '/auth/signin/email',
+                        pathname: '/auth/signup/email',
                     }}>
                         <FlashyButton> Create account with email</FlashyButton>
                     </Link>
@@ -37,11 +37,7 @@ class OnBoardingPage extends Component {
                     <SignInLinkedinBase/><br/>
                     <SignInGoogleBase/><br/>
 
-                    <Router>
 
-                        <Route path="/auth/signin/email" component={emailSignInPage}/>
-
-                    </Router>
                 </>
             )
 

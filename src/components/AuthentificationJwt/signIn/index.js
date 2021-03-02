@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Link, Route, Switch, useHistory} from 'react-ro
 import EmailSignInPage from "./emailSignIn"
 import OnBoardingPage from "./onboarding"
 import ConfirmationPage from "./confirmation"
+import LoginPage from "components/AuthentificationJwt/login";
 
 const welcomePage = () => {
 
@@ -14,9 +15,10 @@ const welcomePage = () => {
 
                 <Switch>
 
-                    <Route exact path="/auth/signin/" component={OnBoardingPage}/>
-                    <Route path="/auth/signin/email" component={EmailSignInPage}/>
-                    <Route path="/auth/signin/confirmation" component={ConfirmationPage}/>
+                    <Route exact path="/auth/signup/" component={OnBoardingPage}/>
+                    <Route path="/auth/signup/email" component={EmailSignInPage}/>
+                    <Route path="/auth/signup/confirmation" component={ConfirmationPage}/>
+                    <Route path="/auth/login" component={LoginPage}/>
 
                 </Switch>
 
