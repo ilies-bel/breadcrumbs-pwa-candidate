@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {AuthUserContext} from '../Authentification/Session';
+import {AuthUserContext} from '../AuthentificationFirebase/Session';
 import {withFirebase} from '../Firebase';
 import MessageList from './MessageList';
 

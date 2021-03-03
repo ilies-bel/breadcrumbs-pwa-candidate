@@ -4,7 +4,9 @@ const path = require("path");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
@@ -17,7 +19,7 @@ module.exports = (env, argv) => {
 
     return {
         entry: './src/index.js',
-        devtool: 'source-map',
+        devtool: isProduction ? false : 'eval',
         module: {
             rules: [
                 {
@@ -101,7 +103,8 @@ module.exports = (env, argv) => {
                 components: path.resolve(__dirname, './src/components'),
                 Navigation: path.resolve(__dirname, './src/components/Navigation'),
                 constants: path.resolve(__dirname, 'src/constants'),
-                utils: path.resolve(__dirname, 'src/utils')
+                utils: path.resolve(__dirname, 'src/utils'),
+                littleComponents: path.resolve(__dirname, 'src/components/littleComponents')
             }
         },
         output: {
@@ -109,6 +112,7 @@ module.exports = (env, argv) => {
             publicPath: '/',
         },
         plugins: [
+            new CleanWebpackPlugin(),
 
             new webpack.DefinePlugin({
                 'process.env': {
@@ -143,7 +147,19 @@ module.exports = (env, argv) => {
             ]),
 
         ],
-
+        optimization: {
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                 parallel: true,
+                    terserOptions: {
+                     compress: {
+                         drop_console: true
+                     }
+                    }
+             })
+            ]
+        },
         devServer: {
             port: 5000,
             open: true,

@@ -1,31 +1,24 @@
-.flashy {
-  text-align: center;
-  padding: 12px 27px 12px 27px;
-  color: white;
-  background: linear-gradient(91.6deg, #3572F1 0%, #F24E95 100%) #F6B714;
-  border-style: none;
-  border-radius: 10px;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
 .main {
   padding-left: 200px;
   padding-right: 200px;
   padding-bottom: 60px;
   
   @media (max-width: 700px) {
-    padding: 20px;
+    padding: 20px 20px 60px 20px;
   }
 }
 
 .MuiBottomNavigation-root {
+  background-color: #191A1D;
+  position: fixed;
+  bottom: 0;
   @media (min-width: 700px) {
+    height: 80% !important;
     flex-direction: column;
-    top: 250px;
     left: 0;
+    overflow: auto;
+    padding-top: 100px;
+    justify-content: start !important;
     
     .MuiBottomNavigationAction-root {
       padding: 20px;

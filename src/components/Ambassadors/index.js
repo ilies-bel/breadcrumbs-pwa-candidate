@@ -1,5 +1,5 @@
 import React from 'react';
-import Messages from "../Messages";
+
 import {TitleSource} from "../Navigation/titleContext";
 import {AMBASSADORS_TITLE} from "../../constants/routes";
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description";

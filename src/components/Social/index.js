@@ -12,6 +12,8 @@ import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import {useAuthContext} from "components/AuthentificationJwt/context";
+import NotFound from "components/NotFound";
 
 const style = {
     tab: {
@@ -56,13 +58,13 @@ function TabPanel(props) {
   
 const SocialPage = () => {
     const [value, setValue] = React.useState(0);
-
+    const authContext = useAuthContext();
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     const {path, url} = useRouteMatch();
-
-    return (
+    if( !authContext.token ) return <NotFound />
+    if( authContext.token ) return (
         <Router>
             <Redirect to={`${url}/feed/tweets`}/>
             <TitleSource>{SOCIAL_TITLE}</TitleSource>
@@ -78,8 +80,8 @@ const SocialPage = () => {
                 aria-label="full width tabs example"
                 >
                 
-                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/tweets`}><TwitterIcon /></Link>} />
-                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/linked`}><LinkedInIcon /></Link>} />
+                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/tweets`} replace ><TwitterIcon /></Link>} />
+                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/feed/linked`} replace ><LinkedInIcon /></Link>} />
             </Tabs>
             
             </Paper>

@@ -1,13 +1,14 @@
 .ambassadors {
     display: flex;
     flex-wrap: wrap;
+    max-width: 760px;
 }
 .avatar {
     display: flex;
     align-items: center;
-    margin-top: 20px;
     width: 254px;
     height: 101px;
+    margin: 20px;
 
     .photo {
         width: 40%;

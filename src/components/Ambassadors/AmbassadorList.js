@@ -1,5 +1,4 @@
 import React from 'react';
-import Messages from "../Messages";
 import {TitleSource} from "../Navigation/titleContext";
 import {AMBASSADORS_TITLE} from "../../constants/routes";
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description";
@@ -16,10 +15,16 @@ const collaborators = [
         description: "Fifth Mayor of the Leaf Village."
     },
     {
-        name: "Alessa Savage",
+        name: "Alessa",
         photo: "https://everipedia-storage.s3.amazonaws.com/ProfilePicture/lang_en/alessa-savage__1020b8/blob__02576__thumb.jpeg",
         catch_phrase: "Smile and live !",
         description: "Human Ressource."
+    },
+    {
+        name: "Jason",
+        photo: "https://www.gewoonvoorhem.nl/app/uploads/2020/01/Jason-Statham-Countdown-Rep-e1578660419114.jpg",
+        catch_phrase: "Rule number 1 : No question",
+        description: "Taxi Driver. Delivery service"
     }
 ]
 

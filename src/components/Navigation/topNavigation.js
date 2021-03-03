@@ -1,11 +1,13 @@
 import React from 'react';
-import {withAuthorization, withEmailVerification} from '../Authentification/Session';
+import {withAuthorization, withEmailVerification} from '../AuthentificationFirebase/Session';
 
 import {compose} from "recompose";
 import {AppBar, IconButton, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import {AccountCircle} from "@material-ui/icons";
 import {TitleTarget} from "./titleContext";
-
+import { AuthContext } from "components/AuthentificationJwt/context";
+import { useAuthContext } from "components/AuthentificationJwt/context";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
 const TopNav = () => {
     const classes = useStyles();
+    const context = useAuthContext();
+    const history = useHistory();
+
 
     return (
                 <AppBar className={classes.appBar}>
@@ -44,6 +49,8 @@ const TopNav = () => {
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 color="inherit"
+                                title={ !context.token ? "Sign in" : `signed in as ${context.userName}` }
+                                onClick={() => !context.token && history.push("/auth/login")}
                             >
                                 <AccountCircle/>
                             </IconButton>
@@ -67,8 +74,8 @@ const TopNav = () => {
 */
 const condition = (authUser) => !!authUser;
 
-export default compose(
+/*export default compose(
     withEmailVerification,
     withAuthorization(condition),
-)(TopNav);
-
+)(TopNav);*/
+export default TopNav

@@ -2,25 +2,27 @@ import React from 'react';
 import {BrowserRouter as Router, Link, NavLink, Redirect, Route, useRouteMatch, useHistory} from 'react-router-dom';
 
 import {TitleSource} from "../Navigation/titleContext";
-import {AuthUserContext} from "../Authentification/Session";
+import {AuthUserContext} from "../AuthentificationFirebase/Session";
 import {CONFIRM, DISPO, HIRING_PROCESS_TITLE} from "../../constants/routes";
-import {HIRING_DESCRIPTION} from "../../constants/description";
 
-import {TitleDescriptionSource} from "../Navigation/descriptionContext"
-import { PageDescription } from '../Navigation';
 import HiringProcess from './hiring';
 import MilestonePage from './milestone'
 import SelectDate from './form/disponibilities';
 import ConfirmPage from './form/confirm';
 import {useGetProcess} from "../../utils/axios";
+import {useAuthContext} from "components/AuthentificationJwt/context";
+import NotFound from "components/NotFound";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const HiringProcessPage = (props) => {
     const {path, url} = useRouteMatch();
+    const authContext = useAuthContext();
     const [{ data, loading, error }, refetch] = useGetProcess();
-    function changePath(p) {
-        setLink(p)
-    }
-    if(error) {return ( <strong>Error</strong> )}
+
+    if( !authContext.token ) { return  <NotFound /> }
+    if(error) {return ( <strong>Error. No found data</strong> )}
+    if( loading ) { return <CircularProgress /> }
+
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
@@ -28,9 +30,6 @@ const HiringProcessPage = (props) => {
             <Router>
                 <div>
                 <Redirect to='/hiring' />
-                    {data && data.map((process, index) =>
-                                                    <Link to={`milestone/${process.process_name}`} key={index} />
-                    )}
                     <Route path='/hiring' component={HiringProcess} />
                     <Route path="/milestone/:id" component={MilestonePage} />
                 <Route path={DISPO} component={SelectDate} />

@@ -1,7 +1,4 @@
-import axios from 'axios';
-import { makeUseAxios } from 'axios-hooks';
 import useAxios from 'axios-hooks'
-import { configure } from 'axios-hooks';
 
 const BASE_API_URL = process.env.AXIOS_BASE_URL
 const AVAILABILITY = process.env.AVAILABILITY_API;
@@ -10,6 +7,8 @@ const AMBASSADOR = process.env.AMBASSADOR_API;
 const PROCESS = process.env.PROCESS_API
 const APPOINTMENT = process.env.APPOINTMENT_API
 const INTERVIEW_TYPE = process.env.INTERVIEW_TYPE;
+const CANDIDATE_API_URL = process.env.CANDIDATE_API_URL
+
 
 export const useAPI = (path='') => {
     return useAxios({
@@ -17,6 +16,11 @@ export const useAPI = (path='') => {
         url: path
     })
 }
+
+export const useGetAccount = () => {
+    return useAPI(CANDIDATE_API_URL);
+}
+
 export const useGetDisponibilities = () => {
     return useAPI(AVAILABILITY)
 }

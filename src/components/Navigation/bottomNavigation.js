@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-import {withAuthorization, withEmailVerification} from '../Authentification/Session';
+import {withAuthorization, withEmailVerification} from '../AuthentificationFirebase/Session';
 import * as ROUTES from '../../constants/routes';
 import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
@@ -12,13 +12,12 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
+import {useAuthContext} from "components/AuthentificationJwt/context";
+import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
 
 
 const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
-        bottom: theme.spacing(2),
-        position: 'fixed',
-        bottom: 0,
         '& .Mui-selected': {
             borderTopColor: '#3572F1',
             borderStyle: 'solid',
@@ -29,24 +28,25 @@ const useStyles = makeStyles((theme) => ({
         borderTopWidth: '4px',
         '& .Mui-selected': {
             border: 'none',
-        }
+        },
     },
 }));
 
 
 const BottomNav = () => {
     const classes =  useStyles();
-
+    const context = useAuthContext();
     const [value, setValue] = React.useState(0);
 
     const history = useHistory();
 
     const handleChange = (event, newValue) => {
-        history.push(newValue);
+        history.replace(newValue);
         setValue(newValue);
     };
 
-    return (
+    if(!context.token) return <div>No token provided</div>
+    if(context.token) return (
             <BottomNavigation
                 className={classes.BottomNavigation}
                 value={value}
@@ -72,7 +72,4 @@ const BottomNav = () => {
 
 const condition = (authUser) => !!authUser;
 
-export default compose(
-    withEmailVerification,
-    withAuthorization(condition),
-)(BottomNav);
+export default BottomNav

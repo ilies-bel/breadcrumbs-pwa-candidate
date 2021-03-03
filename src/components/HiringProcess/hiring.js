@@ -2,12 +2,12 @@ import React from 'react';
 import {BrowserRouter as Router, Link, Route, useHistory, useRouteMatch,} from 'react-router-dom';
 
 import {TitleSource} from "../Navigation/titleContext";
-import {AuthUserContext} from "../Authentification/Session";
+import {AuthUserContext} from "../AuthentificationFirebase/Session";
 import {HIRING_PROCESS_TITLE, DISPO, RESERVATION, CONFIRM} from "../../constants/routes";
 import {HIRING_DESCRIPTION} from "../../constants/description";
 
 import {TitleDescriptionSource} from "../Navigation/descriptionContext"
-import { PageDescription } from '../Navigation';
+import { PageDescription } from 'littleComponents';
 
 import Button from '@material-ui/core/Button';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -18,6 +18,7 @@ import InsertInvitationOutlinedIcon from '@material-ui/icons/InsertInvitationOut
 import './hiring.scss';
 import { useGetProcess } from '../../utils/axios';
 import {HelpOutline} from "@material-ui/icons";
+import {useAuthContext} from "components/AuthentificationJwt/context";
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -45,25 +46,23 @@ const HiringProcess = () => {
     const {path, url} = useRouteMatch();
     const classes = useStyles();
     const [{ data, loading, error }, refetch] = useGetProcess();
+    const context = useAuthContext();
 
     if (loading) return <CircularProgress />
     if (error) return <strong>Error. No data found</strong>
 
     return (
         <>
-        <div>
-            <AuthUserContext.Consumer>
-                {(authUser) => <h2>Hey {authUser.username}</h2>}
-            </AuthUserContext.Consumer>
+             <h2>Hey {context.userName}</h2>
+
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
-            <ul  className="timeline">
+            <ol className="timeline">
                 {data.map((process, i) =>
                 <li key={i} >
-                    <ButtonBase className={classes.button} >
+                    <ButtonBase className={classes.button} onClick={() => history.push(`milestone/${process?.milestone_name}`)} >
                         <div className="buttonTitle">Due to ...</div>
-                        <a className={classes.label}
-                            onClick={() => history.replace(`milestone/${process.process_name}`)} >
-                                {process.process_name}
+                        <a className={classes.label} >
+                                { process?.milestone_name }
                         </a>
                         <HelpOutline color="primary" />
                         <Link to={`${DISPO}`}>
@@ -72,8 +71,7 @@ const HiringProcess = () => {
                     </ButtonBase>
                 </li>)
                 }
-            </ul>
-        </div>
+            </ol>
         </>
     );
 }
