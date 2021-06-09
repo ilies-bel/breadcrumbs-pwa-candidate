@@ -3,22 +3,41 @@ import {TitleSource} from "../Navigation/titleContext";
 import {OFFICE_TITLE} from "../../constants/routes";
 import {BrowserRouter as Router, Link, Route, useRouteMatch} from "react-router-dom";
 import OfficeMap from "./map";
+import FlashyButton from 'littleComponents/flashyButton'
+import './office.scss'
+
+const OfficeCard = ({children}) => {
+    const {path, url} = useRouteMatch();
+
+    return (
+        <>
+        <div className='cardIcon'>
+            <img src='/Subtract.png' />
+            <FlashyButton >{children}</FlashyButton>
+        </div>
+        
+        </>
+    )
+}
 
 const OfficePage = () => {
     const {path, url} = useRouteMatch();
 
     return (
-        <>
+        <div className='officePage'>
             <TitleSource>{OFFICE_TITLE}</TitleSource>
             <div>
                 <h2>Our Office</h2>
-                <h1>Hello</h1>
+                
                 <Router>
-                    <div>
-
+                    <div className='officeButtons'>
+                        <h3><FlashyButton>Take the virtual tour </FlashyButton></h3>
                         <ul>
                             <li>
-                                <Link to={`${url}/map`}>See us in a map</Link>
+                                <OfficeCard><Link to={`${url}/map`}>How do I get there</Link></OfficeCard>
+                            </li>
+                            <li>
+                                <OfficeCard>Where can I get cofee ?</OfficeCard>
                             </li>
 
                         </ul>
@@ -29,7 +48,7 @@ const OfficePage = () => {
                 </Router>
 
             </div>
-        </>
+        </div>
 
     );
 }

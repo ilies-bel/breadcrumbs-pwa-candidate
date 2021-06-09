@@ -1,6 +1,9 @@
 import React, {memo, useCallback, useState} from 'react'
 import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 
+import GoogleMapReact from 'google-map-react';
+import FlashyButton from 'littleComponents/flashyButton'
+
 const containerStyle = {
     width: '100%',
     height: '500px'
@@ -19,29 +22,21 @@ function OfficeMap() {
 
     const [map, setMap] = useState(null)
 
-    const onLoad = useCallback(function callback(map) {
-        const bounds = new google.maps.LatLngBounds();
-        map.fitBounds(bounds);
-        setMap(map)
-    }, [])
-
-    const onUnmount = useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
-    return isLoaded ? (
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={pos_pwc}
-            zoom={4}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
+    return (
+        <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyCK1h2givbm_74EEN77-iGnKUz52sQaIgk" }}
+          defaultCenter={pos_pwc}
+          defaultZoom={5}
         >
-
-
-            <></>
-        </GoogleMap>
-    ) : <></>
+          <FlashyButton
+            lat={45.76231}
+            lng={4.920307}
+            text="My Marker"
+          />
+        </GoogleMapReact>
+      </div>
+    )
 }
 
 export default memo(OfficeMap)
