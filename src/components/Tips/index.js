@@ -18,13 +18,11 @@ const useStyles = makeStyles((theme) => ({
         width: '20px',
         height: '20px',
         borderRadius: '100px',
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: '#D7E3FC',
         textAlign: 'center',
         padding: '3px',
         marginRight: '10px',
-        color: 'white',
-        fontWeight: 'bold',
-        fontFamily: 'Roboto',
+        color: '#3572F1',
     },
     nested: {
       paddingLeft: theme.spacing(10),
@@ -32,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     BottomBorder: {
         width: "100%",
         height: "1px",
-        backgroundColor: 'lightblue',
+        backgroundColor: '#D7E3FC',
     }
 }))
 
@@ -48,17 +46,19 @@ const Tips = () => {
     return (
         <>
             <TitleSource>{TIPS_TITLE}</TitleSource>
-            <PageDescription>
+            <div>
                 {TIPS_DESCRIPTION}
-            </PageDescription>
+            </div>
             
                 {
                 data.map((tips, index) =>
                     <Accordion key={index}>
                        <AccordionSummary > <span className={classes.num}>{index+1}</span> {tips.title} <ExpandMore /></AccordionSummary>
                         <AccordionDetails>
-                            <span >{tips.description}
-                            </span>
+                            <div>
+                                {tips.description}
+                            </div>
+
                         </AccordionDetails>
                     </Accordion>
                     )

@@ -9,8 +9,8 @@ import AmbassadorQuestion from './AmbassadorQuestion';
 import AmbassadorList from './AmbassadorList';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import {TextField} from "@material-ui/core";
 
-import styles from './ambassador.scss'
 
 const style = {
     tab: {
@@ -37,7 +37,7 @@ const AmbassadorsPage = () => {
 
     return (
         <Router>
-            <Redirect to={`${url}/questions`}/>
+            <Redirect to={`${url}/ambassadors`}/>
             <TitleSource>{AMBASSADORS_TITLE}</TitleSource>
             <Tabs
                 value={value}
@@ -47,15 +47,21 @@ const AmbassadorsPage = () => {
                 variant="fullWidth"
                 aria-label="full width tabs example"
                 >
-                
-                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/questions`}>Questions</Link>} />
-                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/ambassadors`}>Ambassadors</Link>} />
+
+                <Tab style={ value===0 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/ambassadors`}>Ambassadors</Link>} />
+                <Tab style={ value===1 ? style.tab : {}} label={<Link style={ style.link} to={`${url}/questions`}>Questions</Link>} />
             </Tabs>
-            <h2>Ambassadors</h2>
-                <PageDescription>{AMBASSADORS_DESCRIPTION}</PageDescription>            
+                <PageDescription>{AMBASSADORS_DESCRIPTION}</PageDescription>
+
+            <TextField style={{ width: '100%' }}
+                label="Search input"
+                margin="normal"
+                variant="outlined"
+            />
+
             <div>
-                <Route path={`${url}/questions`} component={AmbassadorQuestion} />
                 <Route path={`${url}/ambassadors`} component={AmbassadorList} />
+                <Route path={`${url}/questions`} component={AmbassadorQuestion} />
             </div>
         
         </Router>

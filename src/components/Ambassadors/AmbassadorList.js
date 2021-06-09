@@ -6,6 +6,23 @@ import { PageDescription } from '../Navigation';
 
 import Avatar from '@material-ui/core/Avatar';
 import { Label } from '@material-ui/icons';
+import {Grid} from "@material-ui/core";
+
+const style = {
+    profilePicture: {
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '4px',
+        borderBottomColor: 'royalblue',
+        transition: 'all, ease-in, 0.4s'
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'royalblue',
+        width:'100%',
+        height: '100%'
+    }
+}
+
 
 const collaborators = [
     {
@@ -31,14 +48,23 @@ const collaborators = [
 const AmbassadorItem = (props) => {
     return (
     <>
-    <div className="avatar">
-        <Avatar alt="Tsunade" src={props.photo} className="photo" />
-        <div className="description">
-            <h3 className="title">{props.name}</h3>
-            <label>{props.description}</label>
-            <div className="catchPhrase">{props.catchPhrase}</div>
-        </div>
-    </div>
+        <Grid container spacing={3}>
+            <Grid item xs={3}>
+                <Avatar className={"column"} alt={props.name} src={props.photo} />
+            </Grid>
+
+            <Grid item xs={9}>
+                <div className="avatar">
+                    <div className="description">
+                        <h3 className="title">{props.name}</h3>
+                        <label>{props.description}</label>
+                        <div className="catchPhrase">{props.catchPhrase}</div>
+                    </div>
+                </div>
+
+            </Grid>
+        </Grid>
+
     </>
     )
 }

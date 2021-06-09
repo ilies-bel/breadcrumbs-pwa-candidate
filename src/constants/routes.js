@@ -24,8 +24,8 @@ export const ADMIN_TITLE = 'Admin page';
 
 export const OFFICE_TITLE = 'Office';
 export const SOCIAL_TITLE = 'Social';
-export const TIPS_TITLE = 'Tips';
-export const AMBASSADORS_TITLE = 'Question / answer';
+export const TIPS_TITLE = 'Interview tips';
+export const AMBASSADORS_TITLE = 'Our ambassadors';
 export const HIRING_PROCESS_TITLE = 'Hiring process';
 
 export const OFFICE_LABEL = 'Office';

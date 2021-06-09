@@ -3,6 +3,14 @@
     flex-wrap: wrap;
     max-width: 760px;
 }
+
+
+.column {
+    float: left;
+    width: 25%;
+}
+
+
 .avatar {
     display: flex;
     align-items: center;
