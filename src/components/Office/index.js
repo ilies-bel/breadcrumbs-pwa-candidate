@@ -6,14 +6,14 @@ import OfficeMap from "./map";
 import FlashyButton from 'littleComponents/flashyButton'
 import './office.scss'
 
-const OfficeCard = ({children}) => {
+const OfficeCard = (props) => {
     const {path, url} = useRouteMatch();
 
     return (
         <>
         <div className='cardIcon'>
-            <img src='/Subtract.png' />
-            <FlashyButton><span className='cardText'>{children}</span> </FlashyButton>
+            <img src={props.src} />
+            <FlashyButton><span className='cardText'>{props.children}</span> </FlashyButton>
         </div>
         
         </>
@@ -33,10 +33,10 @@ const OfficePage = () => {
                         <h3><FlashyButton>Take the virtual tour </FlashyButton></h3>
                         <ul>
                             <li>
-                                <Link to={`${url}/map`}><OfficeCard>How do I get there</OfficeCard></Link>
+                                <Link to={`${url}/map`}><OfficeCard src='/mapOffice.svg'>How do I get there</OfficeCard></Link>
                             </li>
                             <li>
-                                <OfficeCard>Where can I get coffee ?</OfficeCard>
+                                <OfficeCard src='/coffee.svg'>Where can I get coffee ?</OfficeCard>
                             </li>
 
                         </ul>
