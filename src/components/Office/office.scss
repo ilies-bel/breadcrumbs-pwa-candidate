@@ -18,10 +18,16 @@
 
         h3 {
             text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            button {
+                width: 100%;
+            }
         }
 
         .cardIcon {
-            width: 118px;
+            width: 153px;
             height: 115px;
             left: 20px;
             top: 523px;
@@ -30,6 +36,11 @@
             box-sizing: border-box;
             backdrop-filter: blur(8px);
             text-align: center;
+
+            button {
+                padding: 0;
+                height: 100%;
+            }
 
             img {
                 margin: 10px;

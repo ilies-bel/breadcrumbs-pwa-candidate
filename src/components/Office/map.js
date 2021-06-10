@@ -10,26 +10,19 @@ const containerStyle = {
 };
 
 const pos_pwc = {
-    lat: 48.8846,
-    lng: 2.26965
+    lat: 45.8846,
+    lng: 4.96965
 };
 
 function OfficeMap() {
-    const {isLoaded} = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyCK1h2givbm_74EEN77-iGnKUz52sQaIgk"
-    })
-
-    const [map, setMap] = useState(null)
-
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '500px', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCK1h2givbm_74EEN77-iGnKUz52sQaIgk" }}
           defaultCenter={pos_pwc}
-          defaultZoom={5}
+          defaultZoom={10}
         >
-          <FlashyButton
+          <img src='/Pinlet Marker.svg'
             lat={45.76231}
             lng={4.920307}
             text="My Marker"
