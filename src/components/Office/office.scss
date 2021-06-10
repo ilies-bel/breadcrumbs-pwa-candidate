@@ -11,6 +11,14 @@
     top: 0;
     left: 0;
 
+    @media (min-width: 700px) {
+        margin-right: 100px;
+
+        .officeButtons {
+            position: relative;
+        }
+    }
+
     .officeButtons {
         position: absolute;
         bottom: 100px;

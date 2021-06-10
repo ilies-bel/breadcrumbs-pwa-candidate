@@ -26,7 +26,6 @@ const OfficePage = () => {
     return (
         <div className='officePage'>
             <TitleSource>{OFFICE_TITLE}</TitleSource>
-            <div>
                 <h2>Our Office</h2>
                 
                 <Router>
@@ -46,8 +45,6 @@ const OfficePage = () => {
 
                     </div>
                 </Router>
-
-            </div>
         </div>
 
     );
