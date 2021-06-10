@@ -49,18 +49,27 @@ const AmbassadorItem = (props) => {
 const AmbassadorList = () => {
 
     return (
-        <div className="ambassadors">
-        {
-            collaborators.map((collaborator, index) =>
-            <AmbassadorItem key={index} name={collaborator.name}
-            photo={collaborator.photo}
-            catchPhrase={collaborator.catch_phrase}
-            description={collaborator.description}
-            pronom={collaborator.pronom}/>
-            )
-        }
-        </div>
-        
+        <>
+            <div className='searchForm'>
+                <input type='text' placeholder='Search by keyword' aria-label='Search by keyword'/>
+                <select name='filterType' type='text' aria-label='Filter by profile type'>
+                    <option value='' selected>Filter by profile type</option>
+                    <option value='rh'>Human ressources</option>
+                    <option value='manager'>Marketing Manager</option>
+                </select>
+            </div>
+            <div className="ambassadors">
+            {
+                collaborators.map((collaborator, index) =>
+                <AmbassadorItem key={index} name={collaborator.name}
+                photo={collaborator.photo}
+                catchPhrase={collaborator.catch_phrase}
+                description={collaborator.description}
+                pronom={collaborator.pronom}/>
+                )
+            }
+            </div>
+        </>
     )
 }
 

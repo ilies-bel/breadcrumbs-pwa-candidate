@@ -3,10 +3,25 @@
     flex-wrap: wrap;
     max-width: 760px;
 }
+.searchForm {
+    input, select  {
+        width: 100%;
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 5px;
+    }
+    option {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
 .avatar {
     display: flex;
     align-items: center;
-    width: 254px;
+    width: 280px;
     height: 101px;
     margin: 20px;
     justify-content: space-between;
