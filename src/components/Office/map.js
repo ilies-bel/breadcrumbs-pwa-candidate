@@ -4,6 +4,8 @@ import {GoogleMap, useJsApiLoader} from '@react-google-maps/api';
 import GoogleMapReact from 'google-map-react';
 import FlashyButton from 'littleComponents/flashyButton'
 
+import './office.scss';
+
 const containerStyle = {
     width: '100%',
     height: '500px'
@@ -16,7 +18,7 @@ const pos_pwc = {
 
 function OfficeMap() {
     return (
-        <div style={{ height: '500px', width: '100%' }}>
+        <div className='mapContainer'>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyCK1h2givbm_74EEN77-iGnKUz52sQaIgk" }}
           defaultCenter={pos_pwc}

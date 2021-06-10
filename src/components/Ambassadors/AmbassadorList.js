@@ -9,14 +9,14 @@ import { Label } from '@material-ui/icons';
 
 const collaborators = [
     {
-        name: "Dr Tsunade",
-        photo: "http://pm1.narvii.com/5786/5d7b229363ff75a466493d4368fa08f72dade280_hq.jpg",
-        catch_phrase: "Strenght, Health and Bet",
-        description: "Fifth Mayor of the Leaf Village."
+        name: "Elon",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/0/04/Elon_Musk_and_Hans_Koenigsmann_at_the_SpaceX_CRS-8_post-launch_press_conference_%2826223624532%29_%28cropped%29.jpg",
+        catch_phrase: "Strenght, Health and Futur",
+        description: "Administration"
     },
     {
-        name: "Alessa",
-        photo: "https://everipedia-storage.s3.amazonaws.com/ProfilePicture/lang_en/alessa-savage__1020b8/blob__02576__thumb.jpeg",
+        name: "Jack",
+        photo: "https://s1.qwant.com/thumbr/0x380/8/c/0cd410d28660781ca6b2920f52a271d8c15617ea12a1ca0cfbf198b02fff8b/1200px-20th_Anniversary_Schwab_Foundation_Gala_Dinner_%2844887783681%29.jpg?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1d%2F20th_Anniversary_Schwab_Foundation_Gala_Dinner_%252844887783681%2529.jpg%2F1200px-20th_Anniversary_Schwab_Foundation_Gala_Dinner_%252844887783681%2529.jpg&q=0&b=1&p=0&a=0",
         catch_phrase: "Smile and live !",
         description: "Human Ressource."
     },
