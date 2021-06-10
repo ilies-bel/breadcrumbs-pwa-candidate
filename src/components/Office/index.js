@@ -13,7 +13,7 @@ const OfficeCard = ({children}) => {
         <>
         <div className='cardIcon'>
             <img src='/Subtract.png' />
-            <FlashyButton >{children}</FlashyButton>
+            <FlashyButton><span className='cardText'>{children}</span> </FlashyButton>
         </div>
         
         </>
@@ -34,10 +34,10 @@ const OfficePage = () => {
                         <h3><FlashyButton>Take the virtual tour </FlashyButton></h3>
                         <ul>
                             <li>
-                                <OfficeCard><Link to={`${url}/map`}>How do I get there</Link></OfficeCard>
+                                <Link to={`${url}/map`}><OfficeCard>How do I get there</OfficeCard></Link>
                             </li>
                             <li>
-                                <OfficeCard>Where can I get cofee ?</OfficeCard>
+                                <OfficeCard>Where can I get coffee ?</OfficeCard>
                             </li>
 
                         </ul>

@@ -34,14 +34,11 @@
             img {
                 margin: 10px;
             }
-            
-        }
             .cardText {
                 width: 119px;
                 height: 73px;
                 background: linear-gradient(91.6deg, #3572F1 0%, #F24E95 100%);
                 border-radius: 0px 0px 10px 10px;
-                padding-top: 20px;
 
                 font-family: Roboto;
                 font-style: normal;
@@ -51,6 +48,8 @@
                 text-align: center;
                 color: #FFFFFF;
             }
+        }
+            
             ul {
                 list-style: none;
                 display: flex;
