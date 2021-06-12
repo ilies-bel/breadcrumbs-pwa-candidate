@@ -13,7 +13,7 @@ const OfficeCard = (props) => {
         <>
         <div className='cardIcon'>
             <img src={props.src} />
-            <FlashyButton><span className='cardText'>{props.children}</span> </FlashyButton>
+            <div className='cardText'>{props.children}</div>
         </div>
         
         </>
