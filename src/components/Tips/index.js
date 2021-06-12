@@ -18,6 +18,7 @@ import Avatar from "@material-ui/core/Avatar";
 const useStyles = makeStyles((theme) => ({
     text: {
         fontFamily: 'Roboto',
+        margin: 0
     },
     num: {
         width: '20px',
@@ -25,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '100px',
         backgroundColor: '#D7E3FC',
         textAlign: 'center',
-        padding: '3px',
+        paddingRight: '10px',
+        paddingTop: '6px',
+        paddingLeft: '11px',
+        fontSize: '20px',
         marginRight: '10px',
         color: '#3572F1',
         fontFamily: 'Quicksand',
