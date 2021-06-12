@@ -37,8 +37,6 @@ const collaborators = [
 
 const AmbassadorItem = (props) => {
 
-    let mailto=`mailto:${props.mail}?subject=Question sur Breadcrumbs&cc=partenaire@breadcrumbs.net&body=Bonjour,`
-
     return (
     <>
     <div className="avatar">
@@ -47,8 +45,9 @@ const AmbassadorItem = (props) => {
             <h3 className="title">{props.name}</h3>
             <label>{props.description}</label>
             <div className="catchPhrase">{props.catchPhrase}</div>
-            <a className='getTouch' href={mailto}>
-                ___Get in touch with {props.pronom}</a>
+            <a className='getTouch' href={`mailto:${props.mail}?subject=Question sur Breadcrumbs&cc=partenaire@breadcrumbs.net&body=Bonjour,`}>
+                ___Get in touch with {props.pronom}
+            </a>
         </div>
     </div>
     </>
@@ -73,6 +72,7 @@ const AmbassadorList = () => {
                 photo={collaborator.photo}
                 catchPhrase={collaborator.catch_phrase}
                 description={collaborator.description}
+                mail={collaborator.mail}
                 pronom={collaborator.pronom}/>
                 )
             }
