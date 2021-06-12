@@ -36,7 +36,9 @@ const OfficePage = () => {
                                 <Link to={`${url}/map`}><OfficeCard src='/mapOffice.svg'>How do I get there</OfficeCard></Link>
                             </li>
                             <li>
-                                <OfficeCard src='/coffee.svg'>Where can I get coffee ?</OfficeCard>
+                                <a href='https://www.google.fr/maps/search/coffee+near+sword+sas/@45.7735047,4.813867,13.78z' target='_blank'>
+                                    <OfficeCard src='/coffee.svg'>Where can I get coffee ?</OfficeCard>
+                                </a>
                             </li>
 
                         </ul>
