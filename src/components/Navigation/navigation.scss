@@ -12,6 +12,7 @@
   background-color: #191A1D;
   position: fixed;
   bottom: 0;
+  box-shadow: inset 0px 1px 0px #E0E1E3;
   @media (min-width: 700px) {
     height: 80% !important;
     flex-direction: column;

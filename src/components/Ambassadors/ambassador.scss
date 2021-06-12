@@ -3,34 +3,43 @@
     flex-wrap: wrap;
     max-width: 760px;
 }
-
-
-.column {
-    float: left;
-    width: 25%;
+.searchForm {
+    input, select  {
+        width: 100%;
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 5px;
+    }
+    option {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 140%;
+    }
 }
-
-
 .avatar {
     display: flex;
     align-items: center;
-    width: 254px;
+    width: 280px;
     height: 101px;
     margin: 20px;
+    justify-content: space-between;
 
     .photo {
-        width: 40%;
+        width: 33%;
         height: 100%;
     }
     .description {
         //styleName: Body/B1;
         font-family: Roboto;
-        font-size: 16px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 300;
-        line-height: 24px;
+        line-height: 15px;
         letter-spacing: 0.5px;
         text-align: left;
+        margin-left: 15px;
 
         .title {
             font-weight: bold;
@@ -39,12 +48,34 @@
         .catchPhrase {
             //styleName: Body/B2;
             font-family: Roboto;
-            font-size: 14px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 300;
             line-height: 20px;
             letter-spacing: 0.25px;
             text-align: left;
+        }
+        .getTouch {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+
+            /* identical to box height */
+            text-align: center;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #3572F1;
+
+            &::before {
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                background-image: url("/getTouch.svg");
+                background-repeat: no-repeat;
+                content: '';
+            }
         }
     }
 }
