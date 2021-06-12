@@ -53,7 +53,7 @@ const HiringProcess = () => {
 
     return (
         <>
-             <h2>Hey Brandon</h2>
+             <h2>Hey Brandon !</h2>
 
             <PageDescription>{HIRING_DESCRIPTION.PROCESS}</PageDescription>
             <ol className="timeline">
