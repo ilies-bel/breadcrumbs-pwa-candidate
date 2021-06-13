@@ -17,6 +17,7 @@
   box-shadow: inset 0px 1px 0px #E0E1E3;
   @media (min-width: 700px) {
     height: 80% !important;
+    width: 107px;
     flex-direction: column;
     left: 0;
     overflow: auto;
@@ -33,5 +34,14 @@
   border-right-style: solid;
   border-right-width: 4px;
   border-right-color: #3572F1;
+    background-color: #3572F1;
+    color: white;
+
+    svg {
+      stroke: white;
+    }
+    span {
+      color: white;
+    }
   }
 }
