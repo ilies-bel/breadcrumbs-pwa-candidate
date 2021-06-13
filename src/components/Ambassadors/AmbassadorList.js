@@ -58,8 +58,8 @@ const AmbassadorList = () => {
     return (
         <>
             <div className='searchForm'>
-                               <select name='filterType' type='text' aria-label='Filter by profile type'>
-                    <option value='' selected>Filter by profile type</option>
+                               <select name='filterType' type='text' aria-label='Filter by profile type' defaultValue='placeholder'>
+                    <option value='placeholder' >Filter by profile type</option>
                     <option value='rh'>Human ressources</option>
                     <option value='manager'>Marketing Manager</option>
                 </select>
