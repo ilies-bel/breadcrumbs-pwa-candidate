@@ -13,8 +13,7 @@ import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import {BottomNavigation, BottomNavigationAction, makeStyles} from "@material-ui/core";
 import {compose} from "recompose";
 import {useAuthContext} from "components/AuthentificationJwt/context";
-import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
-
+import {Building, ClipboardList, InfoCircle, Social, School} from 'tabler-icons-react';
 
 const useStyles = makeStyles((theme) => ({
     BottomNavigation: {
@@ -54,15 +53,35 @@ const BottomNav = () => {
                 showLabels
             >
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.HIRING_PROCESS} label={ROUTES.HIRING_LABEL}
-                                        icon={<ListAltOutlinedIcon/>}/>
+                                        icon={<ClipboardList
+                                                    size={25}
+                                                    strokeWidth={1}
+                                                    color={'royalblue'}
+                                                />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.TIPS} label={ROUTES.TIPS_LABEL}
-                                        icon={<InfoOutlinedIcon/>}/>
+                                        icon={<InfoCircle
+                                                    size={28}
+                                                    strokeWidth={1}
+                                                    color={'royalblue'}
+                                                />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.OFFICE} label={ROUTES.OFFICE_LABEL}
-                                        icon={<LocationOnOutlinedIcon/>}/>
+                                        icon={<Building
+                                                    size={28}
+                                                    strokeWidth={1}
+                                                    color={'royalblue'}
+                                                />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.AMBASSADORS} label={ROUTES.AMBASSADORS_LABEL}
-                                        icon={<SchoolOutlinedIcon/>}/>
+                                        icon={<School
+                                                    size={28}
+                                                    strokeWidth={1}
+                                                    color={'royalblue'}
+                                                />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.SOCIAL} label={ROUTES.SOCIAL_LABEL}
-                                        icon={<ShareOutlinedIcon/>}/>
+                                        icon={<Social
+                                                    size={28}
+                                                    strokeWidth={1}
+                                                    color={'royalblue'}
+                                                />}/>
 
             </BottomNavigation>
 

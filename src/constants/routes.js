@@ -31,5 +31,5 @@ export const HIRING_PROCESS_TITLE = 'Hiring process';
 export const OFFICE_LABEL = 'Office';
 export const SOCIAL_LABEL = 'Social';
 export const TIPS_LABEL = 'Tips';
-export const AMBASSADORS_LABEL = 'Question / answer';
-export const HIRING_LABEL = 'Hiring process';
+export const AMBASSADORS_LABEL = 'Q&A';
+export const HIRING_LABEL = 'Application';
