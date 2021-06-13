@@ -53,12 +53,6 @@ const AmbassadorsPage = () => {
             </Tabs>
                 <PageDescription>{AMBASSADORS_DESCRIPTION}</PageDescription>
 
-            <TextField style={{ width: '100%' }}
-                label="Search input"
-                margin="normal"
-                variant="outlined"
-            />
-
             <div>
                 <Route path={`${url}/ambassadors`} component={AmbassadorList} />
                 <Route path={`${url}/questions`} component={AmbassadorQuestion} />
