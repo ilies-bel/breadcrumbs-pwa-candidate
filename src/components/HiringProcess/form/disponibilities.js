@@ -12,6 +12,12 @@ import ConfirmModal from './modal';
 import { CONFIRM } from 'constants/routes';
 
 import { useGetDisponibilities } from 'utils/axios'
+import Grid from "@material-ui/core/Grid";
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import {FlashyButton} from "littleComponents";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles(theme => ({
     dispoInput: theme.element.button.big,
@@ -38,27 +44,22 @@ const SelectDate = () => {
     const [{ data, loading, error }, refetch] = useGetDisponibilities();
     const history = useHistory();
 
-    if (loading) return <CircularProgress />
-    if (error) return <p>Error!</p>
-
     function handleModal() {
         setOpen(!open);
     }
 
     return (
         <>
-        <PageDescription>Choose among the disponibilities</PageDescription>        
-        <List>
-            {
-                data && data.map((dispo, i) => 
-                    <span key={i} onClick={handleModal}>
-                      <DispoInput key={i}
-                      start={Moment(dispo.startdDate).format('d MMMM - hh:mm')} end={Moment(dispo.endDate).format('d MMMM - hh:mm')}
-                      interviewer={dispo.collaborator} />
-                    </span>
-                )
-            }
-        </List>
+        <PageDescription>Choose among the disponibilities</PageDescription>
+        <Accordion>
+            <AccordionSummary>23 November 2021 | 13:15 to 14:00
+                <Grid item xs={2}>
+                    <ExpandMore/>
+                </Grid></AccordionSummary>
+            <AccordionDetails>
+                <FlashyButton>Confirm Appointment</FlashyButton>
+            </AccordionDetails>
+        </Accordion>
         <ConfirmModal handleModal={handleModal} open={open} />
     </>
     );
