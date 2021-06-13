@@ -21,16 +21,17 @@ const useStyles = makeStyles((theme) => ({
         margin: 0
     },
     num: {
-        width: '20px',
-        height: '20px',
+        width: '9px',
+        height: '12px',
         borderRadius: '100px',
         backgroundColor: '#D7E3FC',
         textAlign: 'center',
         paddingRight: '10px',
-        paddingTop: '6px',
+        paddingTop: '7px',
         paddingLeft: '11px',
-        fontSize: '20px',
-        marginRight: '10px',
+        paddingBottom: '11px',
+        fontSize: '16px',
+        marginLeft: '-7px',
         color: '#3572F1',
         fontFamily: 'Quicksand',
     },
@@ -67,7 +68,7 @@ const Tips = () => {
 
                             <Grid container>
                                 <Grid item xs={2}>
-                                    <span className={classes.num}>{index + 1}</span>
+                                    <div className={classes.num}>{index + 1}</div>
                                 </Grid>
 
                                 <Grid item xs={8}>
