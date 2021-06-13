@@ -2,11 +2,13 @@ import React from 'react';
 import {TitleSource} from "../Navigation/titleContext";
 import {AMBASSADORS_TITLE} from "../../constants/routes";
 import {AMBASSADORS_DESCRIPTION} from "../../constants/description";
-import { PageDescription } from '../Navigation';
+import {PageDescription} from '../Navigation';
 
 import Avatar from '@material-ui/core/Avatar';
-import { Label } from '@material-ui/icons';
+import {Label} from '@material-ui/icons';
 import "./ambassador.scss"
+import {FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 
 const collaborators = [
     {
@@ -38,19 +40,20 @@ const collaborators = [
 const AmbassadorItem = (props) => {
 
     return (
-    <>
-    <div className="avatar">
-        <Avatar alt="Photo de profil" src={props.photo} className="photo" />
-        <div className="description">
-            <h3 className="title">{props.name}</h3>
-            <label>{props.description}</label>
-            <div className="catchPhrase">{props.catchPhrase}</div>
-            <a className='getTouch' href={`mailto:${props.mail}?subject=Question sur Breadcrumbs&cc=partenaire@breadcrumbs.net&body=Bonjour,`}>
-                ___Get in touch with {props.pronom}
-            </a>
-        </div>
-    </div>
-    </>
+        <>
+            <div className="avatar">
+                <Avatar alt="Photo de profil" src={props.photo} className="photo"/>
+                <div className="description">
+                    <h3 className="title">{props.name}</h3>
+                    <label>{props.description}</label>
+                    <div className="catchPhrase">{props.catchPhrase}</div>
+                    <a className='getTouch'
+                       href={`mailto:${props.mail}?subject=Question sur Breadcrumbs&cc=partenaire@breadcrumbs.net&body=Bonjour,`}>
+                        ___Get in touch with {props.pronom}
+                    </a>
+                </div>
+            </div>
+        </>
     )
 }
 const AmbassadorList = () => {
@@ -58,25 +61,38 @@ const AmbassadorList = () => {
     return (
         <>
             <div className='searchForm'>
-                <input type='text' placeholder='Search by keyword'/>
-                <select name='filterType' type='text' aria-label='Filter by profile type' defaultValue='placeholder'>
-                    <option value='placeholder' >Filter by profile type</option>
-                    <option value='rh'>Human ressources</option>
-                    <option value='manager'>Marketing Manager</option>
-                </select>
+                <Box m={2}>
+                    <input type='text' placeholder='Search by keyword'/>
+                </Box>
+
+                <Box m={2}>
+                    <FormControl variant="outlined" style={{"minWidth": "100%"}}>
+                        <InputLabel id="profile-type-label">Profile type</InputLabel>
+                        <Select
+                            labelId="profile-type-label"
+                            id="profile-type"
+                            label="profile"
+                            variant="outlined"
+                        >
+                            <MenuItem value={"ALL"}>All</MenuItem>
+                            <MenuItem value={"RH"}>Human resources</MenuItem>
+                            <MenuItem value={"manager"}>Manager</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
             </div>
 
             <div className="ambassadors">
-            {
-                collaborators.map((collaborator, index) =>
-                <AmbassadorItem key={index} name={collaborator.name}
-                photo={collaborator.photo}
-                catchPhrase={collaborator.catch_phrase}
-                description={collaborator.description}
-                mail={collaborator.mail}
-                pronom={collaborator.pronom}/>
-                )
-            }
+                {
+                    collaborators.map((collaborator, index) =>
+                        <AmbassadorItem key={index} name={collaborator.name}
+                                        photo={collaborator.photo}
+                                        catchPhrase={collaborator.catch_phrase}
+                                        description={collaborator.description}
+                                        mail={collaborator.mail}
+                                        pronom={collaborator.pronom}/>
+                    )
+                }
             </div>
         </>
     )
