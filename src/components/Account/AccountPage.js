@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 
 import {withFirebase} from '../Firebase';
-import {Switch, TextField} from "@material-ui/core";
+import {Box, FormControlLabel, Switch, TextField} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import FlashyButton from "../littleComponents/flashyButton";
+import "./accountPage.scss"
+import {TitleSource} from "Navigation/titleContext";
+import {AMBASSADORS_TITLE} from "constants/routes";
 
 const user_info =
     {
@@ -30,11 +33,13 @@ const AccountPage = props => {
     return (
 
         <div>
+            <TitleSource>My account</TitleSource>
+
 
 
             <div>
-                <h2>
-                    Private information
+                <h2 className={"main_title"}>
+                    Personal information
                 </h2>
                 <form>
                     <TextField
@@ -45,6 +50,8 @@ const AccountPage = props => {
                         defaultValue={user_info.first_name}
                         fullWidth
                         margin="normal"
+
+
                     />
 
                     <TextField
@@ -66,7 +73,7 @@ const AccountPage = props => {
                         margin="normal"
                     />
 
-                    <h2>
+                    <h2 className={"main_title"}>
                         Password
                     </h2>
 
@@ -76,50 +83,55 @@ const AccountPage = props => {
                         Send Password Reset
                     </Button>
 
-
-
-
-                    <h2>
-                        Notifications
-                    </h2>
-
                     <div>
-                        <h3>
-                            Push Notifications
+                        <h3 className={"notification_title"}>
+                            MAIL NOTIFICATIONS
                         </h3>
 
-                        <p>
-                            Allow Breadcrumbs to send push
-                            notifications
-                        </p>
-
-                        <Switch
-
-                            checked={user.notification_email}
-                            color="primary"
-                            name="notification_email"
-                            inputProps={{'aria-label': 'primary checkbox'}}
+                        <FormControlLabel
+                            value="start"
+                            control={
+                                <Switch
+                                    checked={user.notification_email}
+                                    color="primary"
+                                    name="notification_email"
+                                    inputProps={{'aria-label': 'mail checkbox'}}/>
+                            }
+                            label="Allow Breadcrumbs to send mail
+                            notifications"
+                            labelPlacement="start"
                         />
-                    </div>
 
+                    </div>
 
                     <div>
-                        <p>
-                            User notification
-                        </p>
-                        <Switch
-                            checked={user.notification_push}
-                            color="primary"
-                            name="notification_push"
-                            inputProps={{'aria-label': 'primary checkbox'}}
+                        <h3 className={"notification_title"}>
+                            PUSH NOTIFICATIONS
+                        </h3>
+
+                        <FormControlLabel
+                            value="start"
+                            control={
+                                <Switch
+                                    checked={user.notification_push}
+
+                                    color="primary"
+                                    name="notification_push"
+                                    inputProps={{'aria-label': 'primary checkbox'}}/>
+                            }
+                            label="Allow Breadcrumbs to send push
+                            notifications"
+                            labelPlacement="start"
                         />
+
                     </div>
 
+                    <Box m={2}>
+                        <FlashyButton>
+                            SAVE CHANGES
+                        </FlashyButton>
+                    </Box>
 
-
-                    <FlashyButton>
-                        SAVE CHANGES
-                    </FlashyButton>
 
                 </form>
 
