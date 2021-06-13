@@ -26,12 +26,12 @@ const HiringProcessPage = (props) => {
     return (
         <>
             <TitleSource>{HIRING_PROCESS_TITLE}</TitleSource>
-
+            <h2>Hey {authContext?.userName ?? "Brandon"} !</h2>
             <Router>
                 <div>
-                <Redirect to='/hiring' />
-                    <Route path='/hiring' component={HiringProcess} />
-                    <Route path="/milestone/:id" component={MilestonePage} />
+                <Redirect to={`${url}/hiring`} />
+                    <Route path={`${url}/hiring`} component={HiringProcess} />
+                    <Route path={`${url}/milestone/:id`} component={MilestonePage} />
                 <Route path={DISPO} component={SelectDate} />
                 <Route path={CONFIRM} component={ConfirmPage} />
                 </div>

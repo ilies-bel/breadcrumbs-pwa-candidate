@@ -66,7 +66,7 @@ const SocialPage = () => {
     if( !authContext.token ) return <NotFound />
     if( authContext.token ) return (
         <Router>
-            <Redirect to={`${url}/feed/tweets`}/>
+            <Redirect to='/hiring'/>
             <TitleSource>{SOCIAL_TITLE}</TitleSource>
 
             <Paper >
