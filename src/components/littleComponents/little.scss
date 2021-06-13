@@ -29,25 +29,35 @@
   }
 }
 
+
 .flashy {
   text-align: center;
   padding: 12px 27px 12px 27px;
   color: white;
-  background: linear-gradient(91.6deg, #3572F1 0%, #F24E95 100%) #F6B714;
-  border-style: solid;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(91.6deg, #3572F1 0%, #F24E95 100%);
   border-radius: 10px;
+  position: relative;
+
+
   font-family: Roboto;
   font-size: 16px;
   font-weight: 500;
+
+
   letter-spacing: 1px;
-  transition: all ease-out 0.4s;
-  position: relative;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+
+
 
   &:hover, :focus {
-    background: linear-gradient(91.6deg, #F24E95 0%, #3572F1 100%) #F6B714;
-    border-style: solid;
-    border-width: 2px;
-    border-color: darkgreen;
-    cursor: pointer;
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
   }
+
 }
