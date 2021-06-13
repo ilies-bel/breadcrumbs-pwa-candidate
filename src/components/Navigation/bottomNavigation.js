@@ -54,32 +54,32 @@ const BottomNav = () => {
             >
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.HIRING_PROCESS} label={ROUTES.HIRING_LABEL}
                                         icon={<ClipboardList
-                                                    size={25}
-                                                    strokeWidth={1}
+                                                    size={30}
+                                                    strokeWidth={2}
                                                     color={'royalblue'}
                                                 />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.TIPS} label={ROUTES.TIPS_LABEL}
                                         icon={<InfoCircle
-                                                    size={28}
-                                                    strokeWidth={1}
+                                                    size={30}
+                                                    strokeWidth={2}
                                                     color={'royalblue'}
                                                 />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.OFFICE} label={ROUTES.OFFICE_LABEL}
                                         icon={<Building
-                                                    size={28}
-                                                    strokeWidth={1}
+                                                    size={30}
+                                                    strokeWidth={2}
                                                     color={'royalblue'}
                                                 />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.AMBASSADORS} label={ROUTES.AMBASSADORS_LABEL}
                                         icon={<School
-                                                    size={28}
-                                                    strokeWidth={1}
+                                                    size={30}
+                                                    strokeWidth={2}
                                                     color={'royalblue'}
                                                 />}/>
                 <BottomNavigationAction className={classes.BottomNavigationAction} value={ROUTES.SOCIAL} label={ROUTES.SOCIAL_LABEL}
                                         icon={<Social
-                                                    size={28}
-                                                    strokeWidth={1}
+                                                    size={30}
+                                                    strokeWidth={2}
                                                     color={'royalblue'}
                                                 />}/>
 
