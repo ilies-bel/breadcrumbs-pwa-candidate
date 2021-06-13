@@ -21,7 +21,7 @@ const collaborators = [
         name: "Jack",
         photo: "https://s1.qwant.com/thumbr/0x380/8/c/0cd410d28660781ca6b2920f52a271d8c15617ea12a1ca0cfbf198b02fff8b/1200px-20th_Anniversary_Schwab_Foundation_Gala_Dinner_%2844887783681%29.jpg?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1d%2F20th_Anniversary_Schwab_Foundation_Gala_Dinner_%252844887783681%2529.jpg%2F1200px-20th_Anniversary_Schwab_Foundation_Gala_Dinner_%252844887783681%2529.jpg&q=0&b=1&p=0&a=0",
         catch_phrase: "Smile and live !",
-        description: "Human Ressource.",
+        description: "Human Ressource",
         mail: "iliesb.pro@gmail.com",
         pronom: "him"
     },
@@ -29,7 +29,7 @@ const collaborators = [
         name: "Jason",
         photo: "https://www.gewoonvoorhem.nl/app/uploads/2020/01/Jason-Statham-Countdown-Rep-e1578660419114.jpg",
         catch_phrase: "Rule number 1 : No question",
-        description: "Taxi Driver. Delivery service",
+        description: "Delivery service",
         mail: "iliesb.pro@gmail.com",
         pronom: "him"
     }
@@ -58,7 +58,8 @@ const AmbassadorList = () => {
     return (
         <>
             <div className='searchForm'>
-                               <select name='filterType' type='text' aria-label='Filter by profile type' defaultValue='placeholder'>
+                <input type='text' placeholder='Search by keyword'/>
+                <select name='filterType' type='text' aria-label='Filter by profile type' defaultValue='placeholder'>
                     <option value='placeholder' >Filter by profile type</option>
                     <option value='rh'>Human ressources</option>
                     <option value='manager'>Marketing Manager</option>

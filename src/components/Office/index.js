@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Link, Route, useRouteMatch} from "react-router-
 import OfficeMap from "./map";
 import FlashyButton from 'littleComponents/flashyButton'
 import './office.scss'
+import { View360 } from 'tabler-icons-react';
 
 const OfficeCard = (props) => {
     const {path, url} = useRouteMatch();
@@ -30,7 +31,17 @@ const OfficePage = () => {
                 
                 <Router>
                     <div className='officeButtons'>
-                        <h3><FlashyButton>Take the virtual tour </FlashyButton></h3>
+                        <h3>
+                            <FlashyButton>
+                                <div>
+                            <View360
+                            size={20}
+                            strokeWidth={2}
+                            color={'white'}
+                            /></div>
+                               <div> Take the virtual tour</div>
+                            </FlashyButton>
+                        </h3>
                         <ul>
                             <li>
                                 <Link to={`${url}/map`}><OfficeCard src='/mapOffice.svg'>How do I get there</OfficeCard></Link>
