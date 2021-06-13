@@ -31,6 +31,9 @@
 
             button {
                 width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
             }
         }
 
@@ -40,10 +43,10 @@
             left: 20px;
             top: 523px;
             background: rgba(255, 255, 255, 0.6);
-            border: 1px solid #D9D9D9;
             box-sizing: border-box;
             backdrop-filter: blur(8px);
             text-align: center;
+            border-radius: 10px;
 
             button {
                 padding: 0;
@@ -58,6 +61,7 @@
                 height: 73px;
                 background: linear-gradient(91.6deg, #3572F1 0%, #F24E95 100%);
                 border-radius: 0px 0px 10px 10px;
+                padding-top: 20px;
 
                 font-family: Roboto;
                 font-style: normal;
