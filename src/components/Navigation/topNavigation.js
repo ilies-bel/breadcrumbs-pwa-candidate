@@ -50,7 +50,7 @@ const TopNav = () => {
                                 aria-haspopup="true"
                                 color="inherit"
                                 title={ !context.token ? "Sign in" : `signed in as ${context.userName}` }
-                                onClick={() => !context.token && history.push("/auth/login")}
+                                onClick={() => history.push("/user/account")}
                             >
                                 <AccountCircle/>
                             </IconButton>

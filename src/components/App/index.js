@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import * as ROUTES from 'constants/routes';
 
 import HomePage from '../Home';
-import AccountPage from '../AuthentificationFirebase/Account';
+import AccountPage from '../Account';
 import {BottomNav, TopNav, PageDescription, MainNav} from 'Navigation';
 import HiringProcessPage from '../HiringProcess';
 import TipsPage from '../Tips';
