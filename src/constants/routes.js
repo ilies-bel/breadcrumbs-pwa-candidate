@@ -1,7 +1,7 @@
 export const LANDING = '/';
 export const SIGN_UP = '/auth/signup';
 export const SIGN_IN = '/auth/login';
-export const ACCOUNT = '/account';
+export const ACCOUNT = '/user/account';
 export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
 export const ADMIN_DETAILS = '/admin/:id';
@@ -22,7 +22,7 @@ export const ACCOUNT_TITLE = 'Account';
 export const PASSWORD_FORGET_TITLE = 'password forgotten';
 export const ADMIN_TITLE = 'Admin page';
 
-export const OFFICE_TITLE = 'Office';
+export const OFFICE_TITLE = 'Our office';
 export const SOCIAL_TITLE = 'Social';
 export const TIPS_TITLE = 'Interview tips';
 export const AMBASSADORS_TITLE = 'Our ambassadors';

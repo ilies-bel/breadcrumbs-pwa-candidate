@@ -5,7 +5,7 @@ const LinkedFeed = () => {
     return (
         <>
             <div>
-                <strong>Error. Component not made</strong>
+                <strong>Component not implemented</strong>
             </div>
         </>
     );

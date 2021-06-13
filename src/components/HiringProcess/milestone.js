@@ -23,7 +23,7 @@ function MilestonePage() {
   if(loading) return <CircularProgress />
   return (
       <div>
-          <h2>Hey {authContext.userName}</h2>
+          <h2>Hey Brandon ! {authContext.userName}</h2>
 
           <div className="paper">
           <h1>{data && data.title}</h1>

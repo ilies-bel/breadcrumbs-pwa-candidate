@@ -6,8 +6,10 @@ const style = {
         margin: '10px',
         fontWeight: '300',
         fontSize: '16px',
+        textAlign: 'center',
         lineHeight: '140%',
         fontFamily: 'Roboto'
+
     }
 }
 

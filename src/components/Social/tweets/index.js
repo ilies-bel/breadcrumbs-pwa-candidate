@@ -14,7 +14,7 @@ const TweetFeed = () => {
                     screenName: 'Sword_Group'
                 }}
                 options={{
-                    height: '400'
+                    height: '600'
                 }}
                 onLoad={() => <strong>Loading...</strong>}
                 renderError={() => <strong>Error. Feed not loading</strong>}
