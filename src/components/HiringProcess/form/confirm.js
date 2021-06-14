@@ -8,7 +8,7 @@ import {PaperDiv} from "littleComponents";
 const ConfirmPage = () => {
     return (
         <PaperDiv>
-            <PageDescription>{HIRING_DESCRIPTION.CONFIRMATION_SUCCESSFUL}</PageDescription>
+            <h3>{HIRING_DESCRIPTION.CONFIRMATION_SUCCESSFUL}</h3>
             <PageDescription>{HIRING_DESCRIPTION.CONFIRMATION_SUCCESSFUL2}</PageDescription>
         </PaperDiv>
     )

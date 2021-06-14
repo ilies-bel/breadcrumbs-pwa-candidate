@@ -5,7 +5,7 @@ export const HIRING_DESCRIPTION = {
     phone: "The phone interview is a discussion on the phone with a recruitor that will ask you basic questions about your academic and professional journey.",
     operational: "C'est une ...",
     CONFIRMATION_PLACEHOLDER: "Send a pretty message to customize your invitation",
-    CONFIRMATION_SUCCESSFUL: "Your appointment has been successfully confirmed. Just wait for the answer. For now, check out our tips",
+    CONFIRMATION_SUCCESSFUL: "Your appointment is confirmed !",
     CONFIRMATION_SUCCESSFUL2: "We can’t wait to meet with you.\n" +
         "\n" +
         "In order to get you ready, we have prepared you 10 tips for a successful interview at Breadcrumbs.\n" +
