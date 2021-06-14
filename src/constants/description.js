@@ -6,11 +6,7 @@ export const HIRING_DESCRIPTION = {
     operational: "C'est une ...",
     CONFIRMATION_PLACEHOLDER: "Send a pretty message to customize your invitation",
     CONFIRMATION_SUCCESSFUL: "Your appointment is confirmed !",
-    CONFIRMATION_SUCCESSFUL2: "We can’t wait to meet with you.\n" +
-        "\n" +
-        "In order to get you ready, we have prepared you 10 tips for a successful interview at Breadcrumbs.\n" +
-        "\n" +
-        "You can also ask questions about the interviews or the company to some of our ambassadors in the Q&A section."
+    CONFIRMATION_SUCCESSFUL2: "We can’t wait to meet with you. In order to get you ready, we have prepared you 10 tips for a successful interview at Breadcrumbs. You can also ask questions about the interviews or the company to some of our ambassadors in the Q&A section."
 } 
 
 export const AMBASSADORS_DESCRIPTION = "You have questions about the recruitment process or your career path? Our ambassadors are here to answer your questions!"
